@@ -1,0 +1,4400 @@
+<html lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="a_data/Untitled_OzCl.js" blocking="render"></script>
+    <script type="module">
+      import { injectIntoGlobalHook } from "/@react-refresh";
+      injectIntoGlobalHook(window);
+      window.$RefreshReg$ = () => {};
+      window.$RefreshSig$ = () => (type) => type;
+    </script>
+
+    <script type="module" src="a_data/client_OzCl.js"></script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Figma Make App</title>
+
+    <meta property="og:title" content="Figma Make App" />
+    <style
+      type="text/css"
+      data-vite-dev-id="/workspaces/default/code/src/index.css"
+    >
+      /*! tailwindcss v4.2.2 | MIT License | https://tailwindcss.com */
+      @layer properties;
+      @layer theme, base, components, utilities;
+      @layer theme {
+        :root,
+        :host {
+          --font-sans: "Outfit", system-ui, sans-serif;
+          --font-mono: "JetBrains Mono", monospace;
+          --color-red-50: oklch(97.1% 0.013 17.38);
+          --color-red-100: oklch(93.6% 0.032 17.717);
+          --color-red-400: oklch(70.4% 0.191 22.216);
+          --color-red-500: oklch(63.7% 0.237 25.331);
+          --color-red-600: oklch(57.7% 0.245 27.325);
+          --color-red-700: oklch(50.5% 0.213 27.518);
+          --color-red-800: oklch(44.4% 0.177 26.899);
+          --color-amber-500: oklch(76.9% 0.188 70.08);
+          --color-green-500: oklch(72.3% 0.219 149.579);
+          --color-green-600: oklch(62.7% 0.194 149.214);
+          --color-stone-50: oklch(98.5% 0.001 106.423);
+          --color-stone-100: oklch(97% 0.001 106.424);
+          --color-stone-200: oklch(92.3% 0.003 48.717);
+          --color-stone-300: oklch(86.9% 0.005 56.366);
+          --color-stone-400: oklch(70.9% 0.01 56.259);
+          --color-stone-500: oklch(55.3% 0.013 58.071);
+          --color-stone-600: oklch(44.4% 0.011 73.639);
+          --color-stone-700: oklch(37.4% 0.01 67.558);
+          --color-stone-800: oklch(26.8% 0.007 34.298);
+          --color-stone-900: oklch(21.6% 0.006 56.043);
+          --color-stone-950: oklch(14.7% 0.004 49.25);
+          --color-white: #fff;
+          --spacing: 0.25rem;
+          --container-xl: 36rem;
+          --container-3xl: 48rem;
+          --container-5xl: 64rem;
+          --text-sm: 0.875rem;
+          --text-sm--line-height: calc(1.25 / 0.875);
+          --text-base: 1rem;
+          --text-base--line-height: calc(1.5 / 1);
+          --text-lg: 1.125rem;
+          --text-lg--line-height: calc(1.75 / 1.125);
+          --text-3xl: 1.875rem;
+          --text-3xl--line-height: calc(2.25 / 1.875);
+          --font-weight-medium: 500;
+          --leading-relaxed: 1.625;
+          --radius-sm: 0.25rem;
+          --radius-md: 0.375rem;
+          --radius-lg: 0.5rem;
+          --radius-xl: 0.75rem;
+          --radius-2xl: 1rem;
+          --animate-spin: spin 1s linear infinite;
+          --default-transition-duration: 150ms;
+          --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          --default-font-family: var(--font-sans);
+          --default-mono-font-family: var(--font-mono);
+          --font-display: "Playfair Display", Georgia, serif;
+        }
+      }
+      @layer base {
+        *,
+        ::after,
+        ::before,
+        ::backdrop,
+        ::file-selector-button {
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
+          border: 0 solid;
+        }
+        html,
+        :host {
+          line-height: 1.5;
+          -webkit-text-size-adjust: 100%;
+          tab-size: 4;
+          font-family: var(
+            --default-font-family,
+            ui-sans-serif,
+            system-ui,
+            sans-serif,
+            "Apple Color Emoji",
+            "Segoe UI Emoji",
+            "Segoe UI Symbol",
+            "Noto Color Emoji"
+          );
+          font-feature-settings: var(--default-font-feature-settings, normal);
+          font-variation-settings: var(
+            --default-font-variation-settings,
+            normal
+          );
+          -webkit-tap-highlight-color: transparent;
+        }
+        hr {
+          height: 0;
+          color: inherit;
+          border-top-width: 1px;
+        }
+        abbr:where([title]) {
+          -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted;
+        }
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+          font-size: inherit;
+          font-weight: inherit;
+        }
+        a {
+          color: inherit;
+          -webkit-text-decoration: inherit;
+          text-decoration: inherit;
+        }
+        b,
+        strong {
+          font-weight: bolder;
+        }
+        code,
+        kbd,
+        samp,
+        pre {
+          font-family: var(
+            --default-mono-font-family,
+            ui-monospace,
+            SFMono-Regular,
+            Menlo,
+            Monaco,
+            Consolas,
+            "Liberation Mono",
+            "Courier New",
+            monospace
+          );
+          font-feature-settings: var(
+            --default-mono-font-feature-settings,
+            normal
+          );
+          font-variation-settings: var(
+            --default-mono-font-variation-settings,
+            normal
+          );
+          font-size: 1em;
+        }
+        small {
+          font-size: 80%;
+        }
+        sub,
+        sup {
+          font-size: 75%;
+          line-height: 0;
+          position: relative;
+          vertical-align: baseline;
+        }
+        sub {
+          bottom: -0.25em;
+        }
+        sup {
+          top: -0.5em;
+        }
+        table {
+          text-indent: 0;
+          border-color: inherit;
+          border-collapse: collapse;
+        }
+        :-moz-focusring {
+          outline: auto;
+        }
+        progress {
+          vertical-align: baseline;
+        }
+        summary {
+          display: list-item;
+        }
+        ol,
+        ul,
+        menu {
+          list-style: none;
+        }
+        img,
+        svg,
+        video,
+        canvas,
+        audio,
+        iframe,
+        embed,
+        object {
+          display: block;
+          vertical-align: middle;
+        }
+        img,
+        video {
+          max-width: 100%;
+          height: auto;
+        }
+        button,
+        input,
+        select,
+        optgroup,
+        textarea,
+        ::file-selector-button {
+          font: inherit;
+          font-feature-settings: inherit;
+          font-variation-settings: inherit;
+          letter-spacing: inherit;
+          color: inherit;
+          border-radius: 0;
+          background-color: transparent;
+          opacity: 1;
+        }
+        :where(select:is([multiple], [size])) optgroup {
+          font-weight: bolder;
+        }
+        :where(select:is([multiple], [size])) optgroup option {
+          padding-inline-start: 20px;
+        }
+        ::file-selector-button {
+          margin-inline-end: 4px;
+        }
+        ::placeholder {
+          opacity: 1;
+        }
+        @supports (not (-webkit-appearance: -apple-pay-button)) or
+          (contain-intrinsic-size: 1px) {
+          ::placeholder {
+            color: currentcolor;
+            @supports (color: color-mix(in lab, red, red)) {
+              color: color-mix(in oklab, currentcolor 50%, transparent);
+            }
+          }
+        }
+        textarea {
+          resize: vertical;
+        }
+        ::-webkit-search-decoration {
+          -webkit-appearance: none;
+        }
+        ::-webkit-date-and-time-value {
+          min-height: 1lh;
+          text-align: inherit;
+        }
+        ::-webkit-datetime-edit {
+          display: inline-flex;
+        }
+        ::-webkit-datetime-edit-fields-wrapper {
+          padding: 0;
+        }
+        ::-webkit-datetime-edit,
+        ::-webkit-datetime-edit-year-field,
+        ::-webkit-datetime-edit-month-field,
+        ::-webkit-datetime-edit-day-field,
+        ::-webkit-datetime-edit-hour-field,
+        ::-webkit-datetime-edit-minute-field,
+        ::-webkit-datetime-edit-second-field,
+        ::-webkit-datetime-edit-millisecond-field,
+        ::-webkit-datetime-edit-meridiem-field {
+          padding-block: 0;
+        }
+        ::-webkit-calendar-picker-indicator {
+          line-height: 1;
+        }
+        :-moz-ui-invalid {
+          box-shadow: none;
+        }
+        button,
+        input:where([type="button"], [type="reset"], [type="submit"]),
+        ::file-selector-button {
+          appearance: button;
+        }
+        ::-webkit-inner-spin-button,
+        ::-webkit-outer-spin-button {
+          height: auto;
+        }
+        [hidden]:where(:not([hidden="until-found"])) {
+          display: none !important;
+        }
+      }
+      @layer utilities {
+        .pointer-events-none {
+          pointer-events: none;
+        }
+        .absolute {
+          position: absolute;
+        }
+        .fixed {
+          position: fixed;
+        }
+        .relative {
+          position: relative;
+        }
+        .sticky {
+          position: sticky;
+        }
+        .start {
+          inset-inline-start: var(--spacing);
+        }
+        .top-0 {
+          top: calc(var(--spacing) * 0);
+        }
+        .top-1\/2 {
+          top: calc(1 / 2 * 100%);
+        }
+        .right-3 {
+          right: calc(var(--spacing) * 3);
+        }
+        .z-50 {
+          z-index: 50;
+        }
+        .container {
+          width: 100%;
+          @media (width >= 40rem) {
+            max-width: 40rem;
+          }
+          @media (width >= 48rem) {
+            max-width: 48rem;
+          }
+          @media (width >= 64rem) {
+            max-width: 64rem;
+          }
+          @media (width >= 80rem) {
+            max-width: 80rem;
+          }
+          @media (width >= 96rem) {
+            max-width: 96rem;
+          }
+        }
+        .-mx-3 {
+          margin-inline: calc(var(--spacing) * -3);
+        }
+        .mx-auto {
+          margin-inline: auto;
+        }
+        .my-16 {
+          margin-block: calc(var(--spacing) * 16);
+        }
+        .mt-1 {
+          margin-top: calc(var(--spacing) * 1);
+        }
+        .mt-1\.5 {
+          margin-top: calc(var(--spacing) * 1.5);
+        }
+        .mt-3 {
+          margin-top: calc(var(--spacing) * 3);
+        }
+        .mt-6 {
+          margin-top: calc(var(--spacing) * 6);
+        }
+        .mt-12 {
+          margin-top: calc(var(--spacing) * 12);
+        }
+        .mb-1 {
+          margin-bottom: calc(var(--spacing) * 1);
+        }
+        .mb-1\.5 {
+          margin-bottom: calc(var(--spacing) * 1.5);
+        }
+        .mb-2 {
+          margin-bottom: calc(var(--spacing) * 2);
+        }
+        .mb-2\.5 {
+          margin-bottom: calc(var(--spacing) * 2.5);
+        }
+        .mb-3 {
+          margin-bottom: calc(var(--spacing) * 3);
+        }
+        .mb-4 {
+          margin-bottom: calc(var(--spacing) * 4);
+        }
+        .mb-5 {
+          margin-bottom: calc(var(--spacing) * 5);
+        }
+        .mb-8 {
+          margin-bottom: calc(var(--spacing) * 8);
+        }
+        .mb-10 {
+          margin-bottom: calc(var(--spacing) * 10);
+        }
+        .ml-auto {
+          margin-left: auto;
+        }
+        .block {
+          display: block;
+        }
+        .flex {
+          display: flex;
+        }
+        .grid {
+          display: grid;
+        }
+        .hidden {
+          display: none;
+        }
+        .inline {
+          display: inline;
+        }
+        .inline-flex {
+          display: inline-flex;
+        }
+        .h-1 {
+          height: calc(var(--spacing) * 1);
+        }
+        .h-1\.5 {
+          height: calc(var(--spacing) * 1.5);
+        }
+        .h-3 {
+          height: calc(var(--spacing) * 3);
+        }
+        .h-3\.5 {
+          height: calc(var(--spacing) * 3.5);
+        }
+        .h-4 {
+          height: calc(var(--spacing) * 4);
+        }
+        .h-5 {
+          height: calc(var(--spacing) * 5);
+        }
+        .h-6 {
+          height: calc(var(--spacing) * 6);
+        }
+        .h-10 {
+          height: calc(var(--spacing) * 10);
+        }
+        .h-12 {
+          height: calc(var(--spacing) * 12);
+        }
+        .h-14 {
+          height: calc(var(--spacing) * 14);
+        }
+        .w-1 {
+          width: calc(var(--spacing) * 1);
+        }
+        .w-1\.5 {
+          width: calc(var(--spacing) * 1.5);
+        }
+        .w-3 {
+          width: calc(var(--spacing) * 3);
+        }
+        .w-3\.5 {
+          width: calc(var(--spacing) * 3.5);
+        }
+        .w-4 {
+          width: calc(var(--spacing) * 4);
+        }
+        .w-5 {
+          width: calc(var(--spacing) * 5);
+        }
+        .w-6 {
+          width: calc(var(--spacing) * 6);
+        }
+        .w-10 {
+          width: calc(var(--spacing) * 10);
+        }
+        .w-12 {
+          width: calc(var(--spacing) * 12);
+        }
+        .w-20 {
+          width: calc(var(--spacing) * 20);
+        }
+        .w-full {
+          width: 100%;
+        }
+        .max-w-3xl {
+          max-width: var(--container-3xl);
+        }
+        .max-w-5xl {
+          max-width: var(--container-5xl);
+        }
+        .max-w-xl {
+          max-width: var(--container-xl);
+        }
+        .min-w-0 {
+          min-width: calc(var(--spacing) * 0);
+        }
+        .min-w-36 {
+          min-width: calc(var(--spacing) * 36);
+        }
+        .min-w-44 {
+          min-width: calc(var(--spacing) * 44);
+        }
+        .flex-1 {
+          flex: 1;
+        }
+        .flex-shrink-0 {
+          flex-shrink: 0;
+        }
+        .-translate-y-1\/2 {
+          --tw-translate-y: calc(calc(1 / 2 * 100%) * -1);
+          translate: var(--tw-translate-x) var(--tw-translate-y);
+        }
+        .transform {
+          transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,)
+            var(--tw-skew-x,) var(--tw-skew-y,);
+        }
+        .animate-spin {
+          animation: var(--animate-spin);
+        }
+        .cursor-default {
+          cursor: default;
+        }
+        .cursor-not-allowed {
+          cursor: not-allowed;
+        }
+        .cursor-pointer {
+          cursor: pointer;
+        }
+        .grid-cols-2 {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .flex-col {
+          flex-direction: column;
+        }
+        .flex-wrap {
+          flex-wrap: wrap;
+        }
+        .items-baseline {
+          align-items: baseline;
+        }
+        .items-center {
+          align-items: center;
+        }
+        .items-end {
+          align-items: flex-end;
+        }
+        .items-start {
+          align-items: flex-start;
+        }
+        .justify-between {
+          justify-content: space-between;
+        }
+        .justify-center {
+          justify-content: center;
+        }
+        .justify-end {
+          justify-content: flex-end;
+        }
+        .gap-0\.5 {
+          gap: calc(var(--spacing) * 0.5);
+        }
+        .gap-1\.5 {
+          gap: calc(var(--spacing) * 1.5);
+        }
+        .gap-2 {
+          gap: calc(var(--spacing) * 2);
+        }
+        .gap-2\.5 {
+          gap: calc(var(--spacing) * 2.5);
+        }
+        .gap-3 {
+          gap: calc(var(--spacing) * 3);
+        }
+        .gap-4 {
+          gap: calc(var(--spacing) * 4);
+        }
+        .gap-6 {
+          gap: calc(var(--spacing) * 6);
+        }
+        .space-y-2 {
+          :where(& > :not(:last-child)) {
+            --tw-space-y-reverse: 0;
+            margin-block-start: calc(
+              calc(var(--spacing) * 2) * var(--tw-space-y-reverse)
+            );
+            margin-block-end: calc(
+              calc(var(--spacing) * 2) * calc(1 - var(--tw-space-y-reverse))
+            );
+          }
+        }
+        .space-y-8 {
+          :where(& > :not(:last-child)) {
+            --tw-space-y-reverse: 0;
+            margin-block-start: calc(
+              calc(var(--spacing) * 8) * var(--tw-space-y-reverse)
+            );
+            margin-block-end: calc(
+              calc(var(--spacing) * 8) * calc(1 - var(--tw-space-y-reverse))
+            );
+          }
+        }
+        .divide-y {
+          :where(& > :not(:last-child)) {
+            --tw-divide-y-reverse: 0;
+            border-bottom-style: var(--tw-border-style);
+            border-top-style: var(--tw-border-style);
+            border-top-width: calc(1px * var(--tw-divide-y-reverse));
+            border-bottom-width: calc(
+              1px * calc(1 - var(--tw-divide-y-reverse))
+            );
+          }
+        }
+        .divide-stone-100 {
+          :where(& > :not(:last-child)) {
+            border-color: var(--color-stone-100);
+          }
+        }
+        .overflow-hidden {
+          overflow: hidden;
+        }
+        .overflow-x-auto {
+          overflow-x: auto;
+        }
+        .rounded {
+          border-radius: 0.25rem;
+        }
+        .rounded-2xl {
+          border-radius: var(--radius-2xl);
+        }
+        .rounded-full {
+          border-radius: calc(infinity * 1px);
+        }
+        .rounded-lg {
+          border-radius: var(--radius-lg);
+        }
+        .rounded-md {
+          border-radius: var(--radius-md);
+        }
+        .rounded-sm {
+          border-radius: var(--radius-sm);
+        }
+        .rounded-xl {
+          border-radius: var(--radius-xl);
+        }
+        .border {
+          border-style: var(--tw-border-style);
+          border-width: 1px;
+        }
+        .border-2 {
+          border-style: var(--tw-border-style);
+          border-width: 2px;
+        }
+        .border-t {
+          border-top-style: var(--tw-border-style);
+          border-top-width: 1px;
+        }
+        .border-b {
+          border-bottom-style: var(--tw-border-style);
+          border-bottom-width: 1px;
+        }
+        .border-red-400 {
+          border-color: var(--color-red-400);
+        }
+        .border-stone-100 {
+          border-color: var(--color-stone-100);
+        }
+        .border-stone-200 {
+          border-color: var(--color-stone-200);
+        }
+        .border-stone-300 {
+          border-color: var(--color-stone-300);
+        }
+        .border-stone-900 {
+          border-color: var(--color-stone-900);
+        }
+        .bg-green-500 {
+          background-color: var(--color-green-500);
+        }
+        .bg-green-600 {
+          background-color: var(--color-green-600);
+        }
+        .bg-red-400 {
+          background-color: var(--color-red-400);
+        }
+        .bg-red-600 {
+          background-color: var(--color-red-600);
+        }
+        .bg-stone-50 {
+          background-color: var(--color-stone-50);
+        }
+        .bg-stone-100 {
+          background-color: var(--color-stone-100);
+        }
+        .bg-stone-200 {
+          background-color: var(--color-stone-200);
+        }
+        .bg-stone-300 {
+          background-color: var(--color-stone-300);
+        }
+        .bg-stone-900 {
+          background-color: var(--color-stone-900);
+        }
+        .bg-transparent {
+          background-color: transparent;
+        }
+        .bg-white {
+          background-color: var(--color-white);
+        }
+        .p-1\.5 {
+          padding: calc(var(--spacing) * 1.5);
+        }
+        .p-2 {
+          padding: calc(var(--spacing) * 2);
+        }
+        .p-3 {
+          padding: calc(var(--spacing) * 3);
+        }
+        .p-5 {
+          padding: calc(var(--spacing) * 5);
+        }
+        .px-2 {
+          padding-inline: calc(var(--spacing) * 2);
+        }
+        .px-2\.5 {
+          padding-inline: calc(var(--spacing) * 2.5);
+        }
+        .px-3 {
+          padding-inline: calc(var(--spacing) * 3);
+        }
+        .px-4 {
+          padding-inline: calc(var(--spacing) * 4);
+        }
+        .px-5 {
+          padding-inline: calc(var(--spacing) * 5);
+        }
+        .px-6 {
+          padding-inline: calc(var(--spacing) * 6);
+        }
+        .py-0\.5 {
+          padding-block: calc(var(--spacing) * 0.5);
+        }
+        .py-1 {
+          padding-block: calc(var(--spacing) * 1);
+        }
+        .py-1\.5 {
+          padding-block: calc(var(--spacing) * 1.5);
+        }
+        .py-2 {
+          padding-block: calc(var(--spacing) * 2);
+        }
+        .py-2\.5 {
+          padding-block: calc(var(--spacing) * 2.5);
+        }
+        .py-3 {
+          padding-block: calc(var(--spacing) * 3);
+        }
+        .py-4 {
+          padding-block: calc(var(--spacing) * 4);
+        }
+        .py-8 {
+          padding-block: calc(var(--spacing) * 8);
+        }
+        .pt-2 {
+          padding-top: calc(var(--spacing) * 2);
+        }
+        .pt-8 {
+          padding-top: calc(var(--spacing) * 8);
+        }
+        .pt-16 {
+          padding-top: calc(var(--spacing) * 16);
+        }
+        .pr-8 {
+          padding-right: calc(var(--spacing) * 8);
+        }
+        .pb-10 {
+          padding-bottom: calc(var(--spacing) * 10);
+        }
+        .pb-24 {
+          padding-bottom: calc(var(--spacing) * 24);
+        }
+        .text-right {
+          text-align: right;
+        }
+        .text-3xl {
+          font-size: var(--text-3xl);
+          line-height: var(--tw-leading, var(--text-3xl--line-height));
+        }
+        .text-base {
+          font-size: var(--text-base);
+          line-height: var(--tw-leading, var(--text-base--line-height));
+        }
+        .text-lg {
+          font-size: var(--text-lg);
+          line-height: var(--tw-leading, var(--text-lg--line-height));
+        }
+        .text-sm {
+          font-size: var(--text-sm);
+          line-height: var(--tw-leading, var(--text-sm--line-height));
+        }
+        .leading-relaxed {
+          --tw-leading: var(--leading-relaxed);
+          line-height: var(--leading-relaxed);
+        }
+        .font-medium {
+          --tw-font-weight: var(--font-weight-medium);
+          font-weight: var(--font-weight-medium);
+        }
+        .whitespace-nowrap {
+          white-space: nowrap;
+        }
+        .text-amber-500 {
+          color: var(--color-amber-500);
+        }
+        .text-red-500 {
+          color: var(--color-red-500);
+        }
+        .text-red-600 {
+          color: var(--color-red-600);
+        }
+        .text-stone-50 {
+          color: var(--color-stone-50);
+        }
+        .text-stone-200 {
+          color: var(--color-stone-200);
+        }
+        .text-stone-300 {
+          color: var(--color-stone-300);
+        }
+        .text-stone-400 {
+          color: var(--color-stone-400);
+        }
+        .text-stone-500 {
+          color: var(--color-stone-500);
+        }
+        .text-stone-600 {
+          color: var(--color-stone-600);
+        }
+        .text-stone-700 {
+          color: var(--color-stone-700);
+        }
+        .text-stone-800 {
+          color: var(--color-stone-800);
+        }
+        .text-stone-900 {
+          color: var(--color-stone-900);
+        }
+        .text-white {
+          color: var(--color-white);
+        }
+        .uppercase {
+          text-transform: uppercase;
+        }
+        .italic {
+          font-style: italic;
+        }
+        .filter {
+          filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,)
+            var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,)
+            var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
+        }
+        .transition-all {
+          transition-property: all;
+          transition-timing-function: var(
+            --tw-ease,
+            var(--default-transition-timing-function)
+          );
+          transition-duration: var(
+            --tw-duration,
+            var(--default-transition-duration)
+          );
+        }
+        .transition-colors {
+          transition-property:
+            color, background-color, border-color, outline-color,
+            text-decoration-color, fill, stroke, --tw-gradient-from,
+            --tw-gradient-via, --tw-gradient-to;
+          transition-timing-function: var(
+            --tw-ease,
+            var(--default-transition-timing-function)
+          );
+          transition-duration: var(
+            --tw-duration,
+            var(--default-transition-duration)
+          );
+        }
+        .outline-none {
+          --tw-outline-style: none;
+          outline-style: none;
+        }
+        .select-none {
+          -webkit-user-select: none;
+          user-select: none;
+        }
+        .group-hover\:bg-red-500 {
+          &:is(:where(.group):hover *) {
+            @media (hover: hover) {
+              background-color: var(--color-red-500);
+            }
+          }
+        }
+        .group-hover\:text-stone-900 {
+          &:is(:where(.group):hover *) {
+            @media (hover: hover) {
+              color: var(--color-stone-900);
+            }
+          }
+        }
+        .placeholder\:text-stone-400 {
+          &::placeholder {
+            color: var(--color-stone-400);
+          }
+        }
+        .hover\:border-stone-300 {
+          &:hover {
+            @media (hover: hover) {
+              border-color: var(--color-stone-300);
+            }
+          }
+        }
+        .hover\:border-stone-400 {
+          &:hover {
+            @media (hover: hover) {
+              border-color: var(--color-stone-400);
+            }
+          }
+        }
+        .hover\:bg-red-50 {
+          &:hover {
+            @media (hover: hover) {
+              background-color: var(--color-red-50);
+            }
+          }
+        }
+        .hover\:bg-red-700 {
+          &:hover {
+            @media (hover: hover) {
+              background-color: var(--color-red-700);
+            }
+          }
+        }
+        .hover\:bg-stone-50 {
+          &:hover {
+            @media (hover: hover) {
+              background-color: var(--color-stone-50);
+            }
+          }
+        }
+        .hover\:bg-stone-100 {
+          &:hover {
+            @media (hover: hover) {
+              background-color: var(--color-stone-100);
+            }
+          }
+        }
+        .hover\:bg-stone-200 {
+          &:hover {
+            @media (hover: hover) {
+              background-color: var(--color-stone-200);
+            }
+          }
+        }
+        .hover\:bg-stone-700 {
+          &:hover {
+            @media (hover: hover) {
+              background-color: var(--color-stone-700);
+            }
+          }
+        }
+        .hover\:text-stone-500 {
+          &:hover {
+            @media (hover: hover) {
+              color: var(--color-stone-500);
+            }
+          }
+        }
+        .hover\:text-stone-800 {
+          &:hover {
+            @media (hover: hover) {
+              color: var(--color-stone-800);
+            }
+          }
+        }
+        .hover\:text-stone-900 {
+          &:hover {
+            @media (hover: hover) {
+              color: var(--color-stone-900);
+            }
+          }
+        }
+        .hover\:shadow-sm {
+          &:hover {
+            @media (hover: hover) {
+              --tw-shadow:
+                0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)),
+                0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+              box-shadow:
+                var(--tw-inset-shadow), var(--tw-inset-ring-shadow),
+                var(--tw-ring-offset-shadow), var(--tw-ring-shadow),
+                var(--tw-shadow);
+            }
+          }
+        }
+        .focus\:border-red-500 {
+          &:focus {
+            border-color: var(--color-red-500);
+          }
+        }
+        .focus\:border-stone-800 {
+          &:focus {
+            border-color: var(--color-stone-800);
+          }
+        }
+        .focus\:ring-2 {
+          &:focus {
+            --tw-ring-shadow: var(--tw-ring-inset,) 0 0 0
+              calc(2px + var(--tw-ring-offset-width))
+              var(--tw-ring-color, currentcolor);
+            box-shadow:
+              var(--tw-inset-shadow), var(--tw-inset-ring-shadow),
+              var(--tw-ring-offset-shadow), var(--tw-ring-shadow),
+              var(--tw-shadow);
+          }
+        }
+        .focus\:ring-red-500\/10 {
+          &:focus {
+            --tw-ring-color: color-mix(
+              in srgb,
+              oklch(63.7% 0.237 25.331) 10%,
+              transparent
+            );
+            @supports (color: color-mix(in lab, red, red)) {
+              --tw-ring-color: color-mix(
+                in oklab,
+                var(--color-red-500) 10%,
+                transparent
+              );
+            }
+          }
+        }
+        .focus\:ring-stone-800\/10 {
+          &:focus {
+            --tw-ring-color: color-mix(
+              in srgb,
+              oklch(26.8% 0.007 34.298) 10%,
+              transparent
+            );
+            @supports (color: color-mix(in lab, red, red)) {
+              --tw-ring-color: color-mix(
+                in oklab,
+                var(--color-stone-800) 10%,
+                transparent
+              );
+            }
+          }
+        }
+        .active\:bg-red-100 {
+          &:active {
+            background-color: var(--color-red-100);
+          }
+        }
+        .active\:bg-red-800 {
+          &:active {
+            background-color: var(--color-red-800);
+          }
+        }
+        .active\:bg-stone-200 {
+          &:active {
+            background-color: var(--color-stone-200);
+          }
+        }
+        .active\:bg-stone-300 {
+          &:active {
+            background-color: var(--color-stone-300);
+          }
+        }
+        .active\:bg-stone-950 {
+          &:active {
+            background-color: var(--color-stone-950);
+          }
+        }
+        .sm\:block {
+          @media (width >= 40rem) {
+            display: block;
+          }
+        }
+        .sm\:grid-cols-4 {
+          @media (width >= 40rem) {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+          }
+        }
+      }
+      @font-face {
+        font-family: "Playfair Display";
+        font-style: normal;
+        font-weight: 100 900;
+        font-display: swap;
+        src: url("https://static.figma.com/font/PlayfairDisplay_wght__1")
+          format("woff2");
+      }
+      @font-face {
+        font-family: "Playfair Display";
+        font-style: italic;
+        font-weight: 100 900;
+        font-display: swap;
+        src: url("https://static.figma.com/font/PlayfairDisplay-Italic_wght__1")
+          format("woff2");
+      }
+      @font-face {
+        font-family: "Outfit";
+        font-style: normal;
+        font-weight: 100 900;
+        font-display: swap;
+        src: url("https://static.figma.com/font/Outfit_wght__2") format("woff2");
+      }
+      @font-face {
+        font-family: "JetBrains Mono";
+        font-style: normal;
+        font-weight: 100 900;
+        font-display: swap;
+        src: url("https://static.figma.com/font/JetBrainsMono_wght__1")
+          format("woff2");
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      ::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #d4c9bc;
+        border-radius: 3px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #a89880;
+      }
+      @property --tw-translate-x {
+        syntax: "*";
+        inherits: false;
+        initial-value: 0;
+      }
+      @property --tw-translate-y {
+        syntax: "*";
+        inherits: false;
+        initial-value: 0;
+      }
+      @property --tw-translate-z {
+        syntax: "*";
+        inherits: false;
+        initial-value: 0;
+      }
+      @property --tw-rotate-x {
+        syntax: "*";
+        inherits: false;
+      }
+      @property --tw-rotate-y {
+        syntax: "*";
+        inherits: false;
+      }
+      @property --tw-rotate-z {
+        syntax: "*";
+        inherits: false;
+      }
+      @property --tw-skew-x {
+        syntax: "*";
+        inherits: false;
+      }
+      @property --tw-skew-y {
+        syntax: "*";
+        inherits: false;
+      }
+      @property --tw-space-y-reverse {
+        syntax: "*";
+        inherits: false;
+        initial-value: 0;
+      }
+      @property --tw-divide-y-reverse {
+        syntax: "*";
+        inherits: false;
+        initial-value: 0;
+      }
+      @property --tw-border-style {
+        syntax: "*";
+        inherits: false;
+        initial-value: solid;
+      }
+      @property --tw-leading {
+        syntax: "*";
+        inherits: false;
+      }
+      @property --tw-font-weight {
+        syntax: "*";
+        inherits: false;
+      }
+      @property --tw-blur {
+        syntax: "*";
+        inherits: false;
+      }
+      @property --tw-brightness {
+        syntax: "*";
+        inherits: false;
+      }
+      @property --tw-contrast {
+        syntax: "*";
+        inherits: false;
+      }
+      @property --tw-grayscale {
+        syntax: "*";
+        inherits: false;
+      }
+      @property --tw-hue-rotate {
+        syntax: "*";
+        inherits: false;
+      }
+      @property --tw-invert {
+        syntax: "*";
+        inherits: false;
+      }
+      @property --tw-opacity {
+        syntax: "*";
+        inherits: false;
+      }
+      @property --tw-saturate {
+        syntax: "*";
+        inherits: false;
+      }
+      @property --tw-sepia {
+        syntax: "*";
+        inherits: false;
+      }
+      @property --tw-drop-shadow {
+        syntax: "*";
+        inherits: false;
+      }
+      @property --tw-drop-shadow-color {
+        syntax: "*";
+        inherits: false;
+      }
+      @property --tw-drop-shadow-alpha {
+        syntax: "<percentage>";
+        inherits: false;
+        initial-value: 100%;
+      }
+      @property --tw-drop-shadow-size {
+        syntax: "*";
+        inherits: false;
+      }
+      @property --tw-shadow {
+        syntax: "*";
+        inherits: false;
+        initial-value: 0 0 #0000;
+      }
+      @property --tw-shadow-color {
+        syntax: "*";
+        inherits: false;
+      }
+      @property --tw-shadow-alpha {
+        syntax: "<percentage>";
+        inherits: false;
+        initial-value: 100%;
+      }
+      @property --tw-inset-shadow {
+        syntax: "*";
+        inherits: false;
+        initial-value: 0 0 #0000;
+      }
+      @property --tw-inset-shadow-color {
+        syntax: "*";
+        inherits: false;
+      }
+      @property --tw-inset-shadow-alpha {
+        syntax: "<percentage>";
+        inherits: false;
+        initial-value: 100%;
+      }
+      @property --tw-ring-color {
+        syntax: "*";
+        inherits: false;
+      }
+      @property --tw-ring-shadow {
+        syntax: "*";
+        inherits: false;
+        initial-value: 0 0 #0000;
+      }
+      @property --tw-inset-ring-color {
+        syntax: "*";
+        inherits: false;
+      }
+      @property --tw-inset-ring-shadow {
+        syntax: "*";
+        inherits: false;
+        initial-value: 0 0 #0000;
+      }
+      @property --tw-ring-inset {
+        syntax: "*";
+        inherits: false;
+      }
+      @property --tw-ring-offset-width {
+        syntax: "<length>";
+        inherits: false;
+        initial-value: 0px;
+      }
+      @property --tw-ring-offset-color {
+        syntax: "*";
+        inherits: false;
+        initial-value: #fff;
+      }
+      @property --tw-ring-offset-shadow {
+        syntax: "*";
+        inherits: false;
+        initial-value: 0 0 #0000;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      @layer properties {
+        @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+          ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+          *,
+          ::before,
+          ::after,
+          ::backdrop {
+            --tw-translate-x: 0;
+            --tw-translate-y: 0;
+            --tw-translate-z: 0;
+            --tw-rotate-x: initial;
+            --tw-rotate-y: initial;
+            --tw-rotate-z: initial;
+            --tw-skew-x: initial;
+            --tw-skew-y: initial;
+            --tw-space-y-reverse: 0;
+            --tw-divide-y-reverse: 0;
+            --tw-border-style: solid;
+            --tw-leading: initial;
+            --tw-font-weight: initial;
+            --tw-blur: initial;
+            --tw-brightness: initial;
+            --tw-contrast: initial;
+            --tw-grayscale: initial;
+            --tw-hue-rotate: initial;
+            --tw-invert: initial;
+            --tw-opacity: initial;
+            --tw-saturate: initial;
+            --tw-sepia: initial;
+            --tw-drop-shadow: initial;
+            --tw-drop-shadow-color: initial;
+            --tw-drop-shadow-alpha: 100%;
+            --tw-drop-shadow-size: initial;
+            --tw-shadow: 0 0 #0000;
+            --tw-shadow-color: initial;
+            --tw-shadow-alpha: 100%;
+            --tw-inset-shadow: 0 0 #0000;
+            --tw-inset-shadow-color: initial;
+            --tw-inset-shadow-alpha: 100%;
+            --tw-ring-color: initial;
+            --tw-ring-shadow: 0 0 #0000;
+            --tw-inset-ring-color: initial;
+            --tw-inset-ring-shadow: 0 0 #0000;
+            --tw-ring-inset: initial;
+            --tw-ring-offset-width: 0px;
+            --tw-ring-offset-color: #fff;
+            --tw-ring-offset-shadow: 0 0 #0000;
+          }
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <div
+        style="
+          background-color: rgb(250, 250, 248);
+          font-family: var(--font-sans);
+          min-height: 100vh;
+        "
+      >
+        <header
+          class="sticky top-0 z-50 border-b border-stone-200"
+          style="
+            background-color: rgba(250, 250, 248, 0.92);
+            backdrop-filter: blur(12px);
+          "
+        >
+          <div
+            class="max-w-5xl mx-auto px-6 flex items-center justify-between h-14"
+          >
+            <div class="flex items-center gap-3">
+              <div
+                class="w-6 h-6 bg-stone-900 rounded flex items-center justify-center flex-shrink-0"
+              >
+                <svg viewBox="0 0 16 16" fill="none" class="w-3.5 h-3.5">
+                  <rect
+                    x="2"
+                    y="2"
+                    width="5"
+                    height="5"
+                    fill="white"
+                    rx="0.5"
+                  ></rect>
+                  <rect
+                    x="9"
+                    y="2"
+                    width="5"
+                    height="5"
+                    fill="white"
+                    rx="0.5"
+                    opacity="0.5"
+                  ></rect>
+                  <rect
+                    x="2"
+                    y="9"
+                    width="5"
+                    height="5"
+                    fill="white"
+                    rx="0.5"
+                    opacity="0.5"
+                  ></rect>
+                  <rect
+                    x="9"
+                    y="9"
+                    width="5"
+                    height="5"
+                    fill="white"
+                    rx="0.5"
+                  ></rect>
+                </svg>
+              </div>
+              <span
+                style="
+                  font-family: var(--font-display);
+                  font-weight: 600;
+                  font-size: 15px;
+                "
+                class="text-stone-900"
+                >Forma</span
+              ><span
+                style="font-family: var(--font-mono); font-size: 11px"
+                class="text-stone-400 hidden sm:block"
+                >Design System · v2.4</span
+              >
+            </div>
+            <nav class="flex items-center gap-0.5 overflow-x-auto">
+              <a
+                href="#Colors"
+                style="font-family: var(--font-sans); font-size: 13px"
+                class="px-3 py-1.5 rounded-md text-stone-500 hover:text-stone-900 hover:bg-stone-100 transition-all whitespace-nowrap"
+                >Colors</a
+              ><a
+                href="#Typography"
+                style="font-family: var(--font-sans); font-size: 13px"
+                class="px-3 py-1.5 rounded-md text-stone-500 hover:text-stone-900 hover:bg-stone-100 transition-all whitespace-nowrap"
+                >Typography</a
+              ><a
+                href="#Buttons"
+                style="font-family: var(--font-sans); font-size: 13px"
+                class="px-3 py-1.5 rounded-md text-stone-500 hover:text-stone-900 hover:bg-stone-100 transition-all whitespace-nowrap"
+                >Buttons</a
+              ><a
+                href="#Inputs"
+                style="font-family: var(--font-sans); font-size: 13px"
+                class="px-3 py-1.5 rounded-md text-stone-500 hover:text-stone-900 hover:bg-stone-100 transition-all whitespace-nowrap"
+                >Inputs</a
+              ><a
+                href="#Badges"
+                style="font-family: var(--font-sans); font-size: 13px"
+                class="px-3 py-1.5 rounded-md text-stone-500 hover:text-stone-900 hover:bg-stone-100 transition-all whitespace-nowrap"
+                >Badges</a
+              ><a
+                href="#Cards"
+                style="font-family: var(--font-sans); font-size: 13px"
+                class="px-3 py-1.5 rounded-md text-stone-500 hover:text-stone-900 hover:bg-stone-100 transition-all whitespace-nowrap"
+                >Cards</a
+              ><a
+                href="#Spacing"
+                style="font-family: var(--font-sans); font-size: 13px"
+                class="px-3 py-1.5 rounded-md text-stone-500 hover:text-stone-900 hover:bg-stone-100 transition-all whitespace-nowrap"
+                >Spacing</a
+              >
+            </nav>
+          </div>
+        </header>
+        <div class="max-w-5xl mx-auto px-6 pt-16 pb-10">
+          <div class="flex items-center gap-2 mb-4">
+            <span
+              style="
+                font-family: var(--font-mono);
+                font-size: 11px;
+                letter-spacing: 0.15em;
+              "
+              class="text-stone-400 uppercase"
+              >Design System</span
+            ><span class="w-1 h-1 bg-stone-300 rounded-full"></span
+            ><span
+              style="
+                font-family: var(--font-mono);
+                font-size: 11px;
+                background-color: rgb(240, 253, 244);
+                color: rgb(21, 128, 61);
+              "
+              class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full"
+              ><span class="w-1.5 h-1.5 bg-green-500 rounded-full"></span>v2.4.0
+              stable</span
+            >
+          </div>
+          <h1
+            style="
+              font-family: var(--font-display);
+              font-weight: 700;
+              font-size: clamp(40px, 6vw, 72px);
+              line-height: 1.08;
+              letter-spacing: -0.02em;
+            "
+            class="text-stone-900 mb-5 max-w-3xl"
+          >
+            Forma<br /><em
+              style="font-weight: 400; font-style: italic"
+              class="text-stone-400"
+              >Design System</em
+            >
+          </h1>
+          <p
+            style="
+              font-family: var(--font-sans);
+              font-size: 18px;
+              line-height: 1.7;
+            "
+            class="text-stone-500 max-w-xl mb-8"
+          >
+            A living reference for color, typography, components, and tokens.
+            Built for design and engineering teams who ship together.
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <a
+              href="#Colors"
+              style="font-family: var(--font-sans); font-size: 14px"
+              class="inline-flex items-center gap-2 px-4 py-2.5 bg-stone-900 text-stone-50 rounded-lg hover:bg-stone-700 transition-colors"
+              >Explore tokens<svg
+                class="w-3.5 h-3.5"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                ></path></svg></a
+            ><a
+              href="#Cards"
+              style="font-family: var(--font-sans); font-size: 14px"
+              class="inline-flex items-center gap-2 px-4 py-2.5 border border-stone-300 text-stone-700 rounded-lg hover:bg-stone-100 transition-colors"
+              >View components</a
+            >
+          </div>
+          <div
+            class="mt-12 pt-8 border-t border-stone-200 grid grid-cols-2 gap-6 sm:grid-cols-4"
+          >
+            <div>
+              <p
+                style="
+                  font-family: var(--font-display);
+                  font-weight: 700;
+                  font-size: 36px;
+                  line-height: 1;
+                "
+                class="text-stone-900"
+              >
+                48
+              </p>
+              <p
+                style="font-family: var(--font-sans); font-size: 13px"
+                class="text-stone-400 mt-1"
+              >
+                Components
+              </p>
+            </div>
+            <div>
+              <p
+                style="
+                  font-family: var(--font-display);
+                  font-weight: 700;
+                  font-size: 36px;
+                  line-height: 1;
+                "
+                class="text-stone-900"
+              >
+                120+
+              </p>
+              <p
+                style="font-family: var(--font-sans); font-size: 13px"
+                class="text-stone-400 mt-1"
+              >
+                Tokens
+              </p>
+            </div>
+            <div>
+              <p
+                style="
+                  font-family: var(--font-display);
+                  font-weight: 700;
+                  font-size: 36px;
+                  line-height: 1;
+                "
+                class="text-stone-900"
+              >
+                9
+              </p>
+              <p
+                style="font-family: var(--font-sans); font-size: 13px"
+                class="text-stone-400 mt-1"
+              >
+                Type steps
+              </p>
+            </div>
+            <div>
+              <p
+                style="
+                  font-family: var(--font-display);
+                  font-weight: 700;
+                  font-size: 36px;
+                  line-height: 1;
+                "
+                class="text-stone-900"
+              >
+                3
+              </p>
+              <p
+                style="font-family: var(--font-sans); font-size: 13px"
+                class="text-stone-400 mt-1"
+              >
+                Font families
+              </p>
+            </div>
+          </div>
+        </div>
+        <main class="max-w-5xl mx-auto px-6 pb-24">
+          <hr class="border-stone-200 my-16" />
+          <section id="Colors">
+            <p
+              style="
+                font-family: var(--font-mono);
+                font-size: 10px;
+                letter-spacing: 0.15em;
+              "
+              class="text-stone-400 uppercase mb-3"
+            >
+              01 — Foundations
+            </p>
+            <h2
+              style="font-family: var(--font-display); font-weight: 600"
+              class="text-3xl text-stone-900 mb-2"
+            >
+              Color
+            </h2>
+            <p
+              style="font-family: var(--font-sans)"
+              class="text-stone-500 text-base mb-10 max-w-xl leading-relaxed"
+            >
+              A warm neutral scale anchored in Stone, accented with Crimson for
+              interactive emphasis. Reference tokens by semantic role, never by
+              raw hex.
+            </p>
+            <p
+              style="
+                font-family: var(--font-mono);
+                font-size: 11px;
+                letter-spacing: 0.1em;
+              "
+              class="text-stone-400 uppercase mb-3"
+            >
+              Primitive — Stone
+            </p>
+            <div
+              class="rounded-xl overflow-hidden border border-stone-200 mb-8"
+              style="display: grid; grid-template-columns: repeat(10, 1fr)"
+            >
+              <div
+                style="
+                  background-color: rgb(250, 250, 248);
+                  aspect-ratio: 1 / 1.4;
+                "
+                class="flex flex-col justify-end p-2"
+              >
+                <p
+                  style="font-family: var(--font-mono); font-size: 9px"
+                  class="text-stone-700"
+                >
+                  Stone 50
+                </p>
+                <p
+                  style="font-family: var(--font-mono); font-size: 9px"
+                  class="text-stone-500"
+                >
+                  #FAFAF8
+                </p>
+              </div>
+              <div
+                style="
+                  background-color: rgb(245, 244, 240);
+                  aspect-ratio: 1 / 1.4;
+                "
+                class="flex flex-col justify-end p-2"
+              >
+                <p
+                  style="font-family: var(--font-mono); font-size: 9px"
+                  class="text-stone-700"
+                >
+                  Stone 100
+                </p>
+                <p
+                  style="font-family: var(--font-mono); font-size: 9px"
+                  class="text-stone-500"
+                >
+                  #F5F4F0
+                </p>
+              </div>
+              <div
+                style="
+                  background-color: rgb(232, 228, 220);
+                  aspect-ratio: 1 / 1.4;
+                "
+                class="flex flex-col justify-end p-2"
+              >
+                <p
+                  style="font-family: var(--font-mono); font-size: 9px"
+                  class="text-stone-700"
+                >
+                  Stone 200
+                </p>
+                <p
+                  style="font-family: var(--font-mono); font-size: 9px"
+                  class="text-stone-500"
+                >
+                  #E8E4DC
+                </p>
+              </div>
+              <div
+                style="
+                  background-color: rgb(212, 204, 190);
+                  aspect-ratio: 1 / 1.4;
+                "
+                class="flex flex-col justify-end p-2"
+              >
+                <p
+                  style="font-family: var(--font-mono); font-size: 9px"
+                  class="text-stone-700"
+                >
+                  Stone 300
+                </p>
+                <p
+                  style="font-family: var(--font-mono); font-size: 9px"
+                  class="text-stone-500"
+                >
+                  #D4CCBE
+                </p>
+              </div>
+              <div
+                style="
+                  background-color: rgb(168, 152, 128);
+                  aspect-ratio: 1 / 1.4;
+                "
+                class="flex flex-col justify-end p-2"
+              >
+                <p
+                  style="font-family: var(--font-mono); font-size: 9px"
+                  class="text-stone-700"
+                >
+                  Stone 400
+                </p>
+                <p
+                  style="font-family: var(--font-mono); font-size: 9px"
+                  class="text-stone-500"
+                >
+                  #A89880
+                </p>
+              </div>
+              <div
+                style="
+                  background-color: rgb(124, 107, 85);
+                  aspect-ratio: 1 / 1.4;
+                "
+                class="flex flex-col justify-end p-2"
+              >
+                <p
+                  style="font-family: var(--font-mono); font-size: 9px"
+                  class="text-stone-300"
+                >
+                  Stone 500
+                </p>
+                <p
+                  style="font-family: var(--font-mono); font-size: 9px"
+                  class="text-stone-400"
+                >
+                  #7C6B55
+                </p>
+              </div>
+              <div
+                style="background-color: rgb(90, 77, 60); aspect-ratio: 1 / 1.4"
+                class="flex flex-col justify-end p-2"
+              >
+                <p
+                  style="font-family: var(--font-mono); font-size: 9px"
+                  class="text-stone-300"
+                >
+                  Stone 600
+                </p>
+                <p
+                  style="font-family: var(--font-mono); font-size: 9px"
+                  class="text-stone-400"
+                >
+                  #5A4D3C
+                </p>
+              </div>
+              <div
+                style="background-color: rgb(61, 51, 40); aspect-ratio: 1 / 1.4"
+                class="flex flex-col justify-end p-2"
+              >
+                <p
+                  style="font-family: var(--font-mono); font-size: 9px"
+                  class="text-stone-300"
+                >
+                  Stone 700
+                </p>
+                <p
+                  style="font-family: var(--font-mono); font-size: 9px"
+                  class="text-stone-400"
+                >
+                  #3D3328
+                </p>
+              </div>
+              <div
+                style="background-color: rgb(42, 34, 24); aspect-ratio: 1 / 1.4"
+                class="flex flex-col justify-end p-2"
+              >
+                <p
+                  style="font-family: var(--font-mono); font-size: 9px"
+                  class="text-stone-300"
+                >
+                  Stone 800
+                </p>
+                <p
+                  style="font-family: var(--font-mono); font-size: 9px"
+                  class="text-stone-400"
+                >
+                  #2A2218
+                </p>
+              </div>
+              <div
+                style="background-color: rgb(28, 22, 16); aspect-ratio: 1 / 1.4"
+                class="flex flex-col justify-end p-2"
+              >
+                <p
+                  style="font-family: var(--font-mono); font-size: 9px"
+                  class="text-stone-300"
+                >
+                  Stone 900
+                </p>
+                <p
+                  style="font-family: var(--font-mono); font-size: 9px"
+                  class="text-stone-400"
+                >
+                  #1C1610
+                </p>
+              </div>
+            </div>
+            <p
+              style="
+                font-family: var(--font-mono);
+                font-size: 11px;
+                letter-spacing: 0.1em;
+              "
+              class="text-stone-400 uppercase mb-3"
+            >
+              Primitive — Accent + Status
+            </p>
+            <div
+              class="rounded-xl overflow-hidden border border-stone-200 mb-10"
+              style="display: grid; grid-template-columns: repeat(10, 1fr)"
+            >
+              <div
+                style="
+                  background-color: rgb(248, 113, 113);
+                  aspect-ratio: 1 / 1.4;
+                "
+                class="flex flex-col justify-end p-2"
+              >
+                <p
+                  style="font-family: var(--font-mono); font-size: 9px"
+                  class="text-stone-800"
+                >
+                  Crimson 400
+                </p>
+                <p
+                  style="font-family: var(--font-mono); font-size: 9px"
+                  class="text-stone-600"
+                >
+                  #F87171
+                </p>
+              </div>
+              <div
+                style="
+                  background-color: rgb(239, 68, 68);
+                  aspect-ratio: 1 / 1.4;
+                "
+                class="flex flex-col justify-end p-2"
+              >
+                <p
+                  style="font-family: var(--font-mono); font-size: 9px"
+                  class="text-white"
+                >
+                  Crimson 500
+                </p>
+                <p
+                  style="font-family: var(--font-mono); font-size: 9px"
+                  class="text-stone-200"
+                >
+                  #EF4444
+                </p>
+              </div>
+              <div
+                style="
+                  background-color: rgb(220, 38, 38);
+                  aspect-ratio: 1 / 1.4;
+                "
+                class="flex flex-col justify-end p-2"
+              >
+                <p
+                  style="font-family: var(--font-mono); font-size: 9px"
+                  class="text-white"
+                >
+                  Crimson 600
+                </p>
+                <p
+                  style="font-family: var(--font-mono); font-size: 9px"
+                  class="text-stone-200"
+                >
+                  #DC2626
+                </p>
+              </div>
+              <div
+                style="
+                  background-color: rgb(185, 28, 28);
+                  aspect-ratio: 1 / 1.4;
+                "
+                class="flex flex-col justify-end p-2"
+              >
+                <p
+                  style="font-family: var(--font-mono); font-size: 9px"
+                  class="text-white"
+                >
+                  Crimson 700
+                </p>
+                <p
+                  style="font-family: var(--font-mono); font-size: 9px"
+                  class="text-stone-200"
+                >
+                  #B91C1C
+                </p>
+              </div>
+              <div
+                style="
+                  background-color: rgb(74, 222, 128);
+                  aspect-ratio: 1 / 1.4;
+                "
+                class="flex flex-col justify-end p-2"
+              >
+                <p
+                  style="font-family: var(--font-mono); font-size: 9px"
+                  class="text-stone-800"
+                >
+                  Jade 400
+                </p>
+                <p
+                  style="font-family: var(--font-mono); font-size: 9px"
+                  class="text-stone-600"
+                >
+                  #4ADE80
+                </p>
+              </div>
+              <div
+                style="
+                  background-color: rgb(34, 197, 94);
+                  aspect-ratio: 1 / 1.4;
+                "
+                class="flex flex-col justify-end p-2"
+              >
+                <p
+                  style="font-family: var(--font-mono); font-size: 9px"
+                  class="text-stone-800"
+                >
+                  Jade 500
+                </p>
+                <p
+                  style="font-family: var(--font-mono); font-size: 9px"
+                  class="text-stone-600"
+                >
+                  #22C55E
+                </p>
+              </div>
+              <div
+                style="
+                  background-color: rgb(22, 163, 74);
+                  aspect-ratio: 1 / 1.4;
+                "
+                class="flex flex-col justify-end p-2"
+              >
+                <p
+                  style="font-family: var(--font-mono); font-size: 9px"
+                  class="text-white"
+                >
+                  Jade 600
+                </p>
+                <p
+                  style="font-family: var(--font-mono); font-size: 9px"
+                  class="text-stone-200"
+                >
+                  #16A34A
+                </p>
+              </div>
+              <div
+                style="
+                  background-color: rgb(251, 191, 36);
+                  aspect-ratio: 1 / 1.4;
+                "
+                class="flex flex-col justify-end p-2"
+              >
+                <p
+                  style="font-family: var(--font-mono); font-size: 9px"
+                  class="text-stone-800"
+                >
+                  Amber 400
+                </p>
+                <p
+                  style="font-family: var(--font-mono); font-size: 9px"
+                  class="text-stone-600"
+                >
+                  #FBBF24
+                </p>
+              </div>
+              <div
+                style="
+                  background-color: rgb(245, 158, 11);
+                  aspect-ratio: 1 / 1.4;
+                "
+                class="flex flex-col justify-end p-2"
+              >
+                <p
+                  style="font-family: var(--font-mono); font-size: 9px"
+                  class="text-stone-800"
+                >
+                  Amber 500
+                </p>
+                <p
+                  style="font-family: var(--font-mono); font-size: 9px"
+                  class="text-stone-600"
+                >
+                  #F59E0B
+                </p>
+              </div>
+              <div
+                style="
+                  background-color: rgb(217, 119, 6);
+                  aspect-ratio: 1 / 1.4;
+                "
+                class="flex flex-col justify-end p-2"
+              >
+                <p
+                  style="font-family: var(--font-mono); font-size: 9px"
+                  class="text-white"
+                >
+                  Amber 600
+                </p>
+                <p
+                  style="font-family: var(--font-mono); font-size: 9px"
+                  class="text-stone-200"
+                >
+                  #D97706
+                </p>
+              </div>
+            </div>
+            <p
+              style="
+                font-family: var(--font-mono);
+                font-size: 11px;
+                letter-spacing: 0.1em;
+              "
+              class="text-stone-400 uppercase mb-3"
+            >
+              Semantic tokens
+            </p>
+            <div
+              style="
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+                gap: 12px;
+              "
+            >
+              <div
+                class="flex items-center gap-3 border border-stone-200 rounded-lg p-3 bg-white hover:border-stone-300 transition-colors"
+              >
+                <div
+                  class="w-10 h-10 rounded-md border border-stone-200 flex-shrink-0"
+                  style="background-color: rgb(250, 250, 248)"
+                ></div>
+                <div class="min-w-0">
+                  <p
+                    style="font-family: var(--font-mono); font-size: 11px"
+                    class="text-stone-600"
+                  >
+                    --color-bg
+                  </p>
+                  <p
+                    style="font-family: var(--font-sans); font-size: 13px"
+                    class="text-stone-500"
+                  >
+                    Background
+                  </p>
+                </div>
+                <p
+                  style="font-family: var(--font-mono); font-size: 11px"
+                  class="text-stone-400 ml-auto flex-shrink-0"
+                >
+                  #FAFAF8
+                </p>
+              </div>
+              <div
+                class="flex items-center gap-3 border border-stone-200 rounded-lg p-3 bg-white hover:border-stone-300 transition-colors"
+              >
+                <div
+                  class="w-10 h-10 rounded-md border border-stone-200 flex-shrink-0"
+                  style="background-color: rgb(255, 255, 255)"
+                ></div>
+                <div class="min-w-0">
+                  <p
+                    style="font-family: var(--font-mono); font-size: 11px"
+                    class="text-stone-600"
+                  >
+                    --color-surface
+                  </p>
+                  <p
+                    style="font-family: var(--font-sans); font-size: 13px"
+                    class="text-stone-500"
+                  >
+                    Surface
+                  </p>
+                </div>
+                <p
+                  style="font-family: var(--font-mono); font-size: 11px"
+                  class="text-stone-400 ml-auto flex-shrink-0"
+                >
+                  #FFFFFF
+                </p>
+              </div>
+              <div
+                class="flex items-center gap-3 border border-stone-200 rounded-lg p-3 bg-white hover:border-stone-300 transition-colors"
+              >
+                <div
+                  class="w-10 h-10 rounded-md border border-stone-200 flex-shrink-0"
+                  style="background-color: rgb(232, 228, 220)"
+                ></div>
+                <div class="min-w-0">
+                  <p
+                    style="font-family: var(--font-mono); font-size: 11px"
+                    class="text-stone-600"
+                  >
+                    --color-border
+                  </p>
+                  <p
+                    style="font-family: var(--font-sans); font-size: 13px"
+                    class="text-stone-500"
+                  >
+                    Border
+                  </p>
+                </div>
+                <p
+                  style="font-family: var(--font-mono); font-size: 11px"
+                  class="text-stone-400 ml-auto flex-shrink-0"
+                >
+                  #E8E4DC
+                </p>
+              </div>
+              <div
+                class="flex items-center gap-3 border border-stone-200 rounded-lg p-3 bg-white hover:border-stone-300 transition-colors"
+              >
+                <div
+                  class="w-10 h-10 rounded-md border border-stone-200 flex-shrink-0"
+                  style="background-color: rgb(28, 22, 16)"
+                ></div>
+                <div class="min-w-0">
+                  <p
+                    style="font-family: var(--font-mono); font-size: 11px"
+                    class="text-stone-600"
+                  >
+                    --color-text
+                  </p>
+                  <p
+                    style="font-family: var(--font-sans); font-size: 13px"
+                    class="text-stone-500"
+                  >
+                    Text default
+                  </p>
+                </div>
+                <p
+                  style="font-family: var(--font-mono); font-size: 11px"
+                  class="text-stone-400 ml-auto flex-shrink-0"
+                >
+                  #1C1610
+                </p>
+              </div>
+              <div
+                class="flex items-center gap-3 border border-stone-200 rounded-lg p-3 bg-white hover:border-stone-300 transition-colors"
+              >
+                <div
+                  class="w-10 h-10 rounded-md border border-stone-200 flex-shrink-0"
+                  style="background-color: rgb(124, 107, 85)"
+                ></div>
+                <div class="min-w-0">
+                  <p
+                    style="font-family: var(--font-mono); font-size: 11px"
+                    class="text-stone-600"
+                  >
+                    --color-muted
+                  </p>
+                  <p
+                    style="font-family: var(--font-sans); font-size: 13px"
+                    class="text-stone-500"
+                  >
+                    Text muted
+                  </p>
+                </div>
+                <p
+                  style="font-family: var(--font-mono); font-size: 11px"
+                  class="text-stone-400 ml-auto flex-shrink-0"
+                >
+                  #7C6B55
+                </p>
+              </div>
+              <div
+                class="flex items-center gap-3 border border-stone-200 rounded-lg p-3 bg-white hover:border-stone-300 transition-colors"
+              >
+                <div
+                  class="w-10 h-10 rounded-md border border-stone-200 flex-shrink-0"
+                  style="background-color: rgb(28, 22, 16)"
+                ></div>
+                <div class="min-w-0">
+                  <p
+                    style="font-family: var(--font-mono); font-size: 11px"
+                    class="text-stone-600"
+                  >
+                    --color-primary
+                  </p>
+                  <p
+                    style="font-family: var(--font-sans); font-size: 13px"
+                    class="text-stone-500"
+                  >
+                    Primary
+                  </p>
+                </div>
+                <p
+                  style="font-family: var(--font-mono); font-size: 11px"
+                  class="text-stone-400 ml-auto flex-shrink-0"
+                >
+                  #1C1610
+                </p>
+              </div>
+              <div
+                class="flex items-center gap-3 border border-stone-200 rounded-lg p-3 bg-white hover:border-stone-300 transition-colors"
+              >
+                <div
+                  class="w-10 h-10 rounded-md border border-stone-200 flex-shrink-0"
+                  style="background-color: rgb(220, 38, 38)"
+                ></div>
+                <div class="min-w-0">
+                  <p
+                    style="font-family: var(--font-mono); font-size: 11px"
+                    class="text-stone-600"
+                  >
+                    --color-accent
+                  </p>
+                  <p
+                    style="font-family: var(--font-sans); font-size: 13px"
+                    class="text-stone-500"
+                  >
+                    Accent
+                  </p>
+                </div>
+                <p
+                  style="font-family: var(--font-mono); font-size: 11px"
+                  class="text-stone-400 ml-auto flex-shrink-0"
+                >
+                  #DC2626
+                </p>
+              </div>
+              <div
+                class="flex items-center gap-3 border border-stone-200 rounded-lg p-3 bg-white hover:border-stone-300 transition-colors"
+              >
+                <div
+                  class="w-10 h-10 rounded-md border border-stone-200 flex-shrink-0"
+                  style="background-color: rgb(22, 163, 74)"
+                ></div>
+                <div class="min-w-0">
+                  <p
+                    style="font-family: var(--font-mono); font-size: 11px"
+                    class="text-stone-600"
+                  >
+                    --color-success
+                  </p>
+                  <p
+                    style="font-family: var(--font-sans); font-size: 13px"
+                    class="text-stone-500"
+                  >
+                    Success
+                  </p>
+                </div>
+                <p
+                  style="font-family: var(--font-mono); font-size: 11px"
+                  class="text-stone-400 ml-auto flex-shrink-0"
+                >
+                  #16A34A
+                </p>
+              </div>
+              <div
+                class="flex items-center gap-3 border border-stone-200 rounded-lg p-3 bg-white hover:border-stone-300 transition-colors"
+              >
+                <div
+                  class="w-10 h-10 rounded-md border border-stone-200 flex-shrink-0"
+                  style="background-color: rgb(217, 119, 6)"
+                ></div>
+                <div class="min-w-0">
+                  <p
+                    style="font-family: var(--font-mono); font-size: 11px"
+                    class="text-stone-600"
+                  >
+                    --color-warning
+                  </p>
+                  <p
+                    style="font-family: var(--font-sans); font-size: 13px"
+                    class="text-stone-500"
+                  >
+                    Warning
+                  </p>
+                </div>
+                <p
+                  style="font-family: var(--font-mono); font-size: 11px"
+                  class="text-stone-400 ml-auto flex-shrink-0"
+                >
+                  #D97706
+                </p>
+              </div>
+              <div
+                class="flex items-center gap-3 border border-stone-200 rounded-lg p-3 bg-white hover:border-stone-300 transition-colors"
+              >
+                <div
+                  class="w-10 h-10 rounded-md border border-stone-200 flex-shrink-0"
+                  style="background-color: rgb(220, 38, 38)"
+                ></div>
+                <div class="min-w-0">
+                  <p
+                    style="font-family: var(--font-mono); font-size: 11px"
+                    class="text-stone-600"
+                  >
+                    --color-danger
+                  </p>
+                  <p
+                    style="font-family: var(--font-sans); font-size: 13px"
+                    class="text-stone-500"
+                  >
+                    Danger
+                  </p>
+                </div>
+                <p
+                  style="font-family: var(--font-mono); font-size: 11px"
+                  class="text-stone-400 ml-auto flex-shrink-0"
+                >
+                  #DC2626
+                </p>
+              </div>
+            </div>
+          </section>
+          <hr class="border-stone-200 my-16" />
+          <section id="Typography">
+            <p
+              style="
+                font-family: var(--font-mono);
+                font-size: 10px;
+                letter-spacing: 0.15em;
+              "
+              class="text-stone-400 uppercase mb-3"
+            >
+              02 — Foundations
+            </p>
+            <h2
+              style="font-family: var(--font-display); font-weight: 600"
+              class="text-3xl text-stone-900 mb-2"
+            >
+              Typography
+            </h2>
+            <p
+              style="font-family: var(--font-sans)"
+              class="text-stone-500 text-base mb-10 max-w-xl leading-relaxed"
+            >
+              Playfair Display for expressive display and heading type. Outfit
+              for readable body copy. JetBrains Mono for code, labels, and
+              structured data.
+            </p>
+            <div class="flex gap-4 mb-10 flex-wrap">
+              <div
+                class="border border-stone-200 rounded-xl p-5 bg-white flex-1 min-w-44"
+              >
+                <span
+                  style="font-family: var(--font-mono); font-size: 11px"
+                  class="bg-stone-100 text-stone-600 px-2 py-0.5 rounded"
+                  >--font-display</span
+                >
+                <p
+                  style="
+                    font-family: var(--font-display);
+                    font-size: 28px;
+                    font-weight: 600;
+                    line-height: 1.2;
+                  "
+                  class="text-stone-800 mt-3 mb-1"
+                >
+                  Aa Bb Cc
+                </p>
+                <p
+                  style="font-family: var(--font-mono); font-size: 11px"
+                  class="text-stone-400"
+                >
+                  Playfair Display
+                </p>
+              </div>
+              <div
+                class="border border-stone-200 rounded-xl p-5 bg-white flex-1 min-w-44"
+              >
+                <span
+                  style="font-family: var(--font-mono); font-size: 11px"
+                  class="bg-stone-100 text-stone-600 px-2 py-0.5 rounded"
+                  >--font-sans</span
+                >
+                <p
+                  style="
+                    font-family: var(--font-sans);
+                    font-size: 28px;
+                    font-weight: 600;
+                    line-height: 1.2;
+                  "
+                  class="text-stone-800 mt-3 mb-1"
+                >
+                  Aa Bb Cc
+                </p>
+                <p
+                  style="font-family: var(--font-mono); font-size: 11px"
+                  class="text-stone-400"
+                >
+                  Outfit
+                </p>
+              </div>
+              <div
+                class="border border-stone-200 rounded-xl p-5 bg-white flex-1 min-w-44"
+              >
+                <span
+                  style="font-family: var(--font-mono); font-size: 11px"
+                  class="bg-stone-100 text-stone-600 px-2 py-0.5 rounded"
+                  >--font-mono</span
+                >
+                <p
+                  style="
+                    font-family: var(--font-mono);
+                    font-size: 28px;
+                    font-weight: 600;
+                    line-height: 1.2;
+                  "
+                  class="text-stone-800 mt-3 mb-1"
+                >
+                  Aa Bb Cc
+                </p>
+                <p
+                  style="font-family: var(--font-mono); font-size: 11px"
+                  class="text-stone-400"
+                >
+                  JetBrains Mono
+                </p>
+              </div>
+            </div>
+            <div class="divide-y divide-stone-100">
+              <div
+                class="flex items-baseline gap-6 py-4 hover:bg-stone-50 px-3 -mx-3 rounded-lg transition-colors"
+              >
+                <div class="w-20 flex-shrink-0">
+                  <p
+                    style="font-family: var(--font-mono); font-size: 11px"
+                    class="text-stone-400"
+                  >
+                    Display
+                  </p>
+                  <p
+                    style="font-family: var(--font-mono); font-size: 10px"
+                    class="text-stone-300"
+                  >
+                    64px / 600
+                  </p>
+                </div>
+                <p
+                  style="
+                    font-family: var(--font-display);
+                    font-size: 64px;
+                    font-weight: 600;
+                    line-height: 1.25;
+                    flex: 1 1 0%;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                  "
+                  class="text-stone-900"
+                >
+                  The quick brown
+                </p>
+              </div>
+              <div
+                class="flex items-baseline gap-6 py-4 hover:bg-stone-50 px-3 -mx-3 rounded-lg transition-colors"
+              >
+                <div class="w-20 flex-shrink-0">
+                  <p
+                    style="font-family: var(--font-mono); font-size: 11px"
+                    class="text-stone-400"
+                  >
+                    H1
+                  </p>
+                  <p
+                    style="font-family: var(--font-mono); font-size: 10px"
+                    class="text-stone-300"
+                  >
+                    48px / 600
+                  </p>
+                </div>
+                <p
+                  style="
+                    font-family: var(--font-display);
+                    font-size: 48px;
+                    font-weight: 600;
+                    line-height: 1.25;
+                    flex: 1 1 0%;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                  "
+                  class="text-stone-900"
+                >
+                  The quick brown fox
+                </p>
+              </div>
+              <div
+                class="flex items-baseline gap-6 py-4 hover:bg-stone-50 px-3 -mx-3 rounded-lg transition-colors"
+              >
+                <div class="w-20 flex-shrink-0">
+                  <p
+                    style="font-family: var(--font-mono); font-size: 11px"
+                    class="text-stone-400"
+                  >
+                    H2
+                  </p>
+                  <p
+                    style="font-family: var(--font-mono); font-size: 10px"
+                    class="text-stone-300"
+                  >
+                    36px / 600
+                  </p>
+                </div>
+                <p
+                  style="
+                    font-family: var(--font-display);
+                    font-size: 36px;
+                    font-weight: 600;
+                    line-height: 1.25;
+                    flex: 1 1 0%;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                  "
+                  class="text-stone-900"
+                >
+                  The quick brown fox jumps
+                </p>
+              </div>
+              <div
+                class="flex items-baseline gap-6 py-4 hover:bg-stone-50 px-3 -mx-3 rounded-lg transition-colors"
+              >
+                <div class="w-20 flex-shrink-0">
+                  <p
+                    style="font-family: var(--font-mono); font-size: 11px"
+                    class="text-stone-400"
+                  >
+                    H3
+                  </p>
+                  <p
+                    style="font-family: var(--font-mono); font-size: 10px"
+                    class="text-stone-300"
+                  >
+                    24px / 600
+                  </p>
+                </div>
+                <p
+                  style="
+                    font-family: var(--font-display);
+                    font-size: 24px;
+                    font-weight: 600;
+                    line-height: 1.25;
+                    flex: 1 1 0%;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                  "
+                  class="text-stone-900"
+                >
+                  The quick brown fox jumps over
+                </p>
+              </div>
+              <div
+                class="flex items-baseline gap-6 py-4 hover:bg-stone-50 px-3 -mx-3 rounded-lg transition-colors"
+              >
+                <div class="w-20 flex-shrink-0">
+                  <p
+                    style="font-family: var(--font-mono); font-size: 11px"
+                    class="text-stone-400"
+                  >
+                    H4
+                  </p>
+                  <p
+                    style="font-family: var(--font-mono); font-size: 10px"
+                    class="text-stone-300"
+                  >
+                    20px / 600
+                  </p>
+                </div>
+                <p
+                  style="
+                    font-family: var(--font-sans);
+                    font-size: 20px;
+                    font-weight: 600;
+                    line-height: 1.25;
+                    flex: 1 1 0%;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                  "
+                  class="text-stone-900"
+                >
+                  The quick brown fox jumps over the lazy dog
+                </p>
+              </div>
+              <div
+                class="flex items-baseline gap-6 py-4 hover:bg-stone-50 px-3 -mx-3 rounded-lg transition-colors"
+              >
+                <div class="w-20 flex-shrink-0">
+                  <p
+                    style="font-family: var(--font-mono); font-size: 11px"
+                    class="text-stone-400"
+                  >
+                    Body LG
+                  </p>
+                  <p
+                    style="font-family: var(--font-mono); font-size: 10px"
+                    class="text-stone-300"
+                  >
+                    18px / 400
+                  </p>
+                </div>
+                <p
+                  style="
+                    font-family: var(--font-sans);
+                    font-size: 18px;
+                    font-weight: 400;
+                    line-height: 1.25;
+                    flex: 1 1 0%;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                  "
+                  class="text-stone-900"
+                >
+                  The quick brown fox jumps over the lazy dog.
+                </p>
+              </div>
+              <div
+                class="flex items-baseline gap-6 py-4 hover:bg-stone-50 px-3 -mx-3 rounded-lg transition-colors"
+              >
+                <div class="w-20 flex-shrink-0">
+                  <p
+                    style="font-family: var(--font-mono); font-size: 11px"
+                    class="text-stone-400"
+                  >
+                    Body MD
+                  </p>
+                  <p
+                    style="font-family: var(--font-mono); font-size: 10px"
+                    class="text-stone-300"
+                  >
+                    16px / 400
+                  </p>
+                </div>
+                <p
+                  style="
+                    font-family: var(--font-sans);
+                    font-size: 16px;
+                    font-weight: 400;
+                    line-height: 1.25;
+                    flex: 1 1 0%;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                  "
+                  class="text-stone-900"
+                >
+                  The quick brown fox jumps over the lazy dog. Every word.
+                </p>
+              </div>
+              <div
+                class="flex items-baseline gap-6 py-4 hover:bg-stone-50 px-3 -mx-3 rounded-lg transition-colors"
+              >
+                <div class="w-20 flex-shrink-0">
+                  <p
+                    style="font-family: var(--font-mono); font-size: 11px"
+                    class="text-stone-400"
+                  >
+                    Body SM
+                  </p>
+                  <p
+                    style="font-family: var(--font-mono); font-size: 10px"
+                    class="text-stone-300"
+                  >
+                    14px / 400
+                  </p>
+                </div>
+                <p
+                  style="
+                    font-family: var(--font-sans);
+                    font-size: 14px;
+                    font-weight: 400;
+                    line-height: 1.25;
+                    flex: 1 1 0%;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                  "
+                  class="text-stone-900"
+                >
+                  The quick brown fox jumps over the lazy dog. Every letter
+                  serves.
+                </p>
+              </div>
+              <div
+                class="flex items-baseline gap-6 py-4 hover:bg-stone-50 px-3 -mx-3 rounded-lg transition-colors"
+              >
+                <div class="w-20 flex-shrink-0">
+                  <p
+                    style="font-family: var(--font-mono); font-size: 11px"
+                    class="text-stone-400"
+                  >
+                    Caption
+                  </p>
+                  <p
+                    style="font-family: var(--font-mono); font-size: 10px"
+                    class="text-stone-300"
+                  >
+                    12px / 400
+                  </p>
+                </div>
+                <p
+                  style="
+                    font-family: var(--font-sans);
+                    font-size: 12px;
+                    font-weight: 400;
+                    line-height: 1.25;
+                    flex: 1 1 0%;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                  "
+                  class="text-stone-900"
+                >
+                  The quick brown fox jumps over the lazy dog. Every letter
+                  matters here.
+                </p>
+              </div>
+              <div
+                class="flex items-baseline gap-6 py-4 hover:bg-stone-50 px-3 -mx-3 rounded-lg transition-colors"
+              >
+                <div class="w-20 flex-shrink-0">
+                  <p
+                    style="font-family: var(--font-mono); font-size: 11px"
+                    class="text-stone-400"
+                  >
+                    Mono
+                  </p>
+                  <p
+                    style="font-family: var(--font-mono); font-size: 10px"
+                    class="text-stone-300"
+                  >
+                    13px / 400
+                  </p>
+                </div>
+                <p
+                  style="
+                    font-family: var(--font-mono);
+                    font-size: 13px;
+                    font-weight: 400;
+                    line-height: 1.25;
+                    flex: 1 1 0%;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                  "
+                  class="text-stone-900"
+                >
+                  const system = new DesignSystem({ tokens: true, scale: "4px"
+                  })
+                </p>
+              </div>
+            </div>
+          </section>
+          <hr class="border-stone-200 my-16" />
+          <section id="Buttons">
+            <p
+              style="
+                font-family: var(--font-mono);
+                font-size: 10px;
+                letter-spacing: 0.15em;
+              "
+              class="text-stone-400 uppercase mb-3"
+            >
+              03 — Components
+            </p>
+            <h2
+              style="font-family: var(--font-display); font-weight: 600"
+              class="text-3xl text-stone-900 mb-2"
+            >
+              Buttons
+            </h2>
+            <p
+              style="font-family: var(--font-sans)"
+              class="text-stone-500 text-base mb-10 max-w-xl leading-relaxed"
+            >
+              Five variants covering the full interaction hierarchy. Sizes and
+              states are consistent across all variants.
+            </p>
+            <div class="space-y-8">
+              <div>
+                <p
+                  style="
+                    font-family: var(--font-mono);
+                    font-size: 10px;
+                    letter-spacing: 0.15em;
+                  "
+                  class="text-stone-400 uppercase mb-3"
+                >
+                  Variants
+                </p>
+                <div class="flex flex-wrap gap-3 items-center">
+                  <button
+                    style="font-family: var(--font-sans)"
+                    class="inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-all cursor-pointer select-none px-5 py-2.5 bg-stone-900 text-stone-50 hover:bg-stone-700 active:bg-stone-950 text-base"
+                  >
+                    Primary</button
+                  ><button
+                    style="font-family: var(--font-sans)"
+                    class="inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-all cursor-pointer select-none px-5 py-2.5 bg-red-600 text-white hover:bg-red-700 active:bg-red-800 text-base"
+                  >
+                    Accent</button
+                  ><button
+                    style="font-family: var(--font-sans)"
+                    class="inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-all cursor-pointer select-none px-5 py-2.5 border-2 border-stone-900 text-stone-900 hover:bg-stone-100 active:bg-stone-200 text-base bg-transparent"
+                  >
+                    Outlined</button
+                  ><button
+                    style="font-family: var(--font-sans)"
+                    class="inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-all cursor-pointer select-none px-5 py-2.5 bg-stone-100 text-stone-700 hover:bg-stone-200 active:bg-stone-300 text-base"
+                  >
+                    Ghost</button
+                  ><button
+                    style="font-family: var(--font-sans)"
+                    class="inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-all cursor-pointer select-none px-5 py-2.5 text-red-600 hover:bg-red-50 active:bg-red-100 text-base"
+                  >
+                    Destructive</button
+                  ><button
+                    style="font-family: var(--font-sans)"
+                    disabled="disabled"
+                    class="inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-all cursor-pointer select-none px-5 py-2.5 bg-stone-200 text-stone-400 text-base cursor-not-allowed"
+                  >
+                    Disabled
+                  </button>
+                </div>
+              </div>
+              <div>
+                <p
+                  style="
+                    font-family: var(--font-mono);
+                    font-size: 10px;
+                    letter-spacing: 0.15em;
+                  "
+                  class="text-stone-400 uppercase mb-3"
+                >
+                  Sizes
+                </p>
+                <div class="flex flex-wrap gap-3 items-center">
+                  <button
+                    style="font-family: var(--font-sans)"
+                    class="inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-all cursor-pointer select-none px-3 py-1.5 text-sm bg-stone-900 text-stone-50 hover:bg-stone-700"
+                  >
+                    Button SM</button
+                  ><button
+                    style="font-family: var(--font-sans)"
+                    class="inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-all cursor-pointer select-none px-4 py-2 text-base bg-stone-900 text-stone-50 hover:bg-stone-700"
+                  >
+                    Button MD</button
+                  ><button
+                    style="font-family: var(--font-sans)"
+                    class="inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-all cursor-pointer select-none px-6 py-3 text-lg bg-stone-900 text-stone-50 hover:bg-stone-700"
+                  >
+                    Button LG
+                  </button>
+                </div>
+              </div>
+              <div>
+                <p
+                  style="
+                    font-family: var(--font-mono);
+                    font-size: 10px;
+                    letter-spacing: 0.15em;
+                  "
+                  class="text-stone-400 uppercase mb-3"
+                >
+                  Interactive states
+                </p>
+                <div class="flex flex-wrap gap-3 items-center">
+                  <button
+                    style="font-family: var(--font-sans)"
+                    class="inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-all cursor-pointer select-none px-5 py-2.5 bg-stone-900 text-stone-50 hover:bg-stone-700 text-base min-w-36"
+                  >
+                    Click to load</button
+                  ><button
+                    style="font-family: var(--font-sans)"
+                    class="inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-all cursor-pointer select-none px-5 py-2.5 bg-green-600 text-white text-base gap-2"
+                  >
+                    <svg
+                      class="w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.5"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M5 13l4 4L19 7"
+                      ></path></svg
+                    >Confirmed</button
+                  ><button
+                    style="font-family: var(--font-sans)"
+                    class="inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-all cursor-pointer select-none px-5 py-2.5 border border-stone-300 bg-white text-stone-700 hover:bg-stone-50 text-base gap-2"
+                  >
+                    <svg
+                      class="w-4 h-4 text-stone-400"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"
+                      ></path></svg
+                    >Export
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+          <hr class="border-stone-200 my-16" />
+          <section id="Inputs">
+            <p
+              style="
+                font-family: var(--font-mono);
+                font-size: 10px;
+                letter-spacing: 0.15em;
+              "
+              class="text-stone-400 uppercase mb-3"
+            >
+              04 — Components
+            </p>
+            <h2
+              style="font-family: var(--font-display); font-weight: 600"
+              class="text-3xl text-stone-900 mb-2"
+            >
+              Inputs
+            </h2>
+            <p
+              style="font-family: var(--font-sans)"
+              class="text-stone-500 text-base mb-10 max-w-xl leading-relaxed"
+            >
+              Form controls with clear focus states and validation feedback. All
+              inputs are interactive — try them out.
+            </p>
+            <div
+              style="
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                gap: 24px;
+              "
+            >
+              <div>
+                <label
+                  style="font-family: var(--font-sans); font-size: 14px"
+                  class="block text-stone-700 font-medium mb-1.5"
+                  >Full name</label
+                ><input
+                  placeholder="Ada Lovelace"
+                  style="font-family: var(--font-sans); font-size: 15px"
+                  class="w-full border rounded-lg px-3 py-2.5 text-stone-900 bg-white outline-none transition-all placeholder:text-stone-400 border-stone-300 focus:border-stone-800 focus:ring-2 focus:ring-stone-800/10"
+                  type="text"
+                />
+                <p
+                  style="font-family: var(--font-sans); font-size: 12px"
+                  class="text-stone-400 mt-1.5"
+                >
+                  As it appears on your account.
+                </p>
+              </div>
+              <div>
+                <label
+                  style="font-family: var(--font-sans); font-size: 14px"
+                  class="block text-stone-700 font-medium mb-1.5"
+                  >Email address</label
+                ><input
+                  placeholder="ada@lovelace.io"
+                  style="font-family: var(--font-sans); font-size: 15px"
+                  class="w-full border rounded-lg px-3 py-2.5 text-stone-900 bg-white outline-none transition-all placeholder:text-stone-400 border-stone-300 focus:border-stone-800 focus:ring-2 focus:ring-stone-800/10"
+                  type="email"
+                />
+              </div>
+              <div>
+                <label
+                  style="font-family: var(--font-sans); font-size: 14px"
+                  class="block text-stone-700 font-medium mb-1.5"
+                  >Plan tier</label
+                >
+                <div class="relative">
+                  <select
+                    style="
+                      font-family: var(--font-sans);
+                      font-size: 15px;
+                      appearance: none;
+                    "
+                    class="w-full border rounded-lg px-3 py-2.5 text-stone-900 bg-white outline-none transition-all placeholder:text-stone-400 border-stone-300 focus:border-stone-800 focus:ring-2 focus:ring-stone-800/10 pr-8 cursor-pointer"
+                  >
+                    <option value="free">Free</option>
+                    <option value="medium" selected="selected">
+                      Pro — $12/mo
+                    </option>
+                    <option value="team">Team — $49/mo</option>
+                    <option value="enterprise">Enterprise</option></select
+                  ><svg
+                    class="absolute right-3 top-1/2 -translate-y-1/2 text-stone-400 w-4 h-4 pointer-events-none"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M19 9l-7 7-7-7"
+                    ></path>
+                  </svg>
+                </div>
+              </div>
+              <div>
+                <label
+                  style="font-family: var(--font-sans); font-size: 14px"
+                  class="block text-stone-400 font-medium mb-1.5"
+                  >Account ID
+                  <span class="text-stone-300">(read-only)</span></label
+                ><input
+                  readonly="readonly"
+                  style="font-family: var(--font-mono); font-size: 13px"
+                  class="w-full border rounded-lg px-3 py-2.5 text-stone-900 bg-white outline-none transition-all placeholder:text-stone-400 border-stone-200 bg-stone-50 text-stone-400 cursor-default"
+                  type="text"
+                  value="usr_4xK9p2mQ7nVcRt"
+                />
+              </div>
+            </div>
+            <div
+              class="mt-6"
+              style="
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+                gap: 24px;
+              "
+            >
+              <div>
+                <p
+                  style="font-family: var(--font-sans); font-size: 14px"
+                  class="text-stone-700 font-medium mb-3"
+                >
+                  Notifications
+                </p>
+                <label
+                  class="flex items-center gap-2.5 mb-2.5 cursor-pointer group"
+                  ><input
+                    style="
+                      accent-color: rgb(28, 22, 16);
+                      width: 16px;
+                      height: 16px;
+                    "
+                    class="cursor-pointer"
+                    type="checkbox"
+                    checked="checked"
+                  /><span
+                    style="font-family: var(--font-sans); font-size: 14px"
+                    class="text-stone-700 group-hover:text-stone-900 transition-colors"
+                    >Product updates</span
+                  ></label
+                ><label
+                  class="flex items-center gap-2.5 mb-2.5 cursor-pointer group"
+                  ><input
+                    style="
+                      accent-color: rgb(28, 22, 16);
+                      width: 16px;
+                      height: 16px;
+                    "
+                    class="cursor-pointer"
+                    type="checkbox"
+                  /><span
+                    style="font-family: var(--font-sans); font-size: 14px"
+                    class="text-stone-700 group-hover:text-stone-900 transition-colors"
+                    >Security alerts</span
+                  ></label
+                ><label
+                  class="flex items-center gap-2.5 mb-2.5 cursor-pointer group"
+                  ><input
+                    style="
+                      accent-color: rgb(28, 22, 16);
+                      width: 16px;
+                      height: 16px;
+                    "
+                    class="cursor-pointer"
+                    type="checkbox"
+                  /><span
+                    style="font-family: var(--font-sans); font-size: 14px"
+                    class="text-stone-700 group-hover:text-stone-900 transition-colors"
+                    >Marketing emails</span
+                  ></label
+                >
+              </div>
+              <div>
+                <p
+                  style="font-family: var(--font-sans); font-size: 14px"
+                  class="text-stone-700 font-medium mb-3"
+                >
+                  Region
+                </p>
+                <label
+                  class="flex items-center gap-2.5 mb-2.5 cursor-pointer group"
+                  ><input
+                    style="
+                      accent-color: rgb(28, 22, 16);
+                      width: 16px;
+                      height: 16px;
+                    "
+                    class="cursor-pointer"
+                    type="radio"
+                    value="option-a"
+                    checked="checked"
+                    name="region"
+                  /><span
+                    style="font-family: var(--font-sans); font-size: 14px"
+                    class="text-stone-700 group-hover:text-stone-900 transition-colors"
+                    >North America</span
+                  ></label
+                ><label
+                  class="flex items-center gap-2.5 mb-2.5 cursor-pointer group"
+                  ><input
+                    style="
+                      accent-color: rgb(28, 22, 16);
+                      width: 16px;
+                      height: 16px;
+                    "
+                    class="cursor-pointer"
+                    type="radio"
+                    value="option-b"
+                    name="region"
+                  /><span
+                    style="font-family: var(--font-sans); font-size: 14px"
+                    class="text-stone-700 group-hover:text-stone-900 transition-colors"
+                    >Europe</span
+                  ></label
+                ><label
+                  class="flex items-center gap-2.5 mb-2.5 cursor-pointer group"
+                  ><input
+                    style="
+                      accent-color: rgb(28, 22, 16);
+                      width: 16px;
+                      height: 16px;
+                    "
+                    class="cursor-pointer"
+                    type="radio"
+                    value="option-c"
+                    name="region"
+                  /><span
+                    style="font-family: var(--font-sans); font-size: 14px"
+                    class="text-stone-700 group-hover:text-stone-900 transition-colors"
+                    >Asia Pacific</span
+                  ></label
+                >
+              </div>
+            </div>
+          </section>
+          <hr class="border-stone-200 my-16" />
+          <section id="Badges">
+            <p
+              style="
+                font-family: var(--font-mono);
+                font-size: 10px;
+                letter-spacing: 0.15em;
+              "
+              class="text-stone-400 uppercase mb-3"
+            >
+              05 — Components
+            </p>
+            <h2
+              style="font-family: var(--font-display); font-weight: 600"
+              class="text-3xl text-stone-900 mb-2"
+            >
+              Badges
+            </h2>
+            <p
+              style="font-family: var(--font-sans)"
+              class="text-stone-500 text-base mb-10 max-w-xl leading-relaxed"
+            >
+              Compact labels for status, categories, and metadata. Solid fill,
+              dot-indicator, and outlined variants.
+            </p>
+            <p
+              style="
+                font-family: var(--font-mono);
+                font-size: 10px;
+                letter-spacing: 0.15em;
+              "
+              class="text-stone-400 uppercase mb-3"
+            >
+              Solid
+            </p>
+            <div class="flex flex-wrap gap-2 mb-8">
+              <span
+                style="
+                  font-family: var(--font-sans);
+                  font-size: 12px;
+                  background-color: rgb(245, 244, 240);
+                  color: rgb(61, 51, 40);
+                "
+                class="inline-flex items-center px-2.5 py-1 rounded-full font-medium"
+                >Default</span
+              ><span
+                style="
+                  font-family: var(--font-sans);
+                  font-size: 12px;
+                  background-color: rgb(28, 22, 16);
+                  color: rgb(245, 244, 240);
+                "
+                class="inline-flex items-center px-2.5 py-1 rounded-full font-medium"
+                >Primary</span
+              ><span
+                style="
+                  font-family: var(--font-sans);
+                  font-size: 12px;
+                  background-color: rgb(254, 226, 226);
+                  color: rgb(153, 27, 27);
+                "
+                class="inline-flex items-center px-2.5 py-1 rounded-full font-medium"
+                >Accent</span
+              ><span
+                style="
+                  font-family: var(--font-sans);
+                  font-size: 12px;
+                  background-color: rgb(220, 252, 231);
+                  color: rgb(21, 128, 61);
+                "
+                class="inline-flex items-center px-2.5 py-1 rounded-full font-medium"
+                >Success</span
+              ><span
+                style="
+                  font-family: var(--font-sans);
+                  font-size: 12px;
+                  background-color: rgb(254, 243, 199);
+                  color: rgb(180, 83, 9);
+                "
+                class="inline-flex items-center px-2.5 py-1 rounded-full font-medium"
+                >Warning</span
+              ><span
+                style="
+                  font-family: var(--font-sans);
+                  font-size: 12px;
+                  background-color: rgb(254, 226, 226);
+                  color: rgb(185, 28, 28);
+                "
+                class="inline-flex items-center px-2.5 py-1 rounded-full font-medium"
+                >Danger</span
+              ><span
+                style="
+                  font-family: var(--font-sans);
+                  font-size: 12px;
+                  background-color: rgb(219, 234, 254);
+                  color: rgb(29, 78, 216);
+                "
+                class="inline-flex items-center px-2.5 py-1 rounded-full font-medium"
+                >Info</span
+              >
+            </div>
+            <p
+              style="
+                font-family: var(--font-mono);
+                font-size: 10px;
+                letter-spacing: 0.15em;
+              "
+              class="text-stone-400 uppercase mb-3"
+            >
+              With dot indicator
+            </p>
+            <div class="flex flex-wrap gap-2 mb-8">
+              <span
+                style="
+                  font-family: var(--font-sans);
+                  font-size: 12px;
+                  background-color: rgb(240, 253, 244);
+                  color: rgb(21, 128, 61);
+                "
+                class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full font-medium"
+                ><span
+                  class="w-1.5 h-1.5 rounded-full"
+                  style="background-color: rgb(34, 197, 94)"
+                ></span
+                >Active</span
+              ><span
+                style="
+                  font-family: var(--font-sans);
+                  font-size: 12px;
+                  background-color: rgb(255, 251, 235);
+                  color: rgb(180, 83, 9);
+                "
+                class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full font-medium"
+                ><span
+                  class="w-1.5 h-1.5 rounded-full"
+                  style="background-color: rgb(251, 191, 36)"
+                ></span
+                >Pending</span
+              ><span
+                style="
+                  font-family: var(--font-sans);
+                  font-size: 12px;
+                  background-color: rgb(245, 244, 240);
+                  color: rgb(124, 107, 85);
+                "
+                class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full font-medium"
+                ><span
+                  class="w-1.5 h-1.5 rounded-full"
+                  style="background-color: rgb(212, 204, 190)"
+                ></span
+                >Archived</span
+              ><span
+                style="
+                  font-family: var(--font-sans);
+                  font-size: 12px;
+                  background-color: rgb(255, 241, 242);
+                  color: rgb(190, 18, 60);
+                "
+                class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full font-medium"
+                ><span
+                  class="w-1.5 h-1.5 rounded-full"
+                  style="background-color: rgb(248, 113, 113)"
+                ></span
+                >Deprecated</span
+              ><span
+                style="
+                  font-family: var(--font-sans);
+                  font-size: 12px;
+                  background-color: rgb(239, 246, 255);
+                  color: rgb(29, 78, 216);
+                "
+                class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full font-medium"
+                ><span
+                  class="w-1.5 h-1.5 rounded-full"
+                  style="background-color: rgb(96, 165, 250)"
+                ></span
+                >Beta</span
+              ><span
+                style="
+                  font-family: var(--font-sans);
+                  font-size: 12px;
+                  background-color: rgb(245, 244, 240);
+                  color: rgb(90, 77, 60);
+                "
+                class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full font-medium"
+                ><span
+                  class="w-1.5 h-1.5 rounded-full"
+                  style="background-color: rgb(168, 152, 128)"
+                ></span
+                >Draft</span
+              >
+            </div>
+            <p
+              style="
+                font-family: var(--font-mono);
+                font-size: 10px;
+                letter-spacing: 0.15em;
+              "
+              class="text-stone-400 uppercase mb-3"
+            >
+              Outlined
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                style="font-family: var(--font-mono); font-size: 11px"
+                class="inline-flex items-center px-2.5 py-1 rounded-full border border-stone-300 text-stone-600 hover:border-stone-400 hover:text-stone-800 transition-colors cursor-default"
+                >v2.4.0</span
+              ><span
+                style="font-family: var(--font-mono); font-size: 11px"
+                class="inline-flex items-center px-2.5 py-1 rounded-full border border-stone-300 text-stone-600 hover:border-stone-400 hover:text-stone-800 transition-colors cursor-default"
+                >stable</span
+              ><span
+                style="font-family: var(--font-mono); font-size: 11px"
+                class="inline-flex items-center px-2.5 py-1 rounded-full border border-stone-300 text-stone-600 hover:border-stone-400 hover:text-stone-800 transition-colors cursor-default"
+                >figma-make</span
+              ><span
+                style="font-family: var(--font-mono); font-size: 11px"
+                class="inline-flex items-center px-2.5 py-1 rounded-full border border-stone-300 text-stone-600 hover:border-stone-400 hover:text-stone-800 transition-colors cursor-default"
+                >design-system</span
+              ><span
+                style="font-family: var(--font-mono); font-size: 11px"
+                class="inline-flex items-center px-2.5 py-1 rounded-full border border-stone-300 text-stone-600 hover:border-stone-400 hover:text-stone-800 transition-colors cursor-default"
+                >tokens</span
+              >
+            </div>
+          </section>
+          <hr class="border-stone-200 my-16" />
+          <section id="Cards">
+            <p
+              style="
+                font-family: var(--font-mono);
+                font-size: 10px;
+                letter-spacing: 0.15em;
+              "
+              class="text-stone-400 uppercase mb-3"
+            >
+              06 — Components
+            </p>
+            <h2
+              style="font-family: var(--font-display); font-weight: 600"
+              class="text-3xl text-stone-900 mb-2"
+            >
+              Cards
+            </h2>
+            <p
+              style="font-family: var(--font-sans)"
+              class="text-stone-500 text-base mb-10 max-w-xl leading-relaxed"
+            >
+              Content containers with consistent padding and border treatment.
+              Stars persist within the session.
+            </p>
+            <div
+              style="
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+                gap: 16px;
+              "
+            >
+              <div
+                class="bg-white border border-stone-200 rounded-2xl p-5 flex flex-col gap-3 hover:border-stone-300 hover:shadow-sm transition-all"
+              >
+                <div class="flex items-start justify-between gap-2">
+                  <div>
+                    <span
+                      style="font-family: var(--font-sans); font-size: 11px"
+                      class="text-stone-400"
+                      >Foundations</span
+                    >
+                    <h3
+                      style="
+                        font-family: var(--font-display);
+                        font-weight: 600;
+                        font-size: 18px;
+                      "
+                      class="text-stone-900"
+                    >
+                      Typography
+                    </h3>
+                  </div>
+                  <button
+                    class="p-1.5 rounded-lg transition-all text-stone-300 hover:text-stone-500"
+                  >
+                    <svg
+                      class="w-4 h-4"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
+                      ></path>
+                    </svg>
+                  </button>
+                </div>
+                <p
+                  style="
+                    font-family: var(--font-sans);
+                    font-size: 14px;
+                    line-height: 1.6;
+                  "
+                  class="text-stone-500 flex-1"
+                >
+                  Playfair Display for display, Outfit for body. Defined in 9
+                  steps from 12px caption to 64px display.
+                </p>
+                <div
+                  class="flex items-center justify-between pt-2 border-t border-stone-100"
+                >
+                  <span
+                    style="
+                      font-family: var(--font-sans);
+                      font-size: 12px;
+                      background-color: rgb(240, 253, 244);
+                      color: rgb(21, 128, 61);
+                    "
+                    class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full font-medium"
+                    ><span
+                      class="w-1.5 h-1.5 rounded-full"
+                      style="background-color: rgb(34, 197, 94)"
+                    ></span
+                    >stable</span
+                  >
+                  <div class="text-right">
+                    <p
+                      style="font-family: var(--font-sans); font-size: 12px"
+                      class="text-stone-500"
+                    >
+                      Lena Park
+                    </p>
+                    <p
+                      style="font-family: var(--font-mono); font-size: 10px"
+                      class="text-stone-300"
+                    >
+                      Jul 18, 2026
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="bg-white border border-stone-200 rounded-2xl p-5 flex flex-col gap-3 hover:border-stone-300 hover:shadow-sm transition-all"
+              >
+                <div class="flex items-start justify-between gap-2">
+                  <div>
+                    <span
+                      style="font-family: var(--font-sans); font-size: 11px"
+                      class="text-stone-400"
+                      >Foundations</span
+                    >
+                    <h3
+                      style="
+                        font-family: var(--font-display);
+                        font-weight: 600;
+                        font-size: 18px;
+                      "
+                      class="text-stone-900"
+                    >
+                      Color System
+                    </h3>
+                  </div>
+                  <button
+                    class="p-1.5 rounded-lg transition-all text-stone-300 hover:text-stone-500"
+                  >
+                    <svg
+                      class="w-4 h-4"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
+                      ></path>
+                    </svg>
+                  </button>
+                </div>
+                <p
+                  style="
+                    font-family: var(--font-sans);
+                    font-size: 14px;
+                    line-height: 1.6;
+                  "
+                  class="text-stone-500 flex-1"
+                >
+                  Stone neutral scale + Crimson accent. Semantic tokens map
+                  every role; primitives reserved for token definitions.
+                </p>
+                <div
+                  class="flex items-center justify-between pt-2 border-t border-stone-100"
+                >
+                  <span
+                    style="
+                      font-family: var(--font-sans);
+                      font-size: 12px;
+                      background-color: rgb(240, 253, 244);
+                      color: rgb(21, 128, 61);
+                    "
+                    class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full font-medium"
+                    ><span
+                      class="w-1.5 h-1.5 rounded-full"
+                      style="background-color: rgb(34, 197, 94)"
+                    ></span
+                    >stable</span
+                  >
+                  <div class="text-right">
+                    <p
+                      style="font-family: var(--font-sans); font-size: 12px"
+                      class="text-stone-500"
+                    >
+                      Marcus Wright
+                    </p>
+                    <p
+                      style="font-family: var(--font-mono); font-size: 10px"
+                      class="text-stone-300"
+                    >
+                      Jul 20, 2026
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="bg-white border border-stone-200 rounded-2xl p-5 flex flex-col gap-3 hover:border-stone-300 hover:shadow-sm transition-all"
+              >
+                <div class="flex items-start justify-between gap-2">
+                  <div>
+                    <span
+                      style="font-family: var(--font-sans); font-size: 11px"
+                      class="text-stone-400"
+                      >Foundations</span
+                    >
+                    <h3
+                      style="
+                        font-family: var(--font-display);
+                        font-weight: 600;
+                        font-size: 18px;
+                      "
+                      class="text-stone-900"
+                    >
+                      Motion
+                    </h3>
+                  </div>
+                  <button
+                    class="p-1.5 rounded-lg transition-all text-stone-300 hover:text-stone-500"
+                  >
+                    <svg
+                      class="w-4 h-4"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
+                      ></path>
+                    </svg>
+                  </button>
+                </div>
+                <p
+                  style="
+                    font-family: var(--font-sans);
+                    font-size: 14px;
+                    line-height: 1.6;
+                  "
+                  class="text-stone-500 flex-1"
+                >
+                  Duration scale from 80ms to 500ms. Easing curves for enter,
+                  exit, and in-place transitions.
+                </p>
+                <div
+                  class="flex items-center justify-between pt-2 border-t border-stone-100"
+                >
+                  <span
+                    style="
+                      font-family: var(--font-sans);
+                      font-size: 12px;
+                      background-color: rgb(255, 251, 235);
+                      color: rgb(180, 83, 9);
+                    "
+                    class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full font-medium"
+                    ><span
+                      class="w-1.5 h-1.5 rounded-full"
+                      style="background-color: rgb(251, 191, 36)"
+                    ></span
+                    >beta</span
+                  >
+                  <div class="text-right">
+                    <p
+                      style="font-family: var(--font-sans); font-size: 12px"
+                      class="text-stone-500"
+                    >
+                      Yuki Tanaka
+                    </p>
+                    <p
+                      style="font-family: var(--font-mono); font-size: 10px"
+                      class="text-stone-300"
+                    >
+                      Jul 22, 2026
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="bg-white border border-stone-200 rounded-2xl p-5 flex flex-col gap-3 hover:border-stone-300 hover:shadow-sm transition-all"
+              >
+                <div class="flex items-start justify-between gap-2">
+                  <div>
+                    <span
+                      style="font-family: var(--font-sans); font-size: 11px"
+                      class="text-stone-400"
+                      >Components</span
+                    >
+                    <h3
+                      style="
+                        font-family: var(--font-display);
+                        font-weight: 600;
+                        font-size: 18px;
+                      "
+                      class="text-stone-900"
+                    >
+                      Data Table
+                    </h3>
+                  </div>
+                  <button
+                    class="p-1.5 rounded-lg transition-all text-stone-300 hover:text-stone-500"
+                  >
+                    <svg
+                      class="w-4 h-4"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
+                      ></path>
+                    </svg>
+                  </button>
+                </div>
+                <p
+                  style="
+                    font-family: var(--font-sans);
+                    font-size: 14px;
+                    line-height: 1.6;
+                  "
+                  class="text-stone-500 flex-1"
+                >
+                  Sortable, filterable, paginated. Supports row selection,
+                  sticky columns, and inline editing via keyboard.
+                </p>
+                <div
+                  class="flex items-center justify-between pt-2 border-t border-stone-100"
+                >
+                  <span
+                    style="
+                      font-family: var(--font-sans);
+                      font-size: 12px;
+                      background-color: rgb(255, 251, 235);
+                      color: rgb(180, 83, 9);
+                    "
+                    class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full font-medium"
+                    ><span
+                      class="w-1.5 h-1.5 rounded-full"
+                      style="background-color: rgb(251, 191, 36)"
+                    ></span
+                    >beta</span
+                  >
+                  <div class="text-right">
+                    <p
+                      style="font-family: var(--font-sans); font-size: 12px"
+                      class="text-stone-500"
+                    >
+                      Amara Osei
+                    </p>
+                    <p
+                      style="font-family: var(--font-mono); font-size: 10px"
+                      class="text-stone-300"
+                    >
+                      Jul 15, 2026
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="bg-white border border-stone-200 rounded-2xl p-5 flex flex-col gap-3 hover:border-stone-300 hover:shadow-sm transition-all"
+              >
+                <div class="flex items-start justify-between gap-2">
+                  <div>
+                    <span
+                      style="font-family: var(--font-sans); font-size: 11px"
+                      class="text-stone-400"
+                      >Components</span
+                    >
+                    <h3
+                      style="
+                        font-family: var(--font-display);
+                        font-weight: 600;
+                        font-size: 18px;
+                      "
+                      class="text-stone-900"
+                    >
+                      Command Palette
+                    </h3>
+                  </div>
+                  <button
+                    class="p-1.5 rounded-lg transition-all text-stone-300 hover:text-stone-500"
+                  >
+                    <svg
+                      class="w-4 h-4"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
+                      ></path>
+                    </svg>
+                  </button>
+                </div>
+                <p
+                  style="
+                    font-family: var(--font-sans);
+                    font-size: 14px;
+                    line-height: 1.6;
+                  "
+                  class="text-stone-500 flex-1"
+                >
+                  Keyboard-first search with fuzzy matching, grouped results,
+                  and recent items history persisted to localStorage.
+                </p>
+                <div
+                  class="flex items-center justify-between pt-2 border-t border-stone-100"
+                >
+                  <span
+                    style="
+                      font-family: var(--font-sans);
+                      font-size: 12px;
+                      background-color: rgb(245, 244, 240);
+                      color: rgb(124, 107, 85);
+                    "
+                    class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full font-medium"
+                    ><span
+                      class="w-1.5 h-1.5 rounded-full"
+                      style="background-color: rgb(212, 204, 190)"
+                    ></span
+                    >draft</span
+                  >
+                  <div class="text-right">
+                    <p
+                      style="font-family: var(--font-sans); font-size: 12px"
+                      class="text-stone-500"
+                    >
+                      Finn Larsen
+                    </p>
+                    <p
+                      style="font-family: var(--font-mono); font-size: 10px"
+                      class="text-stone-300"
+                    >
+                      Jul 23, 2026
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="bg-white border border-stone-200 rounded-2xl p-5 flex flex-col gap-3 hover:border-stone-300 hover:shadow-sm transition-all"
+              >
+                <div class="flex items-start justify-between gap-2">
+                  <div>
+                    <span
+                      style="font-family: var(--font-sans); font-size: 11px"
+                      class="text-stone-400"
+                      >Components</span
+                    >
+                    <h3
+                      style="
+                        font-family: var(--font-display);
+                        font-weight: 600;
+                        font-size: 18px;
+                      "
+                      class="text-stone-900"
+                    >
+                      Charts
+                    </h3>
+                  </div>
+                  <button
+                    class="p-1.5 rounded-lg transition-all text-stone-300 hover:text-stone-500"
+                  >
+                    <svg
+                      class="w-4 h-4"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
+                      ></path>
+                    </svg>
+                  </button>
+                </div>
+                <p
+                  style="
+                    font-family: var(--font-sans);
+                    font-size: 14px;
+                    line-height: 1.6;
+                  "
+                  class="text-stone-500 flex-1"
+                >
+                  Line, bar, area, and donut charts built on Recharts.
+                  Theme-aware, responsive, accessible, and print-safe.
+                </p>
+                <div
+                  class="flex items-center justify-between pt-2 border-t border-stone-100"
+                >
+                  <span
+                    style="
+                      font-family: var(--font-sans);
+                      font-size: 12px;
+                      background-color: rgb(245, 244, 240);
+                      color: rgb(124, 107, 85);
+                    "
+                    class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full font-medium"
+                    ><span
+                      class="w-1.5 h-1.5 rounded-full"
+                      style="background-color: rgb(212, 204, 190)"
+                    ></span
+                    >draft</span
+                  >
+                  <div class="text-right">
+                    <p
+                      style="font-family: var(--font-sans); font-size: 12px"
+                      class="text-stone-500"
+                    >
+                      Priya Sharma
+                    </p>
+                    <p
+                      style="font-family: var(--font-mono); font-size: 10px"
+                      class="text-stone-300"
+                    >
+                      Jul 19, 2026
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <hr class="border-stone-200 my-16" />
+          <section id="Spacing">
+            <p
+              style="
+                font-family: var(--font-mono);
+                font-size: 10px;
+                letter-spacing: 0.15em;
+              "
+              class="text-stone-400 uppercase mb-3"
+            >
+              07 — Foundations
+            </p>
+            <h2
+              style="font-family: var(--font-display); font-weight: 600"
+              class="text-3xl text-stone-900 mb-2"
+            >
+              Spacing
+            </h2>
+            <p
+              style="font-family: var(--font-sans)"
+              class="text-stone-500 text-base mb-10 max-w-xl leading-relaxed"
+            >
+              Base unit of 4px. All spacing values are multiples of 4. Reference
+              by token, never by raw pixel value.
+            </p>
+            <div class="space-y-2">
+              <div class="flex items-center gap-4 group">
+                <div
+                  style="font-family: var(--font-mono); font-size: 12px"
+                  class="w-20 text-stone-400 flex-shrink-0"
+                >
+                  space-1
+                </div>
+                <div
+                  class="bg-red-400 rounded-sm flex-shrink-0 group-hover:bg-red-500 transition-colors"
+                  style="width: 4px; height: 20px"
+                ></div>
+                <div
+                  style="font-family: var(--font-mono); font-size: 12px"
+                  class="text-stone-400"
+                >
+                  4px
+                </div>
+              </div>
+              <div class="flex items-center gap-4 group">
+                <div
+                  style="font-family: var(--font-mono); font-size: 12px"
+                  class="w-20 text-stone-400 flex-shrink-0"
+                >
+                  space-2
+                </div>
+                <div
+                  class="bg-red-400 rounded-sm flex-shrink-0 group-hover:bg-red-500 transition-colors"
+                  style="width: 8px; height: 20px"
+                ></div>
+                <div
+                  style="font-family: var(--font-mono); font-size: 12px"
+                  class="text-stone-400"
+                >
+                  8px
+                </div>
+              </div>
+              <div class="flex items-center gap-4 group">
+                <div
+                  style="font-family: var(--font-mono); font-size: 12px"
+                  class="w-20 text-stone-400 flex-shrink-0"
+                >
+                  space-3
+                </div>
+                <div
+                  class="bg-red-400 rounded-sm flex-shrink-0 group-hover:bg-red-500 transition-colors"
+                  style="width: 12px; height: 20px"
+                ></div>
+                <div
+                  style="font-family: var(--font-mono); font-size: 12px"
+                  class="text-stone-400"
+                >
+                  12px
+                </div>
+              </div>
+              <div class="flex items-center gap-4 group">
+                <div
+                  style="font-family: var(--font-mono); font-size: 12px"
+                  class="w-20 text-stone-400 flex-shrink-0"
+                >
+                  space-4
+                </div>
+                <div
+                  class="bg-red-400 rounded-sm flex-shrink-0 group-hover:bg-red-500 transition-colors"
+                  style="width: 16px; height: 20px"
+                ></div>
+                <div
+                  style="font-family: var(--font-mono); font-size: 12px"
+                  class="text-stone-400"
+                >
+                  16px
+                </div>
+              </div>
+              <div class="flex items-center gap-4 group">
+                <div
+                  style="font-family: var(--font-mono); font-size: 12px"
+                  class="w-20 text-stone-400 flex-shrink-0"
+                >
+                  space-5
+                </div>
+                <div
+                  class="bg-red-400 rounded-sm flex-shrink-0 group-hover:bg-red-500 transition-colors"
+                  style="width: 20px; height: 20px"
+                ></div>
+                <div
+                  style="font-family: var(--font-mono); font-size: 12px"
+                  class="text-stone-400"
+                >
+                  20px
+                </div>
+              </div>
+              <div class="flex items-center gap-4 group">
+                <div
+                  style="font-family: var(--font-mono); font-size: 12px"
+                  class="w-20 text-stone-400 flex-shrink-0"
+                >
+                  space-6
+                </div>
+                <div
+                  class="bg-red-400 rounded-sm flex-shrink-0 group-hover:bg-red-500 transition-colors"
+                  style="width: 24px; height: 20px"
+                ></div>
+                <div
+                  style="font-family: var(--font-mono); font-size: 12px"
+                  class="text-stone-400"
+                >
+                  24px
+                </div>
+              </div>
+              <div class="flex items-center gap-4 group">
+                <div
+                  style="font-family: var(--font-mono); font-size: 12px"
+                  class="w-20 text-stone-400 flex-shrink-0"
+                >
+                  space-8
+                </div>
+                <div
+                  class="bg-red-400 rounded-sm flex-shrink-0 group-hover:bg-red-500 transition-colors"
+                  style="width: 32px; height: 20px"
+                ></div>
+                <div
+                  style="font-family: var(--font-mono); font-size: 12px"
+                  class="text-stone-400"
+                >
+                  32px
+                </div>
+              </div>
+              <div class="flex items-center gap-4 group">
+                <div
+                  style="font-family: var(--font-mono); font-size: 12px"
+                  class="w-20 text-stone-400 flex-shrink-0"
+                >
+                  space-10
+                </div>
+                <div
+                  class="bg-red-400 rounded-sm flex-shrink-0 group-hover:bg-red-500 transition-colors"
+                  style="width: 40px; height: 20px"
+                ></div>
+                <div
+                  style="font-family: var(--font-mono); font-size: 12px"
+                  class="text-stone-400"
+                >
+                  40px
+                </div>
+              </div>
+              <div class="flex items-center gap-4 group">
+                <div
+                  style="font-family: var(--font-mono); font-size: 12px"
+                  class="w-20 text-stone-400 flex-shrink-0"
+                >
+                  space-12
+                </div>
+                <div
+                  class="bg-red-400 rounded-sm flex-shrink-0 group-hover:bg-red-500 transition-colors"
+                  style="width: 48px; height: 20px"
+                ></div>
+                <div
+                  style="font-family: var(--font-mono); font-size: 12px"
+                  class="text-stone-400"
+                >
+                  48px
+                </div>
+              </div>
+              <div class="flex items-center gap-4 group">
+                <div
+                  style="font-family: var(--font-mono); font-size: 12px"
+                  class="w-20 text-stone-400 flex-shrink-0"
+                >
+                  space-16
+                </div>
+                <div
+                  class="bg-red-400 rounded-sm flex-shrink-0 group-hover:bg-red-500 transition-colors"
+                  style="width: 64px; height: 20px"
+                ></div>
+                <div
+                  style="font-family: var(--font-mono); font-size: 12px"
+                  class="text-stone-400"
+                >
+                  64px
+                </div>
+              </div>
+              <div class="flex items-center gap-4 group">
+                <div
+                  style="font-family: var(--font-mono); font-size: 12px"
+                  class="w-20 text-stone-400 flex-shrink-0"
+                >
+                  space-20
+                </div>
+                <div
+                  class="bg-red-400 rounded-sm flex-shrink-0 group-hover:bg-red-500 transition-colors"
+                  style="width: 80px; height: 20px"
+                ></div>
+                <div
+                  style="font-family: var(--font-mono); font-size: 12px"
+                  class="text-stone-400"
+                >
+                  80px
+                </div>
+              </div>
+              <div class="flex items-center gap-4 group">
+                <div
+                  style="font-family: var(--font-mono); font-size: 12px"
+                  class="w-20 text-stone-400 flex-shrink-0"
+                >
+                  space-24
+                </div>
+                <div
+                  class="bg-red-400 rounded-sm flex-shrink-0 group-hover:bg-red-500 transition-colors"
+                  style="width: 96px; height: 20px"
+                ></div>
+                <div
+                  style="font-family: var(--font-mono); font-size: 12px"
+                  class="text-stone-400"
+                >
+                  96px
+                </div>
+              </div>
+            </div>
+            <div class="mt-12">
+              <p
+                style="
+                  font-family: var(--font-mono);
+                  font-size: 10px;
+                  letter-spacing: 0.15em;
+                "
+                class="text-stone-400 uppercase mb-3"
+              >
+                Border radius
+              </p>
+              <div class="flex flex-wrap gap-6 items-end">
+                <div class="flex flex-col items-center gap-2">
+                  <div
+                    class="bg-stone-200 w-12 h-12"
+                    style="border-radius: 4px"
+                  ></div>
+                  <p
+                    style="font-family: var(--font-mono); font-size: 11px"
+                    class="text-stone-400"
+                  >
+                    sm
+                  </p>
+                  <p
+                    style="font-family: var(--font-mono); font-size: 10px"
+                    class="text-stone-300"
+                  >
+                    4px
+                  </p>
+                </div>
+                <div class="flex flex-col items-center gap-2">
+                  <div
+                    class="bg-stone-200 w-12 h-12"
+                    style="border-radius: 8px"
+                  ></div>
+                  <p
+                    style="font-family: var(--font-mono); font-size: 11px"
+                    class="text-stone-400"
+                  >
+                    md
+                  </p>
+                  <p
+                    style="font-family: var(--font-mono); font-size: 10px"
+                    class="text-stone-300"
+                  >
+                    8px
+                  </p>
+                </div>
+                <div class="flex flex-col items-center gap-2">
+                  <div
+                    class="bg-stone-200 w-12 h-12"
+                    style="border-radius: 12px"
+                  ></div>
+                  <p
+                    style="font-family: var(--font-mono); font-size: 11px"
+                    class="text-stone-400"
+                  >
+                    lg
+                  </p>
+                  <p
+                    style="font-family: var(--font-mono); font-size: 10px"
+                    class="text-stone-300"
+                  >
+                    12px
+                  </p>
+                </div>
+                <div class="flex flex-col items-center gap-2">
+                  <div
+                    class="bg-stone-200 w-12 h-12"
+                    style="border-radius: 16px"
+                  ></div>
+                  <p
+                    style="font-family: var(--font-mono); font-size: 11px"
+                    class="text-stone-400"
+                  >
+                    xl
+                  </p>
+                  <p
+                    style="font-family: var(--font-mono); font-size: 10px"
+                    class="text-stone-300"
+                  >
+                    16px
+                  </p>
+                </div>
+                <div class="flex flex-col items-center gap-2">
+                  <div
+                    class="bg-stone-200 w-12 h-12"
+                    style="border-radius: 20px"
+                  ></div>
+                  <p
+                    style="font-family: var(--font-mono); font-size: 11px"
+                    class="text-stone-400"
+                  >
+                    2xl
+                  </p>
+                  <p
+                    style="font-family: var(--font-mono); font-size: 10px"
+                    class="text-stone-300"
+                  >
+                    20px
+                  </p>
+                </div>
+                <div class="flex flex-col items-center gap-2">
+                  <div
+                    class="bg-stone-200 w-12 h-12"
+                    style="border-radius: 9999px"
+                  ></div>
+                  <p
+                    style="font-family: var(--font-mono); font-size: 11px"
+                    class="text-stone-400"
+                  >
+                    full
+                  </p>
+                  <p
+                    style="font-family: var(--font-mono); font-size: 10px"
+                    class="text-stone-300"
+                  >
+                    9999px
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+        </main>
+        <footer class="border-t border-stone-200 py-8">
+          <div class="max-w-5xl mx-auto px-6 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <div
+                class="w-5 h-5 bg-stone-900 rounded flex items-center justify-center"
+              >
+                <svg viewBox="0 0 16 16" fill="none" class="w-3 h-3">
+                  <rect
+                    x="2"
+                    y="2"
+                    width="5"
+                    height="5"
+                    fill="white"
+                    rx="0.5"
+                  ></rect>
+                  <rect
+                    x="9"
+                    y="9"
+                    width="5"
+                    height="5"
+                    fill="white"
+                    rx="0.5"
+                  ></rect>
+                </svg>
+              </div>
+              <span
+                style="font-family: var(--font-sans); font-size: 13px"
+                class="text-stone-500"
+                >Forma Design System</span
+              >
+            </div>
+            <p
+              style="font-family: var(--font-mono); font-size: 11px"
+              class="text-stone-300"
+            >
+              v2.4.0 · July 2026
+            </p>
+          </div>
+        </footer>
+      </div>
+    </div>
+    <script type="module" src="a_data/main_OzCl.js"></script>
+
+    <fg-inspector-overlay-element
+      data-html-editor-overlay="true"
+      data-h2d-ignore="true"
+    ></fg-inspector-overlay-element>
+  </body>
+</html>
