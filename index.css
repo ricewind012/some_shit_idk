@@ -1,8 +1,7 @@
-:where(*) {
-  box-sizing: border-box;
-}
-
 :root {
+  /** Primitives **/
+  --crimson-500: #ff6d6d;
+
   /** Colors **/
   --color--accent-bg: #ff6d6d;
   --color--accent-bg-hover: color-mix(
@@ -20,10 +19,13 @@
     var(--color--accent-bg) 75%,
     black
   );
-  --color--accent-bg2: #f7feff;
+  --color--accent-bg-secondary: #f7feff;
   --color--accent-fg: #fff;
 
-  --color--content-bg: #fff;
+  --color--content-bg-primary: #fff;
+  --color--content-bg-secondary: hsl(
+    from var(--color--content-bg-primary) h s calc(l - 20)
+  );
   --color--content-fg: #000;
 
   /** Shadow **/
@@ -36,11 +38,11 @@
       rgb(0 0 0 / calc(var(--shadow-opacity) * 3));
 
   /** Spacing **/
-  --spacing-05x: 3px;
-  --spacing-1x: 6px;
-  --spacing-2x: 12px;
-  --spacing-3x: 18px;
-  --spacing-4x: 24px;
+  --spacing-x05: 3px;
+  --spacing-x1: 6px;
+  --spacing-x2: 12px;
+  --spacing-x3: 18px;
+  --spacing-x4: 24px;
 
   /** Typography **/
   --text--font-family: "Quicksand", Arial, sans-serif;
@@ -88,46 +90,6 @@
   }
 }
 
-body {
-  background-image: linear-gradient(
-    90deg,
-    var(--color--accent-bg) 50%,
-    var(--color--content-bg) 50%
-  );
-  display: flex;
-  font: var(--text--body-medium);
-  margin: 0;
-
-  h1,
-  h2,
-  h3,
-  p {
-    margin: 0;
-  }
-
-  h1 {
-    font: var(--text--heading-large);
-  }
-
-  h2 {
-    font: var(--text--heading-medium);
-  }
-
-  h3 {
-    font: var(--text--heading-small);
-  }
-}
-
-:where([data-bg-clip]) {
-  background: linear-gradient(
-    90deg,
-    var(--color--accent-fg) 50%,
-    var(--color--content-fg) 50%
-  );
-  background-clip: text;
-  color: transparent;
-}
-
 @keyframes dropdown {
   from {
     transform: translateY(-10px);
@@ -140,107 +102,13 @@ body {
   }
 }
 
-/** Page **/
-
-page-content {
-  margin: auto;
-  padding-inline: var(--spacing-4x);
-  width: 40dvi;
-}
-
-page-info {
-  background: var(--color--accent-bg);
-  color: var(--color--accent-fg);
-}
-
-page-section {
-  display: flex;
-  flex-direction: column;
-  margin-block: var(--spacing-4x);
-
-  &:not(:first-child) {
-    border-block-start: 1px solid;
-    border-image: linear-gradient(
-      90deg,
-      var(--color--accent-fg) 50%,
-      var(--color--content-fg) 50%
-    );
-    border-image-slice: 1;
-    padding-block-start: var(--spacing-4x);
-  }
-
-  &:has(> page-section-part) {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-spacing-unit {
-  display: grid;
-  font-family: var(--text--font-family-monospace);
-  gap: var(--spacing-2x);
-  grid-template-columns: repeat(2, 1fr);
-
-  &:where([data-unit="05"]) {
-    --width: var(--spacing-05x);
-  }
-
-  &:where([data-unit="1"]) {
-    --width: var(--spacing-1x);
-  }
-
-  &:where([data-unit="2"]) {
-    --width: var(--spacing-2x);
-  }
-
-  &:where([data-unit="3"]) {
-    --width: var(--spacing-3x);
-  }
-
-  &:where([data-unit="4"]) {
-    --width: var(--spacing-4x);
-  }
-
-  &::before {
-    color: var(--color--accent-fg);
-    content: "--spacing-" attr(data-unit) "x";
-  }
-
-  &::after {
-    background-color: var(--color--content-fg);
-    content: "";
-    height: 1lh;
-    width: var(--width);
-  }
-}
-
-typography-info {
-  align-items: center;
-  display: grid;
-  gap: var(--spacing-4x);
-  grid-template-columns: repeat(2, 1fr);
-  margin-block: var(--spacing-05x);
-}
-
-typography-info-container {
-  color: var(--color--accent-fg);
-  display: flex;
-  flex-direction: column;
-}
-
-typography-info-name {
-  font: var(--text--heading-small);
-}
-
-/** Components **/
-
 page-button {
   background-color: var(--button-bg);
   color: var(--button-fg);
   cursor: pointer;
   display: flex;
-  gap: var(--spacing-1x);
-  padding: var(--spacing-1x) var(--spacing-2x);
+  gap: var(--spacing-x1);
+  padding: var(--spacing-x1) var(--spacing-x2);
   transition: var(--anim-time);
 
   &:where(:active) {
@@ -252,7 +120,7 @@ page-button {
   }
 
   &:where([data-where="accent"]) {
-    --button-bg: var(--color--content-bg);
+    --button-bg: var(--color--content-bg-primary);
     --button-bg-active: var(--color--content-bg-active);
     --button-bg-hover: var(--color--content-bg-hover);
     --button-fg: var(--color--content-fg);
@@ -279,14 +147,12 @@ page-menu {
   animation: dropdown var(--anim-time) cubic-bezier(0.2, 0.9, 0.6, 1);
   background: var(--menu--bg);
   color: var(--menu--fg);
-  padding: var(--menuitem--spacing) 0;
 
   &::before,
   &::after {
     content: "";
     display: block;
     height: calc(var(--menu--border-size) * 2);
-    width: 100%;
   }
 
   &::before {
@@ -326,7 +192,7 @@ page-menu {
 
 page-menu-heading {
   color: var(--menu--fg);
-  font-weight: var(--font-weight--semibold);
+  font: var(--text--heading-small);
   padding: calc(var(--menuitem--spacing) / 2) var(--menuitem--spacing);
 }
 

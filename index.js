@@ -12,6 +12,14 @@ const k_mapFonts =
 /** @type {Record< string, { strDescription: string; strHeader: string } >} */
 const k_mapText =
 {
+	intro: {
+		strDescription: "No Storybook, Figma and others, only raw CSS, as it's made primarily for theming web applications.",
+		strHeader: "Colors",
+	},
+	absent: {
+		strDescription: "",
+		strHeader: "Absent shit",
+	},
 	colors: {
 		strDescription: "A harsh contrast with the left side being focused on a specific accent color",
 		strHeader: "Colors",

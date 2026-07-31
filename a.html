@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="color-scheme" content="light dark" />
+    <link rel="stylesheet" href="page.css" />
     <link rel="stylesheet" href="index.css" />
     <script src="index.js"></script>
   </head>
@@ -10,13 +11,42 @@
   <body>
     <page-info></page-info>
     <page-content>
-      <page-section id="start">
-        <page-section-part data-name="left">
+      <page-section id="intro">
+        <page-section-grid>
           <page-button data-where="accent">Stuff</page-button>
-        </page-section-part>
-        <page-section-part data-name="right">
           <page-button data-where="content">Stuff 2</page-button>
-        </page-section-part>
+        </page-section-grid>
+      </page-section>
+
+      <page-section id="absent">
+        <page-section-grid>
+          <absent-item>
+            <h3>No rounded corners</h3>
+            <page-button data-where="accent" style="border-radius: 6px">
+              Help me
+            </page-button>
+          </absent-item>
+          <absent-item>
+            <h3>No shadows (ok that's a maybe)</h3>
+            <page-menu style="box-shadow: var(--shadow-small)">
+              <page-menu-heading>Raw file content</page-menu-heading>
+              <page-menu-item>Download</page-menu-item>
+              <page-menu-separator></page-menu-separator>
+              <page-menu-item>Jump to line</page-menu-item>
+              <page-menu-separator></page-menu-separator>
+              <page-menu-item>Copy path</page-menu-item>
+              <page-menu-item>Copy permalink</page-menu-item>
+              <page-menu-separator></page-menu-separator>
+              <page-menu-heading>View options</page-menu-heading>
+              <page-menu-item>Show code folding buttons</page-menu-item>
+              <page-menu-item>Wrap lines</page-menu-item>
+              <page-menu-item>Center content</page-menu-item>
+              <page-menu-item>Open symbols on click</page-menu-item>
+              <page-menu-separator></page-menu-separator>
+              <page-menu-item>Delete file</page-menu-item>
+            </page-menu>
+          </absent-item>
+        </page-section-grid>
       </page-section>
 
       <page-section id="colors"></page-section>
