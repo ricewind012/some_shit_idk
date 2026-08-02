@@ -1,32 +1,44 @@
 :root {
+  --base-s: 52%;
+  --base-l: 51%;
+
+  --l-step: 5;
+
   /** Primitives **/
-  --crimson-500: #ff6d6d;
+  --green-1: hsl(from var(--green-5) h s calc(l - var(--l-step) * 4));
+  --green-2: hsl(from var(--green-5) h s calc(l - var(--l-step) * 3));
+  --green-3: hsl(from var(--green-5) h s calc(l - var(--l-step) * 2));
+  --green-4: hsl(from var(--green-5) h s calc(l - var(--l-step)));
+  --green-5: hsl(120, var(--base-s), var(--base-l));
+  --green-6: hsl(from var(--green-5) h s calc(l + var(--l-step)));
+  --green-7: hsl(from var(--green-5) h s calc(l + var(--l-step) * 2));
+  --green-8: hsl(from var(--green-5) h s calc(l + var(--l-step) * 3));
+  --green-9: hsl(from var(--green-5) h s calc(l + var(--l-step) * 4));
+
+  --red-1: hsl(from var(--red-5) h s calc(l - var(--l-step) * 4));
+  --red-2: hsl(from var(--red-5) h s calc(l - var(--l-step) * 3));
+  --red-3: hsl(from var(--red-5) h s calc(l - var(--l-step) * 2));
+  --red-4: hsl(from var(--red-5) h s calc(l - var(--l-step)));
+  --red-5: #ff6d6d;
+  --red-5: hsl(0, var(--base-s), var(--base-l));
+  --red-6: hsl(from var(--red-5) h s calc(l + var(--l-step)));
+  --red-7: hsl(from var(--red-5) h s calc(l + var(--l-step) * 2));
+  --red-8: hsl(from var(--red-5) h s calc(l + var(--l-step) * 3));
+  --red-9: hsl(from var(--red-5) h s calc(l + var(--l-step) * 4));
 
   /** Colors **/
-  --color--accent-bg: #ff6d6d;
-  --color--accent-bg-hover: color-mix(
-    in srgb,
-    var(--color--accent-bg) 87.5%,
-    black
-  );
-  --color--accent-bg-active: color-mix(
-    in srgb,
-    var(--color--accent-bg) 50%,
-    black
-  );
-  --color--accent-bg-selected: color-mix(
-    in srgb,
-    var(--color--accent-bg) 75%,
-    black
-  );
-  --color--accent-bg-secondary: #f7feff;
-  --color--accent-fg: #fff;
+  --color--accent-bg: var(--red-5);
+  --color--accent-bg-secondary: var(--red-4);
+  --color--accent-fg: contrast-color(var(--color--accent-bg));
 
-  --color--content-bg-primary: #fff;
+  --color--content-bg-primary: light-dark(#fff, #000);
   --color--content-bg-secondary: hsl(
     from var(--color--content-bg-primary) h s calc(l - 20)
   );
-  --color--content-fg: #000;
+  --color--content-bg-tertiary: hsl(
+    from var(--color--content-bg-primary) h s calc(l - 20)
+  );
+  --color--content-fg: contrast-color(var(--color--content-bg-primary));
 
   /** Shadow **/
   --shadow-offset: 8px;
@@ -111,25 +123,25 @@ page-button {
   padding: var(--spacing-x1) var(--spacing-x2);
   transition: var(--anim-time);
 
-  &:where(:active) {
-    background-color: var(--button-bg-active);
-  }
-
   &:where(:hover) {
     background-color: var(--button-bg-hover);
   }
 
+  &:where(:active) {
+    background-color: var(--button-bg-active);
+  }
+
   &:where([data-where="accent"]) {
     --button-bg: var(--color--content-bg-primary);
-    --button-bg-active: var(--color--content-bg-active);
-    --button-bg-hover: var(--color--content-bg-hover);
+    --button-bg-active: var(--color--content-bg-secondary);
+    --button-bg-hover: var(--color--content-bg-tertiary);
     --button-fg: var(--color--content-fg);
   }
 
   &:where([data-where="content"]) {
-    --button-bg: var(--color--accent-bg);
-    --button-bg-active: var(--color--accent-bg-active);
-    --button-bg-hover: var(--color--accent-bg-hover);
+    --button-bg: var(--red-5);
+    --button-bg-active: var(--red-3);
+    --button-bg-hover: var(--red-4);
     --button-fg: var(--color--accent-fg);
   }
 }
@@ -192,7 +204,7 @@ page-menu {
 
 page-menu-heading {
   color: var(--menu--fg);
-  font: var(--text--heading-small);
+  font-weight: var(--text--weight-bold);
   padding: calc(var(--menuitem--spacing) / 2) var(--menuitem--spacing);
 }
 
@@ -201,26 +213,21 @@ page-menu-item {
   padding: calc(var(--menuitem--spacing) / 2) var(--menuitem--spacing);
   margin: 0;
 
-  &:hover {
-    background: var(--color--accent-bg-hover);
+  &:where(:hover) {
+    background: var(--red-4);
     color: var(--color--accent-fg);
   }
 
-  &:active {
-    background: var(--color--accent-bg-active);
+  &:where(:active) {
+    background: var(--red-3);
     color: var(--color--accent-fg);
   }
 }
 
 page-menu-separator {
-  background: color-mix(in srgb, currentColor 50%, var(--color--accent-bg));
+  background: color-mix(in hsl, currentColor 50%, var(--color--accent-bg));
   height: var(--menu--border-size);
   margin: calc(var(--menuitem--spacing) / 2) var(--menuitem--spacing);
-}
-
-.prc-PageLayout-PaneWrapper-pHPop {
-  background: var(--color--accent-bg);
-  color: var(--color--accent-fg);
 }
 
 .prc-TreeView-TreeViewItem-Ter5f[aria-current="true"]

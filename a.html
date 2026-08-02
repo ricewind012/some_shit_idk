@@ -3,9 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="color-scheme" content="light dark" />
-    <link rel="stylesheet" href="page.css" />
-    <link rel="stylesheet" href="index.css" />
-    <script src="index.js"></script>
+    <title>im not paying for figma lmfao</title>
+    <link rel="stylesheet" href="./page.css" />
+    <link rel="stylesheet" href="./page_components.css" />
+    <script src="./index.js"></script>
   </head>
 
   <body>
@@ -22,34 +23,61 @@
         <page-section-grid>
           <absent-item>
             <h3>No rounded corners</h3>
-            <page-button data-where="accent" style="border-radius: 6px">
-              Help me
-            </page-button>
+            <absent-item-content>
+              <page-button data-where="accent" style="border-radius: 6px">
+                Help me
+              </page-button>
+            </absent-item-content>
           </absent-item>
           <absent-item>
             <h3>No shadows (ok that's a maybe)</h3>
-            <page-menu style="box-shadow: var(--shadow-small)">
-              <page-menu-heading>Raw file content</page-menu-heading>
-              <page-menu-item>Download</page-menu-item>
-              <page-menu-separator></page-menu-separator>
-              <page-menu-item>Jump to line</page-menu-item>
-              <page-menu-separator></page-menu-separator>
-              <page-menu-item>Copy path</page-menu-item>
-              <page-menu-item>Copy permalink</page-menu-item>
-              <page-menu-separator></page-menu-separator>
-              <page-menu-heading>View options</page-menu-heading>
-              <page-menu-item>Show code folding buttons</page-menu-item>
-              <page-menu-item>Wrap lines</page-menu-item>
-              <page-menu-item>Center content</page-menu-item>
-              <page-menu-item>Open symbols on click</page-menu-item>
-              <page-menu-separator></page-menu-separator>
-              <page-menu-item>Delete file</page-menu-item>
-            </page-menu>
+            <absent-item-content>
+              <page-menu style="box-shadow: var(--shadow-small)">
+                <page-menu-heading>Raw file content</page-menu-heading>
+                <page-menu-item>Download</page-menu-item>
+                <page-menu-separator></page-menu-separator>
+                <page-menu-item>Jump to line</page-menu-item>
+                <page-menu-separator></page-menu-separator>
+                <page-menu-item>Copy path</page-menu-item>
+                <page-menu-item>Copy permalink</page-menu-item>
+                <page-menu-separator></page-menu-separator>
+                <page-menu-heading>View options</page-menu-heading>
+                <page-menu-item>Show code folding buttons</page-menu-item>
+                <page-menu-item>Wrap lines</page-menu-item>
+                <page-menu-item>Center content</page-menu-item>
+                <page-menu-item>Open symbols on click</page-menu-item>
+                <page-menu-separator></page-menu-separator>
+                <page-menu-item>Delete file</page-menu-item>
+              </page-menu>
+            </absent-item-content>
           </absent-item>
         </page-section-grid>
       </page-section>
 
-      <page-section id="colors"></page-section>
+      <page-section id="colors">
+        <color-gradient data-name="green"></color-gradient>
+        <color-gradient data-name="red"></color-gradient>
+        <color-gradient-controls>
+          <hsl-slider
+            data-name="h"
+            data-min="0"
+            data-max="360"
+            data-step="1"
+          ></hsl-slider>
+          <hsl-slider
+            data-name="s"
+            data-min="0"
+            data-max="100"
+            data-step="1"
+          ></hsl-slider>
+          <hsl-slider
+            data-name="l"
+            data-min="20"
+            data-max="60"
+            data-step="1"
+          ></hsl-slider>
+        </color-gradient-controls>
+      </page-section>
 
       <page-section id="spacing">
         <spacing-unit data-unit="05"></spacing-unit>
@@ -60,12 +88,62 @@
       </page-section>
 
       <page-section id="typography">
+        <typography-info>
+          <typography-info-container>
+            <typography-info-title>Quicksand</typography-info-title>
+            <typography-info-subtitle>1.4 line height</typography-info-subtitle>
+          </typography-info-container>
+          <typography-info-var>
+            <b>Fruity Dance</b> is an animation plugin. The default animation is
+            'FL Chan', the FL Studio mascot. You can control her dance movements
+            from the Piano roll by selecting a range of programmed dance moves.
+          </typography-info-var>
+        </typography-info>
         <typography-info data-name="heading-large"></typography-info>
         <typography-info data-name="heading-medium"></typography-info>
         <typography-info data-name="heading-small"></typography-info>
         <typography-info data-name="body-large"></typography-info>
         <typography-info data-name="body-medium"></typography-info>
         <typography-info data-name="body-small"></typography-info>
+      </page-section>
+
+      <page-section id="components-menu">
+        <page-section-grid>
+          <page-menu>
+            <page-menu-heading>Raw file content</page-menu-heading>
+            <page-menu-item>Download</page-menu-item>
+            <page-menu-separator></page-menu-separator>
+            <page-menu-item>Jump to line</page-menu-item>
+            <page-menu-separator></page-menu-separator>
+            <page-menu-item>Copy path</page-menu-item>
+            <page-menu-item>Copy permalink</page-menu-item>
+            <page-menu-separator></page-menu-separator>
+            <page-menu-heading>View options</page-menu-heading>
+            <page-menu-item>Show code folding buttons</page-menu-item>
+            <page-menu-item>Wrap lines</page-menu-item>
+            <page-menu-item>Center content</page-menu-item>
+            <page-menu-item>Open symbols on click</page-menu-item>
+            <page-menu-separator></page-menu-separator>
+            <page-menu-item>Delete file</page-menu-item>
+          </page-menu>
+          <page-menu>
+            <page-menu-heading>Raw file content</page-menu-heading>
+            <page-menu-item>Download</page-menu-item>
+            <page-menu-separator></page-menu-separator>
+            <page-menu-item>Jump to line</page-menu-item>
+            <page-menu-separator></page-menu-separator>
+            <page-menu-item>Copy path</page-menu-item>
+            <page-menu-item>Copy permalink</page-menu-item>
+            <page-menu-separator></page-menu-separator>
+            <page-menu-heading>View options</page-menu-heading>
+            <page-menu-item>Show code folding buttons</page-menu-item>
+            <page-menu-item>Wrap lines</page-menu-item>
+            <page-menu-item>Center content</page-menu-item>
+            <page-menu-item>Open symbols on click</page-menu-item>
+            <page-menu-separator></page-menu-separator>
+            <page-menu-item>Delete file</page-menu-item>
+          </page-menu>
+        </page-section-grid>
       </page-section>
     </page-content>
   </body>

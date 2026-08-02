@@ -8,6 +8,7 @@ body {
     var(--color--accent-bg) 50%,
     var(--color--content-bg-primary) 50%
   );
+  color: var(--color--content-fg);
   display: flex;
   font: var(--text--body-medium);
   margin: 0;
@@ -29,6 +30,17 @@ body {
 
   h3 {
     font: var(--text--heading-small);
+  }
+
+  label {
+    align-items: center;
+    color: var(--color--accent-fg);
+    display: flex;
+    justify-content: space-between;
+  }
+
+  p {
+    margin-block-end: var(--spacing-x2);
   }
 
   page-menu {
@@ -56,7 +68,7 @@ body {
 page-content {
   margin: auto;
   padding-inline: var(--spacing-x4);
-  width: max(630px, 40dvi);
+  width: max(680px, 40dvi);
 }
 
 page-info {
@@ -82,8 +94,8 @@ page-section {
 }
 
 absent-item {
-  padding-block: calc(var(--spacing-x4) * 1.5);
-  position: relative;
+  display: flex;
+  flex-direction: column;
 
   &:nth-child(even) {
     color: var(--color--content-fg);
@@ -92,6 +104,13 @@ absent-item {
   &:nth-child(odd) {
     color: var(--color--accent-fg);
   }
+}
+
+absent-item-content {
+  display: grid;
+  height: 100%;
+  place-items: center;
+  position: relative;
 
   &::before,
   &::after {
@@ -99,8 +118,9 @@ absent-item {
     background-color: currentColor;
     font: var(--text--heading-small);
     height: 2px;
-    inset: 25%;
-    inset-block-start: calc(50% + 1lh);
+    inset: 25% 10%;
+    inset-block-start: 50%;
+    pointer-events: none;
     position: absolute;
     transform: rotate(var(--deg));
   }
@@ -112,6 +132,42 @@ absent-item {
   &::after {
     --deg: 45deg;
   }
+}
+
+color-gradient {
+  display: flex;
+  flex-wrap: wrap;
+  margin-block-end: var(--spacing-x2);
+}
+
+color-gradient-container {
+  background: var(--bg);
+  box-shadow:
+    0 -2px color-mix(in srgb, var(--bg) 90%, white),
+    0 2px color-mix(in srgb, var(--bg) 90%, black);
+  color: contrast-color(var(--bg));
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-x1);
+  padding-block-start: var(--spacing-x4);
+  /* Trick for watching style changes */
+  transition: background-color 0.001ms step-start;
+  width: calc(100% / 9);
+}
+
+color-gradient-controls {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-x1);
+}
+
+color-gradient-value {
+  font: var(--text--body-small);
+  font-weight: var(--text--weight-light);
+}
+
+color-gradient-var {
+  font: var(--text--body-small);
 }
 
 spacing-unit {
@@ -159,9 +215,6 @@ spacing-unit {
 
 typography-info {
   align-items: center;
-  display: grid;
-  gap: var(--spacing-x4);
-  grid-template-columns: repeat(2, 1fr);
   margin-block: var(--spacing-x05);
 }
 
@@ -171,6 +224,6 @@ typography-info-container {
   flex-direction: column;
 }
 
-typography-info-name {
+typography-info-title {
   font: var(--text--heading-small);
 }
