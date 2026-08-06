@@ -26,6 +26,11 @@
   --red-8: hsl(from var(--red-5) h s calc(l + var(--l-step) * 3));
   --red-9: hsl(from var(--red-5) h s calc(l + var(--l-step) * 4));
 
+  /** Border **/
+  --border-sm: 1px;
+  --border-md: 2px;
+  --border-lg: 4px;
+
   /** Colors **/
   --color--accent-bg: var(--red-5);
   --color--accent-bg-secondary: var(--red-4);
@@ -40,6 +45,14 @@
   );
   --color--content-fg: contrast-color(var(--color--content-bg-primary));
 
+  /** Content width **/
+  --content-width--md: max(680px, 40dvi);
+
+  /** Icon size **/
+  --icon-size-sm: 0.75rem;
+  --icon-size-md: 1rem;
+  --icon-size-lg: 1.25rem;
+
   /** Shadow **/
   --shadow-offset: 8px;
   --shadow-size: 16px;
@@ -50,11 +63,11 @@
       rgb(0 0 0 / calc(var(--shadow-opacity) * 3));
 
   /** Spacing **/
-  --spacing-x05: 3px;
-  --spacing-x1: 6px;
-  --spacing-x2: 12px;
-  --spacing-x3: 18px;
-  --spacing-x4: 24px;
+  --spacing-xs: 3px;
+  --spacing-sm: 6px;
+  --spacing-md: 12px;
+  --spacing-lg: 18px;
+  --spacing-xl: 24px;
 
   /** Typography **/
   --text--font-family: "Quicksand", Arial, sans-serif;
@@ -96,6 +109,7 @@
 
   /** Other **/
   --anim-time: 100ms;
+  --disabled-opacity: 0.5;
 
   @media (prefers-reduced-motion) {
     --anim-time: 0ms;
@@ -115,12 +129,14 @@
 }
 
 page-button {
+  align-items: center;
   background-color: var(--button-bg);
   color: var(--button-fg);
   cursor: pointer;
   display: flex;
-  gap: var(--spacing-x1);
-  padding: var(--spacing-x1) var(--spacing-x2);
+  font: var(--text--body-medium);
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
   transition: var(--anim-time);
 
   &:where(:hover) {
@@ -129,6 +145,23 @@ page-button {
 
   &:where(:active) {
     background-color: var(--button-bg-active);
+  }
+
+  &:where([data-disabled]) {
+    opacity: var(--disabled-opacity);
+    pointer-events: none;
+  }
+
+  &:where([data-variant="combobox"]) {
+    justify-content: space-between;
+
+    &::after {
+      background-color: currentColor;
+      content: "";
+      height: var(--icon-size-md);
+      mask: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20128%20128%22%20x%3D%220px%22%20y%3D%220px%22%3E%3Cpolygon%20points%3D%2250%2059.49%2013.21%2022.89%204.74%2031.39%2050%2076.41%2095.26%2031.39%2086.79%2022.89%2050%2059.49%22%3E%3C%2Fpolygon%3E%3C%2Fsvg%3E");
+      width: var(--icon-size-md);
+    }
   }
 
   &:where([data-where="accent"]) {
@@ -144,6 +177,20 @@ page-button {
     --button-bg-hover: var(--red-4);
     --button-fg: var(--color--accent-fg);
   }
+
+  &:where([data-state="failure"]) {
+    --button-bg: var(--green-5);
+    --button-bg-active: var(--green-3);
+    --button-bg-hover: var(--green-4);
+    --button-fg: var(--color--accent-fg);
+  }
+
+  &:where([data-state="success"]) {
+    --button-bg: var(--green-5);
+    --button-bg-active: var(--green-3);
+    --button-bg-hover: var(--green-4);
+    --button-fg: var(--color--accent-fg);
+  }
 }
 
 page-menu {
@@ -152,7 +199,9 @@ page-menu {
 
   --menu--border-color-start: white;
   --menu--border-color-end: black;
-  --menu--border-size: 2px;
+  --menu--border-size: var(--border-md);
+  --menu--icon-gap: var(--spacing-sm);
+  --menu--icon-size: var(--icon-size-md);
 
   --menuitem--spacing: 8px;
 
@@ -170,13 +219,13 @@ page-menu {
   &::before {
     background-image: linear-gradient(
       color-mix(
-          in srgb,
+          in hsl,
           var(--color--accent-bg) 50%,
           var(--menu--border-color-start)
         )
         var(--menu--border-size),
       color-mix(
-          in srgb,
+          in hsl,
           var(--color--accent-bg) 75%,
           var(--menu--border-color-start)
         )
@@ -187,13 +236,13 @@ page-menu {
   &::after {
     background-image: linear-gradient(
       color-mix(
-          in srgb,
+          in hsl,
           var(--color--accent-bg) 87.5%,
           var(--menu--border-color-end)
         )
         var(--menu--border-size),
       color-mix(
-          in srgb,
+          in hsl,
           var(--color--accent-bg) 75%,
           var(--menu--border-color-end)
         )
@@ -206,6 +255,7 @@ page-menu-heading {
   color: var(--menu--fg);
   font-weight: var(--text--weight-bold);
   padding: calc(var(--menuitem--spacing) / 2) var(--menuitem--spacing);
+  margin-inline-start: calc(var(--menu--icon-size) + var(--menu--icon-gap));
 }
 
 page-menu-item {
@@ -221,6 +271,21 @@ page-menu-item {
   &:where(:active) {
     background: var(--red-3);
     color: var(--color--accent-fg);
+  }
+
+  &:where([data-disabled]) {
+    color: var(--disabled-opacity);
+    pointer-events: none;
+  }
+
+  &::before {
+    background-color: currentColor;
+    content: "";
+    display: inline-block;
+    height: var(--menu--icon-size);
+    margin-inline-end: var(--menu--icon-gap);
+    vertical-align: center;
+    width: var(--menu--icon-size);
   }
 }
 

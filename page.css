@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+:where([hidden]) {
+  display: none !important;
+}
+
 body {
   background-image: linear-gradient(
     90deg,
@@ -40,7 +44,7 @@ body {
   }
 
   p {
-    margin-block-end: var(--spacing-x2);
+    margin-block-end: var(--spacing-md);
   }
 
   page-menu {
@@ -60,15 +64,16 @@ body {
 }
 
 :where([data-two-columns-section], page-section-grid) {
+  align-items: start;
   display: grid;
-  gap: var(--spacing-x4);
+  gap: var(--spacing-lg) var(--spacing-xl);
   grid-template-columns: repeat(2, 1fr);
 }
 
 page-content {
   margin: auto;
-  padding-inline: var(--spacing-x4);
-  width: max(680px, 40dvi);
+  padding-inline: var(--spacing-xl);
+  width: var(--content-width--md);
 }
 
 page-info {
@@ -79,17 +84,17 @@ page-info {
 page-section {
   display: flex;
   flex-direction: column;
-  margin-block: var(--spacing-x4);
+  margin-block: var(--spacing-xl);
 
   &:not(:first-child) {
-    border-block-start: 1px solid;
+    border-block-start: var(--border-md) solid;
     border-image: linear-gradient(
       90deg,
       var(--color--accent-fg) 50%,
       var(--color--content-fg) 50%
     );
     border-image-slice: 1;
-    padding-block-start: var(--spacing-x4);
+    padding-block-start: var(--spacing-xl);
   }
 }
 
@@ -137,19 +142,19 @@ absent-item-content {
 color-gradient {
   display: flex;
   flex-wrap: wrap;
-  margin-block-end: var(--spacing-x2);
+  margin-block-end: var(--spacing-md);
 }
 
 color-gradient-container {
   background: var(--bg);
-  box-shadow:
-    0 -2px color-mix(in srgb, var(--bg) 90%, white),
-    0 2px color-mix(in srgb, var(--bg) 90%, black);
+  border-block: var(--border-md) solid;
+  border-block-start-color: hsl(from var(--bg) h s calc(l + 10));
+  border-block-end-color: hsl(from var(--bg) h s calc(l - 10));
   color: contrast-color(var(--bg));
   display: flex;
   flex-direction: column;
-  padding: var(--spacing-x1);
-  padding-block-start: var(--spacing-x4);
+  padding: var(--spacing-sm);
+  padding-block-start: var(--spacing-xl);
   /* Trick for watching style changes */
   transition: background-color 0.001ms step-start;
   width: calc(100% / 9);
@@ -158,7 +163,7 @@ color-gradient-container {
 color-gradient-controls {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-x1);
+  gap: var(--spacing-sm);
 }
 
 color-gradient-value {
@@ -173,32 +178,32 @@ color-gradient-var {
 spacing-unit {
   display: grid;
   font-family: var(--text--font-family-monospace);
-  gap: var(--spacing-x2);
+  gap: var(--spacing-md);
   grid-template-columns: repeat(2, 1fr);
 
-  &:where([data-unit="05"]) {
-    --width: var(--spacing-x05);
+  &:where([data-unit="xs"]) {
+    --width: var(--spacing-xs);
   }
 
-  &:where([data-unit="1"]) {
-    --width: var(--spacing-x1);
+  &:where([data-unit="sm"]) {
+    --width: var(--spacing-sm);
   }
 
-  &:where([data-unit="2"]) {
-    --width: var(--spacing-x2);
+  &:where([data-unit="md"]) {
+    --width: var(--spacing-md);
   }
 
-  &:where([data-unit="3"]) {
-    --width: var(--spacing-x3);
+  &:where([data-unit="lg"]) {
+    --width: var(--spacing-lg);
   }
 
-  &:where([data-unit="4"]) {
-    --width: var(--spacing-x4);
+  &:where([data-unit="xl"]) {
+    --width: var(--spacing-xl);
   }
 
   &::before {
     color: var(--color--accent-fg);
-    content: "--spacing-x" attr(data-unit);
+    content: "--spacing-" attr(data-unit);
   }
 
   &::after {
@@ -215,7 +220,7 @@ spacing-unit {
 
 typography-info {
   align-items: center;
-  margin-block: var(--spacing-x05);
+  margin-block: var(--spacing-xs);
 }
 
 typography-info-container {
@@ -226,4 +231,7 @@ typography-info-container {
 
 typography-info-title {
   font: var(--text--heading-small);
+}
+
+#components-menu--toggle-menu-button {
 }

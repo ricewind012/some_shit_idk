@@ -80,11 +80,11 @@
       </page-section>
 
       <page-section id="spacing">
-        <spacing-unit data-unit="05"></spacing-unit>
-        <spacing-unit data-unit="1"></spacing-unit>
-        <spacing-unit data-unit="2"></spacing-unit>
-        <spacing-unit data-unit="3"></spacing-unit>
-        <spacing-unit data-unit="4"></spacing-unit>
+        <spacing-unit data-unit="xs"></spacing-unit>
+        <spacing-unit data-unit="sm"></spacing-unit>
+        <spacing-unit data-unit="md"></spacing-unit>
+        <spacing-unit data-unit="lg"></spacing-unit>
+        <spacing-unit data-unit="xl"></spacing-unit>
       </page-section>
 
       <page-section id="typography">
@@ -107,26 +107,29 @@
         <typography-info data-name="body-small"></typography-info>
       </page-section>
 
+      <page-section id="components-button">
+        <page-section-grid>
+          <page-button data-where="accent"> Button in accent </page-button>
+          <page-button data-where="content"> Button in content </page-button>
+          <page-button data-where="accent" data-variant="combobox">
+            Combobox
+          </page-button>
+          <page-button data-state="success">
+            Button with state="success"
+          </page-button>
+        </page-section-grid>
+      </page-section>
+
       <page-section id="components-menu">
         <page-section-grid>
-          <page-menu>
-            <page-menu-heading>Raw file content</page-menu-heading>
-            <page-menu-item>Download</page-menu-item>
-            <page-menu-separator></page-menu-separator>
-            <page-menu-item>Jump to line</page-menu-item>
-            <page-menu-separator></page-menu-separator>
-            <page-menu-item>Copy path</page-menu-item>
-            <page-menu-item>Copy permalink</page-menu-item>
-            <page-menu-separator></page-menu-separator>
-            <page-menu-heading>View options</page-menu-heading>
-            <page-menu-item>Show code folding buttons</page-menu-item>
-            <page-menu-item>Wrap lines</page-menu-item>
-            <page-menu-item>Center content</page-menu-item>
-            <page-menu-item>Open symbols on click</page-menu-item>
-            <page-menu-separator></page-menu-separator>
-            <page-menu-item>Delete file</page-menu-item>
-          </page-menu>
-          <page-menu>
+          <page-button
+            data-variant="combobox"
+            data-where="accent"
+            id="components-menu--toggle-menu-button"
+          >
+            Toggle menu
+          </page-button>
+          <page-menu id="components-menu--menu" hidden>
             <page-menu-heading>Raw file content</page-menu-heading>
             <page-menu-item>Download</page-menu-item>
             <page-menu-separator></page-menu-separator>

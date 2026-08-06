@@ -25,12 +25,21 @@ const k_mapText =
 		strHeader: "Colors",
 	},
 	spacing: {
-		strDescription: "maybe base it on text size XD",
+		strDescription: "based on text size XD",
 		strHeader: "Spacing",
 	},
 	typography: {
-		strDescription: "dogshit olol",
+		strDescription: "STOOOOOOOLEN",
 		strHeader: "Typography",
+	},
+
+	"components-button": {
+		strDescription: "yep",
+		strHeader: "Components - Button",
+	},
+	"components-menu": {
+		strDescription: "It's usually in the content, so should not have content colors... right ?",
+		strHeader: "Components - Menu",
 	},
 };
 
@@ -80,7 +89,7 @@ function RgbToHex( r, g, b )
 /**
  * @param {string} srgb
  */
-function SrgbToHex(srgb)
+function SrgbToHex( srgb )
 {
 	const match = srgb.match( /^color\(srgb\s+(.+?)\s+(.+?)\s+(.+?)\)$/ );
 	const r = Math.round( Number.parseFloat( match[1] ) * 255 );
@@ -214,4 +223,16 @@ customElements.define( "typography-info", class extends HTMLElement
 
 document.addEventListener( "DOMContentLoaded", () =>
 {
+	/** @param {string} id */
+	const id = ( id ) => document.getElementById( id );
+	const els =
+	{
+		cMenu_Menu: id( "components-menu--menu" ),
+		cMenu_ToggleMenu: id( "components-menu--toggle-menu-button" ),
+	};
+
+	els.cMenu_ToggleMenu.addEventListener( "click", () =>
+	{
+		els.cMenu_Menu.hidden = !els.cMenu_Menu.hidden;
+	} );
 });
