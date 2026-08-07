@@ -47,9 +47,23 @@ body {
     margin-block-end: var(--spacing-md);
   }
 
+  page-dialog {
+    inset: 0;
+    margin: auto;
+    position: fixed;
+  }
+
   page-menu {
     display: flex;
     flex-direction: column;
+
+    &:where([data-anchored]) {
+      position: absolute;
+      position-anchor: var(--anchor-id);
+      inset-block-start: calc(anchor(bottom) + var(--spacing-md));
+      inset-inline-start: anchor(left);
+      inset-inline-end: anchor(right);
+    }
   }
 }
 
@@ -101,6 +115,7 @@ page-section {
 absent-item {
   display: flex;
   flex-direction: column;
+  height: 100%;
 
   &:nth-child(even) {
     color: var(--color--content-fg);

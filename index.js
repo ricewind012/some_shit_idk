@@ -21,7 +21,7 @@ const k_mapText =
 		strHeader: "Absent shit",
 	},
 	colors: {
-		strDescription: "A harsh contrast with the left side being focused on a specific accent color. Calculated by lightness.",
+		strDescription: "A (by default) harsh contrast with the left side being focused on a specific accent color. Freely configurable saturation and lightness.",
 		strHeader: "Colors",
 	},
 	spacing: {
@@ -37,9 +37,17 @@ const k_mapText =
 		strDescription: "yep",
 		strHeader: "Components - Button",
 	},
+	"components-dialog": {
+		strDescription: "yes",
+		strHeader: "Components - Dialog",
+	},
 	"components-menu": {
 		strDescription: "It's usually in the content, so should not have content colors... right ?",
 		strHeader: "Components - Menu",
+	},
+	"components-slider": {
+		strDescription: "yes",
+		strHeader: "Components - Slider",
 	},
 };
 
@@ -227,9 +235,22 @@ document.addEventListener( "DOMContentLoaded", () =>
 	const id = ( id ) => document.getElementById( id );
 	const els =
 	{
+		cDialog_Dialog: id( "dialog" ),
+		cDialog_OK: id( "components-dialog--ok-button" ),
+		cDialog_OpenDialog: id( "components-dialog--open-dialog-button" ),
 		cMenu_Menu: id( "components-menu--menu" ),
 		cMenu_ToggleMenu: id( "components-menu--toggle-menu-button" ),
 	};
+
+	els.cDialog_OpenDialog.addEventListener( "click", () =>
+	{
+		els.cDialog_Dialog.hidden = false;
+	} );
+
+	els.cDialog_OK.addEventListener( "click", () =>
+	{
+		els.cDialog_Dialog.hidden = true;
+	} );
 
 	els.cMenu_ToggleMenu.addEventListener( "click", () =>
 	{

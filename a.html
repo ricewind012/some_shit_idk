@@ -32,7 +32,7 @@
           <absent-item>
             <h3>No shadows (ok that's a maybe)</h3>
             <absent-item-content>
-              <page-menu style="box-shadow: var(--shadow-small)">
+              <page-menu style="box-shadow: var(--popup-shadow-small)">
                 <page-menu-heading>Raw file content</page-menu-heading>
                 <page-menu-item>Download</page-menu-item>
                 <page-menu-separator></page-menu-separator>
@@ -67,12 +67,12 @@
           <hsl-slider
             data-name="s"
             data-min="0"
-            data-max="100"
+            data-max="60"
             data-step="1"
           ></hsl-slider>
           <hsl-slider
             data-name="l"
-            data-min="20"
+            data-min="25"
             data-max="60"
             data-step="1"
           ></hsl-slider>
@@ -117,6 +117,19 @@
           <page-button data-state="success">
             Button with state="success"
           </page-button>
+          <page-button data-state="danger">
+            Button with state="danger"
+          </page-button>
+        </page-section-grid>
+      </page-section>
+
+      <page-section id="components-dialog">
+        <page-section-grid>
+          <page-button
+            data-where="accent"
+            id="components-dialog--open-dialog-button"
+            >Open dialog</page-button
+          >
         </page-section-grid>
       </page-section>
 
@@ -126,10 +139,16 @@
             data-variant="combobox"
             data-where="accent"
             id="components-menu--toggle-menu-button"
+            style="anchor-name: --toggle-menu-button"
           >
             Toggle menu
           </page-button>
-          <page-menu id="components-menu--menu" hidden>
+          <page-menu
+            id="components-menu--menu"
+            hidden
+            data-anchored
+            style="--anchor-id: --toggle-menu-button"
+          >
             <page-menu-heading>Raw file content</page-menu-heading>
             <page-menu-item>Download</page-menu-item>
             <page-menu-separator></page-menu-separator>
@@ -149,5 +168,25 @@
         </page-section-grid>
       </page-section>
     </page-content>
+
+    <page-dialog-backdrop>
+      <page-dialog id="dialog" hidden data-size="md">
+        <page-dialog-header>
+          <page-dialog-title>Dialog (wip)</page-dialog-title>
+          <page-button data-variant="icon" data-where="accent"
+            >Close</page-button
+          >
+        </page-dialog-header>
+        <page-dialog-body>
+          stuff here later for dialog width maybeeeeeeeee idk
+        </page-dialog-body>
+        <page-dialog-footer>
+          <page-button id="components-dialog--ok-button" data-where="accent">
+            OK
+          </page-button>
+          <page-button data-where="accent">Cancel</page-button>
+        </page-dialog-footer>
+      </page-dialog>
+    </page-dialog-backdrop>
   </body>
 </html>
