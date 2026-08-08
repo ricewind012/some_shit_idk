@@ -99,7 +99,7 @@ function RgbToHex( r, g, b )
  */
 function SrgbToHex( srgb )
 {
-	const match = srgb.match( /^color\(srgb\s+(.+?)\s+(.+?)\s+(.+?)\)$/ );
+	const match = srgb.match( /^color\(srgb\s+(.+?)\s+(.+?)\s+(.+?)\)/ );
 	const r = Math.round( Number.parseFloat( match[1] ) * 255 );
 	const g = Math.round( Number.parseFloat( match[2] ) * 255 );
 	const b = Math.round( Number.parseFloat( match[3] ) * 255 );
@@ -120,7 +120,6 @@ customElements.define( "color-gradient", class extends HTMLElement
 	connectedCallback()
 	{
 		const { name } = this.dataset;
-		console.assert( name, "<color-gradient> element without a name present: %o", this );
 
 		const colors = [ "1", "2", "3", "4", "5", "6", "7", "8", "9" ];
 		for ( const color of colors )
@@ -138,41 +137,42 @@ customElements.define( "color-gradient", class extends HTMLElement
 			const elValue = CreateElement( "color-gradient-value", {}, val );
 			elContainer.appendChild( elValue );
 
-			elContainer.addEventListener( "transitionstart",  ( ev ) =>
+			elContainer.addEventListener( "transitionstart",	( ev ) =>
 			{
-				if ( ev.propertyName === "background-color" )
+				if ( ev.propertyName !== "background-color" )
 				{
-					const val = this.GetHexColor(
-						getComputedStyle( elContainer ).background,
-					);
-					elValue.textContent = val;
+					return;
 				}
+
+				const val = this.GetHexColor( getComputedStyle( elContainer ).background );
+				elValue.textContent = val;
 			} );
 		}
 	}
 } );
 
-customElements.define( "hsl-slider", class extends HTMLElement
+customElements.define( "color-slider", class extends HTMLElement
 {
 	m_labels =
 	{
-		h: "Hue",
-		s: "Saturation",
-		l: "Lightness",
+		"accent-h": "Accent hue",
+		"base-s": "Saturation",
+		"base-l": "Lightness",
+		"l-step": "Lightness step",
 	};
 
 	connectedCallback()
 	{
 		const { max, min, name, step } = this.dataset;
-		const bIsValidName = name === "h" || name === "s" || name === "l";
-		console.assert( bIsValidName, "<hsl-slider> element with a wrong name: %o", this );
+		const doc = document.documentElement;
+		const prop = `--${ name }`;
 
 		const elInput = CreateElement( "input", { type: "range", min, max, step }, "" );
+		elInput.value = getComputedStyle( doc ).getPropertyValue( prop ).replace( "%", "" );
 		elInput.addEventListener( "input", ( ev ) => 
 		{
-			const doc = document.documentElement;
-			const value = name === "h" ? elInput.value : `${ elInput.value }%`;
-			doc.style.setProperty( `--base-${ name }`, value );
+			const value = name.startsWith( "base" ) ? `${ elInput.value }%` : elInput.value;
+			doc.style.setProperty( prop, value );
 		} );
 
 		this.appendChild(
@@ -184,12 +184,59 @@ customElements.define( "hsl-slider", class extends HTMLElement
 	}
 } );
 
+customElements.define( "menu-stuff", class extends HTMLElement
+{
+	connectedCallback()
+	{
+		// Stolen from GitHub's kebab menu in code view
+		this.innerHTML = `
+			<page-menu>
+				<page-menu-heading>
+					Raw file content
+				</page-menu-heading>
+				<page-menu-item data-icon="download">
+					Download
+				</page-menu-item>
+				<page-menu-separator></page-menu-separator>
+				<page-menu-item data-icon="code">
+					Jump to line
+				</page-menu-item>
+				<page-menu-separator></page-menu-separator>
+				<page-menu-item data-icon="conversion_path">
+					Copy path
+				</page-menu-item>
+				<page-menu-item data-icon="link">
+					Copy permalink
+				</page-menu-item>
+				<page-menu-separator></page-menu-separator>
+				<page-menu-heading>
+					View options
+				</page-menu-heading>
+				<page-menu-item data-icon="unfold_less">
+					Show code folding buttons
+				</page-menu-item>
+				<page-menu-item data-icon="wrap_text">
+					Wrap lines
+				</page-menu-item>
+				<page-menu-item data-icon="align_center">
+					Center content
+				</page-menu-item>
+				<page-menu-item data-icon="left_click">
+					Open symbols on click
+				</page-menu-item>
+				<page-menu-separator></page-menu-separator>
+				<page-menu-item data-icon="delete">
+					Delete file
+				</page-menu-item>
+			</page-menu>
+		`;
+	}
+} );
+
 customElements.define( "page-section", class extends HTMLElement
 {
 	connectedCallback()
 	{
-		console.assert( this.id, "<page-section> element without an id present: %o", this );
-
 		const { strDescription, strHeader } = k_mapText[ this.id ];
 		const elDescription = CreateElement( "h2", { "data-bg-clip": "" }, strHeader );
 		this.appendChild( elDescription );
@@ -236,21 +283,65 @@ document.addEventListener( "DOMContentLoaded", () =>
 	const els =
 	{
 		cDialog_Dialog: id( "dialog" ),
+		cDialog_DialogBackdrop: id( "dialog-backdrop" ),
 		cDialog_OK: id( "components-dialog--ok-button" ),
 		cDialog_OpenDialog: id( "components-dialog--open-dialog-button" ),
 		cMenu_Menu: id( "components-menu--menu" ),
 		cMenu_ToggleMenu: id( "components-menu--toggle-menu-button" ),
 	};
 
+	//
+	// Radios
+	//
+
+	const k_RadioCallbacks =
+	{
+		"radio--dialog-size": ( arg ) =>
+		{
+			els.cDialog_Dialog.dataset.size = arg;
+		},
+		"radio--dialog-variant": ( arg ) =>
+		{
+			els.cDialog_Dialog.dataset.variant = arg;
+		},
+	};
+
+	for ( const container of document.querySelectorAll( "page-radio-container" ) )
+	{
+		const { name } = container.dataset;
+		for ( const radio of container.children )
+		{
+			radio.addEventListener( "click", () =>
+			{
+				for ( const radio of container.children )
+				{
+					delete radio.dataset.checked;
+				}
+				radio.dataset.checked = "";
+
+				const { arg } = radio.dataset;
+				k_RadioCallbacks[ name ]( arg );
+			} );
+		}
+	}
+
+	//
+	// Dialog
+	//
+
 	els.cDialog_OpenDialog.addEventListener( "click", () =>
 	{
-		els.cDialog_Dialog.hidden = false;
+		els.cDialog_DialogBackdrop.hidden = false;
 	} );
 
 	els.cDialog_OK.addEventListener( "click", () =>
 	{
-		els.cDialog_Dialog.hidden = true;
+		els.cDialog_DialogBackdrop.hidden = true;
 	} );
+
+	//
+	// Menu
+	//
 
 	els.cMenu_ToggleMenu.addEventListener( "click", () =>
 	{

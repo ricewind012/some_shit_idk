@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-icon-variant="rounded">
   <head>
     <meta charset="utf-8" />
     <meta name="color-scheme" content="light dark" />
@@ -30,25 +30,11 @@
             </absent-item-content>
           </absent-item>
           <absent-item>
-            <h3>No shadows (ok that's a maybe)</h3>
+            <h3>No shadows</h3>
             <absent-item-content>
-              <page-menu style="box-shadow: var(--popup-shadow-small)">
-                <page-menu-heading>Raw file content</page-menu-heading>
-                <page-menu-item>Download</page-menu-item>
-                <page-menu-separator></page-menu-separator>
-                <page-menu-item>Jump to line</page-menu-item>
-                <page-menu-separator></page-menu-separator>
-                <page-menu-item>Copy path</page-menu-item>
-                <page-menu-item>Copy permalink</page-menu-item>
-                <page-menu-separator></page-menu-separator>
-                <page-menu-heading>View options</page-menu-heading>
-                <page-menu-item>Show code folding buttons</page-menu-item>
-                <page-menu-item>Wrap lines</page-menu-item>
-                <page-menu-item>Center content</page-menu-item>
-                <page-menu-item>Open symbols on click</page-menu-item>
-                <page-menu-separator></page-menu-separator>
-                <page-menu-item>Delete file</page-menu-item>
-              </page-menu>
+              <menu-stuff
+                style="box-shadow: var(--popup-shadow-small)"
+              ></menu-stuff>
             </absent-item-content>
           </absent-item>
         </page-section-grid>
@@ -58,24 +44,30 @@
         <color-gradient data-name="green"></color-gradient>
         <color-gradient data-name="red"></color-gradient>
         <color-gradient-controls>
-          <hsl-slider
-            data-name="h"
+          <color-slider
+            data-name="accent-h"
             data-min="0"
             data-max="360"
             data-step="1"
-          ></hsl-slider>
-          <hsl-slider
-            data-name="s"
+          ></color-slider>
+          <color-slider
+            data-name="base-s"
             data-min="0"
             data-max="60"
             data-step="1"
-          ></hsl-slider>
-          <hsl-slider
-            data-name="l"
+          ></color-slider>
+          <color-slider
+            data-name="base-l"
             data-min="25"
             data-max="60"
             data-step="1"
-          ></hsl-slider>
+          ></color-slider>
+          <color-slider
+            data-name="l-step"
+            data-min="1"
+            data-max="7"
+            data-step="0.1"
+          ></color-slider>
         </color-gradient-controls>
       </page-section>
 
@@ -143,42 +135,40 @@
           >
             Toggle menu
           </page-button>
-          <page-menu
+          <menu-stuff
             id="components-menu--menu"
             hidden
             data-anchored
             style="--anchor-id: --toggle-menu-button"
-          >
-            <page-menu-heading>Raw file content</page-menu-heading>
-            <page-menu-item>Download</page-menu-item>
-            <page-menu-separator></page-menu-separator>
-            <page-menu-item>Jump to line</page-menu-item>
-            <page-menu-separator></page-menu-separator>
-            <page-menu-item>Copy path</page-menu-item>
-            <page-menu-item>Copy permalink</page-menu-item>
-            <page-menu-separator></page-menu-separator>
-            <page-menu-heading>View options</page-menu-heading>
-            <page-menu-item>Show code folding buttons</page-menu-item>
-            <page-menu-item>Wrap lines</page-menu-item>
-            <page-menu-item>Center content</page-menu-item>
-            <page-menu-item>Open symbols on click</page-menu-item>
-            <page-menu-separator></page-menu-separator>
-            <page-menu-item>Delete file</page-menu-item>
-          </page-menu>
+          ></menu-stuff>
         </page-section-grid>
       </page-section>
     </page-content>
 
-    <page-dialog-backdrop>
-      <page-dialog id="dialog" hidden data-size="md">
+    <page-dialog-backdrop id="dialog-backdrop" hidden data-variant="accent">
+      <page-dialog id="dialog" data-size="md">
         <page-dialog-header>
           <page-dialog-title>Dialog (wip)</page-dialog-title>
-          <page-button data-variant="icon" data-where="accent"
-            >Close</page-button
-          >
+          <page-button data-variant="icon" data-where="accent"></page-button>
         </page-dialog-header>
         <page-dialog-body>
           stuff here later for dialog width maybeeeeeeeee idk
+          <page-field>
+            Dialog size
+            <page-radio-container data-name="radio--dialog-size">
+              <page-button data-arg="sm"></page-button>
+              <page-button data-arg="md"></page-button>
+              <page-button data-arg="lg"></page-button>
+              <page-button data-arg="fill"></page-button>
+            </page-radio-container>
+          </page-field>
+          <page-field>
+            Dialog variant
+            <page-radio-container data-name="radio--dialog-variant">
+              <page-button data-arg="accent"></page-button>
+              <page-button data-arg="bordered"></page-button>
+            </page-radio-container>
+          </page-field>
         </page-dialog-body>
         <page-dialog-footer>
           <page-button id="components-dialog--ok-button" data-where="accent">
