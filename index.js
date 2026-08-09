@@ -169,7 +169,7 @@ customElements.define( "color-slider", class extends HTMLElement
 
 		const elInput = CreateElement( "input", { type: "range", min, max, step }, "" );
 		elInput.value = getComputedStyle( doc ).getPropertyValue( prop ).replace( "%", "" );
-		elInput.addEventListener( "input", ( ev ) => 
+		elInput.addEventListener( "input", () =>
 		{
 			const value = name.startsWith( "base" ) ? `${ elInput.value }%` : elInput.value;
 			doc.style.setProperty( prop, value );
