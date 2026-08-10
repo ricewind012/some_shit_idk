@@ -22,6 +22,10 @@
   src: url("./material-symbols-sharp.woff2") format("woff2");
 }
 
+.__fx-devtools-hide-shortcut__ {
+  display: none !important;
+}
+
 :where(*) {
   box-sizing: border-box;
 }
@@ -194,7 +198,7 @@ absent-item-content {
 color-gradient {
   display: flex;
   flex-wrap: wrap;
-  margin-block-end: var(--spacing-md);
+  margin-block-end: var(--spacing-sm);
 }
 
 color-gradient-container {

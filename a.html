@@ -33,7 +33,20 @@
             <h3>No shadows</h3>
             <absent-item-content>
               <menu-stuff
-                style="box-shadow: var(--popup-shadow-small)"
+                data-name="showcase"
+                style="
+                  --popup--shadow-offset: 6px;
+                  --popup--shadow-size: 12px;
+                  --popup--shadow-opacity: 0.1;
+                  --popup--shadow:
+                    0 var(--popup--shadow-offset) var(--popup--shadow-size)
+                      hsl(0 0 0 / var(--popup--shadow-opacity)),
+                    0 calc(var(--popup--shadow-offset) * 3)
+                      calc(var(--popup--shadow-size) * 3)
+                      hsl(0 0 0 / calc(var(--popup--shadow-opacity) * 3));
+
+                  box-shadow: var(--popup--shadow);
+                "
               ></menu-stuff>
             </absent-item-content>
           </absent-item>
@@ -41,6 +54,7 @@
       </page-section>
 
       <page-section id="colors">
+        <color-gradient data-name="blue"></color-gradient>
         <color-gradient data-name="green"></color-gradient>
         <color-gradient data-name="red"></color-gradient>
         <color-gradient-controls>
@@ -139,6 +153,7 @@
             id="components-menu--menu"
             hidden
             data-anchored
+            data-name="github"
             style="--anchor-id: --toggle-menu-button"
           ></menu-stuff>
         </page-section-grid>

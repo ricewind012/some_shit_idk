@@ -186,10 +186,10 @@ customElements.define( "color-slider", class extends HTMLElement
 
 customElements.define( "menu-stuff", class extends HTMLElement
 {
-	connectedCallback()
+	m_menus =
 	{
 		// Stolen from GitHub's kebab menu in code view
-		this.innerHTML = `
+		github: `
 			<page-menu>
 				<page-menu-heading>
 					Raw file content
@@ -212,16 +212,16 @@ customElements.define( "menu-stuff", class extends HTMLElement
 				<page-menu-heading>
 					View options
 				</page-menu-heading>
-				<page-menu-item data-icon="unfold_less">
+				<page-menu-item data-checked data-icon="unfold_less">
 					Show code folding buttons
 				</page-menu-item>
-				<page-menu-item data-icon="wrap_text">
+				<page-menu-item data-disabled data-icon="wrap_text">
 					Wrap lines
 				</page-menu-item>
-				<page-menu-item data-icon="align_center">
+				<page-menu-item data-hover data-icon="align_center">
 					Center content
 				</page-menu-item>
-				<page-menu-item data-icon="left_click">
+				<page-menu-item data-active data-icon="left_click">
 					Open symbols on click
 				</page-menu-item>
 				<page-menu-separator></page-menu-separator>
@@ -229,7 +229,39 @@ customElements.define( "menu-stuff", class extends HTMLElement
 					Delete file
 				</page-menu-item>
 			</page-menu>
-		`;
+		`,
+		showcase: `
+			<page-menu>
+				<page-menu-item data-checked data-icon="unfold_less">
+					Checked
+				</page-menu-item>
+				<page-menu-item data-disabled data-icon="wrap_text">
+					Disabled
+				</page-menu-item>
+				<page-menu-item data-hover data-icon="align_center">
+					Hover state
+				</page-menu-item>
+				<page-menu-item data-active data-icon="left_click">
+					Active state
+				</page-menu-item>
+				<page-menu-separator></page-menu-separator>
+				<page-menu-item data-radio data-checked data-icon="database">
+					Radio checked
+				</page-menu-item>
+				<page-menu-item data-radio data-checked data-icon="deceased">
+					Radio unchecked
+				</page-menu-item>
+				<page-menu-item data-radio data-checked data-icon="distance">
+					Radio unchecked
+				</page-menu-item>
+			</page-menu>
+		`,
+	};
+
+	connectedCallback()
+	{
+		const { name } = this.dataset;
+		this.innerHTML = this.m_menus[ name ];
 	}
 } );
 

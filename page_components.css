@@ -15,6 +15,16 @@
   --accent-8: hsl(from var(--accent-5) h s calc(l + var(--l-step) * 3));
   --accent-9: hsl(from var(--accent-5) h s calc(l + var(--l-step) * 4));
 
+  --blue-1: hsl(from var(--blue-5) h s calc(l - var(--l-step) * 4));
+  --blue-2: hsl(from var(--blue-5) h s calc(l - var(--l-step) * 3));
+  --blue-3: hsl(from var(--blue-5) h s calc(l - var(--l-step) * 2));
+  --blue-4: hsl(from var(--blue-5) h s calc(l - var(--l-step)));
+  --blue-5: hsl(180 var(--base-s) var(--base-l));
+  --blue-6: hsl(from var(--blue-5) h s calc(l + var(--l-step)));
+  --blue-7: hsl(from var(--blue-5) h s calc(l + var(--l-step) * 2));
+  --blue-8: hsl(from var(--blue-5) h s calc(l + var(--l-step) * 3));
+  --blue-9: hsl(from var(--blue-5) h s calc(l + var(--l-step) * 4));
+
   --green-1: hsl(from var(--green-5) h s calc(l - var(--l-step) * 4));
   --green-2: hsl(from var(--green-5) h s calc(l - var(--l-step) * 3));
   --green-3: hsl(from var(--green-5) h s calc(l - var(--l-step) * 2));
@@ -150,6 +160,11 @@
   @media (prefers-reduced-motion) {
     --anim-time: 0ms;
   }
+
+  /* todo? idk */
+  @media (prefers-contrast) {
+    --l-step: 7;
+  }
 }
 
 @keyframes popup-dropdown {
@@ -246,9 +261,6 @@ page-button {
 
 page-dialog {
   animation: var(--popup--animation);
-  /*
-  box-shadow: var(--popup--shadow);
-  */
   display: flex;
   flex-direction: column;
 
@@ -270,6 +282,30 @@ page-dialog {
   &:where([data-size="fill"]) {
     max-block-size: 100dvb;
     max-inline-size: 100dvi;
+  }
+
+  /* that's a maybe */
+  &::before,
+  &::after {
+    border-block: var(--menu--shadow-border-size) solid;
+    content: "";
+    display: block;
+    position: absolute;
+
+    --menu--shadow-border-size: 1px;
+    width: 100%;
+  }
+
+  &::before {
+    border-block-start-color: hsl(255 255 255 / 0.5);
+    border-block-end-color: hsl(255 255 255 / 0.25);
+    inset-block-start: 0;
+  }
+
+  &::after {
+    border-block-start-color: hsl(0 0 0 / 0.25);
+    border-block-end-color: hsl(0 0 0 / 0.5);
+    inset-block-end: 0;
   }
 }
 
@@ -356,28 +392,24 @@ page-field {
   padding-block: var(--spacing-sm);
 
   &:not(:last-child) {
-    border-block-end: var(--border-md) solid currentColor;
+    border-block-end: var(--border-sm) solid currentColor;
   }
 }
 
 page-menu {
-  --menu--bg: var(--popup--bg);
-  --menu--fg: var(--popup--fg);
-  --menu--border-color-start: white;
-  --menu--border-color-end: black;
-  --menu--border-size: var(--border-md);
   --menu--icon-gap: var(--spacing-sm);
   --menu--icon-size: var(--icon-size-md);
-
+  --menu--shadow-border-size: var(--border-md);
   --menuitem--spacing: 8px;
 
   animation: var(--popup--animation);
-  background: var(--menu--bg);
-  color: var(--menu--fg);
+  background: var(--popup--bg);
+  color: var(--popup--fg);
+  line-height: calc(var(--menu--icon-size) / var(--text--body-medium-size));
 
   &::before,
   &::after {
-    border-block: var(--menu--border-size) solid;
+    border-block: var(--menu--shadow-border-size) solid;
     content: "";
     display: block;
   }
@@ -385,19 +417,18 @@ page-menu {
   &::before {
     border-block-start-color: hsl(255 255 255 / 0.5);
     border-block-end-color: hsl(255 255 255 / 0.25);
+    margin-block-end: var(--menu--shadow-border-size);
   }
 
   &::after {
     border-block-start-color: hsl(0 0 0 / 0.25);
     border-block-end-color: hsl(0 0 0 / 0.5);
+    margin-block-start: var(--menu--shadow-border-size);
   }
-  
-  &::before{margin-block-end:2px}
-  &::after{margin-block-start:2px}
 }
 
 page-menu-heading {
-  color: var(--menu--fg);
+  color: var(--popup--fg);
   font-weight: var(--text--weight-bold);
   padding: calc(var(--menuitem--spacing) / 2) var(--menuitem--spacing);
   margin-inline-start: calc(var(--menu--icon-size) + var(--menu--icon-gap));
@@ -405,21 +436,52 @@ page-menu-heading {
 
 page-menu-item {
   align-items: center;
+  background: var(--bg);
   color: var(--color--accent-fg);
+  color: contrast-color(var(--bg, var(--popup--bg)));
+  cursor: pointer;
   display: flex;
-  line-height: calc(var(--menu--icon-size) / var(--text--body-medium-size));
   padding: calc(var(--menuitem--spacing) / 2) var(--menuitem--spacing);
+  position: relative;
 
-  &:where(:hover) {
-    background: var(--accent-4);
+  &:where([data-hover], :hover) {
+    --bg: var(--accent-4);
   }
 
-  &:where(:active) {
-    background: var(--accent-3);
+  &:where([data-active], :active) {
+    --bg: var(--accent-3);
+  }
+
+  &:where([data-checked]:not([data-radio]))::after {
+    border-inline: var(--menu--shadow-border-size) solid;
+    border-inline-start-color: var(--blue-5);
+    border-inline-end-color: hsl(from var(--blue-5) h s l / 0.5);
+    content: "";
+    height: 100%;
+    inset-inline-start: 0;
+    position: absolute;
+  }
+
+  &:where([data-radio]) {
+    &::after {
+      border-inline-start: var(--menu--shadow-border-size) solid var(--blue-5);
+      content: "";
+      height: 50%;
+      inset-inline-start: 0;
+      position: absolute;
+      transition: height var(--anim-time);
+    }
+
+    &:where(:hover)::after {
+      height: 100%;
+    }
+
+    &:where([data-checked])::after {
+    }
   }
 
   &:where([data-disabled]) {
-    color: var(--disabled-opacity);
+    opacity: var(--disabled-opacity);
     pointer-events: none;
   }
 
@@ -438,7 +500,7 @@ page-menu-item {
 
 page-menu-separator {
   background: currentColor;
-  height: var(--menu--border-size);
+  height: var(--border-md);
   margin: calc(var(--menuitem--spacing) / 2) var(--menuitem--spacing);
 }
 
