@@ -290,10 +290,10 @@ page-dialog {
     border-block: var(--menu--shadow-border-size) solid;
     content: "";
     display: block;
+    inline-size: 100%;
     position: absolute;
 
     --menu--shadow-border-size: 1px;
-    width: 100%;
   }
 
   &::before {
@@ -453,30 +453,32 @@ page-menu-item {
   }
 
   &:where([data-checked]:not([data-radio]))::after {
+    block-size: 100%;
     border-inline: var(--menu--shadow-border-size) solid;
     border-inline-start-color: var(--blue-5);
     border-inline-end-color: hsl(from var(--blue-5) h s l / 0.5);
     content: "";
-    height: 100%;
     inset-inline-start: 0;
     position: absolute;
   }
 
   &:where([data-radio]) {
     &::after {
-      border-inline-start: var(--menu--shadow-border-size) solid var(--blue-5);
+      block-size: 50%;
+      border-inline-start: solid var(--blue-5);
+      border-inline-start-width: calc(var(--menu--shadow-border-size) / 2);
       content: "";
-      height: 50%;
       inset-inline-start: 0;
       position: absolute;
-      transition: height var(--anim-time);
+      transition: block-size var(--anim-time);
     }
 
     &:where(:hover)::after {
-      height: 100%;
+      block-size: 100%;
     }
 
     &:where([data-checked])::after {
+      border-inline-start-width: var(--menu--shadow-border-size);
     }
   }
 
@@ -487,20 +489,20 @@ page-menu-item {
 
   &::before {
     align-items: center;
+    block-size: var(--menu--icon-size);
     content: attr(data-icon);
     display: inline-flex;
     font-family: var(--text--font-family-icon);
     font-size: var(--menu--icon-size);
-    height: var(--menu--icon-size);
+    inline-size: var(--menu--icon-size);
     justify-content: center;
     margin-inline-end: var(--menu--icon-gap);
-    width: var(--menu--icon-size);
   }
 }
 
 page-menu-separator {
   background: currentColor;
-  height: var(--border-md);
+  block-size: var(--border-md);
   margin: calc(var(--menuitem--spacing) / 2) var(--menuitem--spacing);
 }
 
@@ -540,13 +542,13 @@ page-radio-container {
     border-color: var(--sidebar-item-selected-elevation-1);
     inset-block-end: calc(var(--sidebar-item-selected-border-size) * -1);
     inset-inline-start: var(--sidebar-item-selected-border-offset);
-    width: calc(100% - var(--sidebar-item-selected-border-offset) * 2);
+    inline-size: calc(100% - var(--sidebar-item-selected-border-offset) * 2);
   }
 
   &::after {
     border-color: var(--sidebar-item-selected-elevation-1);
     inset-block-end: calc(var(--sidebar-item-selected-border-size) * -2);
     inset-inline-start: calc(var(--sidebar-item-selected-border-offset) * 2);
-    width: calc(100% - var(--sidebar-item-selected-border-offset) * 4);
+    inline-size: calc(100% - var(--sidebar-item-selected-border-offset) * 4);
   }
 }

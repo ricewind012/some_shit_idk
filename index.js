@@ -232,6 +232,9 @@ customElements.define( "menu-stuff", class extends HTMLElement
 		`,
 		showcase: `
 			<page-menu>
+				<page-menu-heading>
+					States
+				</page-menu-heading>
 				<page-menu-item data-checked data-icon="unfold_less">
 					Checked
 				</page-menu-item>
@@ -245,6 +248,9 @@ customElements.define( "menu-stuff", class extends HTMLElement
 					Active state
 				</page-menu-item>
 				<page-menu-separator></page-menu-separator>
+				<page-menu-heading>
+					Radios
+				</page-menu-heading>
 				<page-menu-item data-radio data-checked data-icon="database">
 					Radio checked
 				</page-menu-item>
