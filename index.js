@@ -21,7 +21,7 @@ const k_mapText =
 		strHeader: "Absent shit",
 	},
 	colors: {
-		strDescription: "A (by default) harsh contrast with the left side being focused on a specific accent color. Freely configurable saturation and lightness.",
+		strDescription: "A (by default) harsh contrast with the left side being focused on a specific accent color. Freely configurable saturation and lightness, with lightness step being set to max on high contrast.",
 		strHeader: "Colors",
 	},
 	spacing: {
@@ -237,15 +237,27 @@ customElements.define( "menu-stuff", class extends HTMLElement
 				</page-menu-heading>
 				<page-menu-item data-checked data-icon="unfold_less">
 					Checked
+					<page-menu-item-description>
+						Some kind of description
+					</page-menu-item-description>
 				</page-menu-item>
 				<page-menu-item data-disabled data-icon="wrap_text">
 					Disabled
+					<page-menu-item-description>
+						Some kind of description
+					</page-menu-item-description>
 				</page-menu-item>
 				<page-menu-item data-hover data-icon="align_center">
 					Hover state
+					<page-menu-item-description>
+						Some kind of description
+					</page-menu-item-description>
 				</page-menu-item>
 				<page-menu-item data-active data-icon="left_click">
 					Active state
+					<page-menu-item-description>
+						Some kind of description
+					</page-menu-item-description>
 				</page-menu-item>
 				<page-menu-separator></page-menu-separator>
 				<page-menu-heading>
@@ -385,4 +397,26 @@ document.addEventListener( "DOMContentLoaded", () =>
 	{
 		els.cMenu_Menu.hidden = !els.cMenu_Menu.hidden;
 	} );
+
+	// Page nav
+	const k_ButtonToSectionID =
+	{
+		info: "intro",
+		close: "absent",
+		colors: "colors",
+		space_bar: "spacing",
+		custom_typography: "typography",
+		left_click: "components-button",
+		select_window_2: "components-dialog",
+		menu: "components-menu",
+	};
+	for ( const btn of document.querySelectorAll( "page-nav > page-button" ) )
+	{
+		const strSectionID = k_ButtonToSectionID[ btn.dataset.icon ];
+		btn.children[ 0 ].textContent = k_mapText[ strSectionID ].strHeader;
+		btn.addEventListener( "click", () =>
+		{
+			location.hash = strSectionID;
+		} );
+	}
 });

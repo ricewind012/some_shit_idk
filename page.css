@@ -34,6 +34,12 @@
   display: none !important;
 }
 
+html {
+  @media not (prefers-reduced-motion) {
+    scroll-behavior: smooth;
+  }
+}
+
 body {
   background: linear-gradient(
     90deg,
@@ -73,6 +79,10 @@ body {
     margin-block-end: var(--spacing-md);
   }
 
+  page-button:where([data-variant="icon"]) {
+    --icon: attr(data-icon);
+  }
+
   page-dialog {
     inset: 0;
     margin: auto;
@@ -89,6 +99,19 @@ body {
     &::before {
       content: attr(data-arg);
     }
+  }
+
+  page-tooltip {
+    inset-inline-start: calc(100% + var(--spacing-md));
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    transition: var(--motion-duration-short);
+    transition-delay: 250ms;
+  }
+
+  page-button:hover > page-tooltip {
+    opacity: 1;
   }
 }
 
@@ -131,15 +154,21 @@ page-icon {
   justify-content: center;
 }
 
-page-info {
-  background: var(--color--accent-bg);
+page-nav {
+  background: var(--color--accent-bg-secondary);
   color: var(--color--accent-fg);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  inset: 0;
+  inset-inline-end: unset;
 }
 
 page-section {
   display: flex;
   flex-direction: column;
   margin-block: var(--spacing-xl);
+  scroll-margin-block: var(--spacing-xl);
 
   &:not(:first-child) {
     border-block-start: var(--border-md) solid;
@@ -216,12 +245,6 @@ color-gradient-container {
   /* Trick for watching style changes */
   transition: background-color 0.001ms step-start;
 
-  color-gradient-controls {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-sm);
-  }
-
   color-gradient-value {
     font: var(--text--body-small);
     font-weight: var(--text--weight-light);
@@ -230,6 +253,10 @@ color-gradient-container {
   color-gradient-var {
     font: var(--text--body-small);
   }
+}
+
+color-gradient-controls {
+  margin-block-start: var(--spacing-sm);
 }
 
 color-slider {
