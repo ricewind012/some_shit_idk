@@ -39,8 +39,13 @@ const k_mapStatusText =
 		bDone: false,
 		strTitle: "Others",
 		vecDescription: [
-			"Maybe do it like in Primer? Avatars, alerts, etc.",
+			"Maybe do these like in Primer? Avatars, alerts, etc.",
+			"Cards (maybe like in <color-gradient>)",
+			"Checkboxes",
+			"Radios",
 			"Sliders",
+			"Tags",
+			"Text inputs",
 		],
 	},
 };
@@ -327,9 +332,9 @@ customElements.define( "page-section", class extends HTMLElement
 {
 	connectedCallback()
 	{
-		const strHeaderTag = this.parentElement.children[0] === this ? "h1" : "h2";
 		const { strDescription, strHeader } = k_mapText[ this.id ];
 
+		const strHeaderTag = this.parentElement.children[ 0 ] === this ? "h1" : "h2";
 		const elDescription = CreateElement( strHeaderTag, { "data-bg-clip": "" }, strHeader );
 		this.appendChild( elDescription );
 		const elHeader = CreateElement( "p", { "data-bg-clip": "" }, strDescription );

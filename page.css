@@ -246,9 +246,13 @@ color-gradient-container {
   flex-direction: column;
   inline-size: calc(100% / 9);
   padding: var(--spacing-sm);
-  padding-block-start: var(--spacing-xl);
   /* Trick for watching style changes */
   transition: background-color 0.001ms step-start;
+
+  &::before {
+    block-size: var(--spacing-xl);
+    content: "";
+  }
 
   color-gradient-value {
     font: var(--text--body-sm);
