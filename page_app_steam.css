@@ -1,0 +1,76 @@
+#dialog-backdrop--steam > page-dialog {
+  flex-direction: row;
+
+  &::before,
+  &::after {
+    display: none;
+  }
+
+  * {
+    display: flex;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    --dark: flex;
+    --light: none;
+  }
+
+  @media (prefers-color-scheme: light) {
+    --dark: none;
+    --light: flex;
+  }
+
+  .dark {
+    display: var(--dark);
+  }
+
+  .light {
+    display: var(--light);
+  }
+}
+
+steam-content {
+  background: var(--color--content-bg-primary);
+  color: var(--color--content-fg);
+  flex-grow: 1;
+}
+
+steam-library-app-logo {
+  position: absolute;
+  inset-block-end: var(--spacing-xl);
+  inset-inline-start: var(--spacing-xl);
+}
+
+steam-library-app-hero {
+  inline-size: 100%;
+
+  & > img {
+    inline-size: 100%;
+  }
+}
+
+steam-library-app-hero-container {
+  block-size: 25%;
+  inline-size: 100%;
+  position: relative;
+}
+
+steam-sidebar-container {
+  background: var(--color--accent-bg);
+  color: var(--color--accent-fg);
+  flex-direction: column;
+  min-inline-size: 25%;
+}
+
+steam-sidebar-game-list {
+  flex-grow: 1;
+}
+
+steam-sidebar-top {
+  padding: var(--spacing-md);
+
+  page-button[data-variant="combobox"] {
+    flex-grow: 1;
+    margin-inline-end: var(--spacing-md);
+  }
+}

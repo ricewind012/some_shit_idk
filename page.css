@@ -48,7 +48,7 @@ body {
   );
   color: var(--color--content-fg);
   display: flex;
-  font: var(--text--body-medium);
+  font: var(--text--body-md);
   margin: 0;
 
   h1,
@@ -59,15 +59,16 @@ body {
   }
 
   h1 {
-    font: var(--text--heading-large);
+    font: var(--text--heading-lg);
   }
 
   h2 {
-    font: var(--text--heading-medium);
+    font: var(--text--heading-md);
   }
 
   h3 {
-    font: var(--text--heading-small);
+    font: var(--text--heading-sm);
+    margin-block: var(--spacing-md) var(--spacing-xs);
   }
 
   label {
@@ -112,6 +113,10 @@ body {
 
   page-button:hover > page-tooltip {
     opacity: 1;
+  }
+
+  absent-item-content > menu-stuff {
+    inline-size: 100%;
   }
 }
 
@@ -168,7 +173,7 @@ page-section {
   display: flex;
   flex-direction: column;
   margin-block: var(--spacing-xl);
-  scroll-margin-block: var(--spacing-xl);
+  scroll-margin-block: calc(var(--border-md) * -1);
 
   &:not(:first-child) {
     border-block-start: var(--border-md) solid;
@@ -207,7 +212,7 @@ absent-item-content {
     background: currentColor;
     block-size: 2px;
     content: "";
-    font: var(--text--heading-small);
+    font: var(--text--heading-sm);
     inset: 25% 10%;
     inset-block-start: 50%;
     pointer-events: none;
@@ -246,12 +251,12 @@ color-gradient-container {
   transition: background-color 0.001ms step-start;
 
   color-gradient-value {
-    font: var(--text--body-small);
+    font: var(--text--body-sm);
     font-weight: var(--text--weight-light);
   }
 
   color-gradient-var {
-    font: var(--text--body-small);
+    font: var(--text--body-sm);
   }
 }
 
@@ -309,6 +314,40 @@ spacing-unit {
   }
 }
 
+status-container {
+  &:not(:last-child) {
+    margin-block-end: var(--spacing-md);
+  }
+
+  page-checkbox {
+    display: inline-block;
+    margin-inline-end: var(--spacing-sm);
+  }
+}
+
+status-description {
+  display: flex;
+  flex-direction: column;
+  margin-block-start: var(--spacing-xs);
+}
+
+status-description-item {
+  counter-increment: count;
+  display: flex;
+
+  &::before {
+    content: counter(count) ")";
+    display: inline-block;
+    font-family: var(--text--font-family-monospace);
+    min-inline-size: 20px;
+    opacity: var(--disabled-opacity);
+  }
+}
+
+status-title {
+  font: var(--text--heading-sm);
+}
+
 typography-info {
   align-items: center;
   margin-block: var(--spacing-xs);
@@ -321,5 +360,5 @@ typography-info-container {
 }
 
 typography-info-title {
-  font: var(--text--heading-small);
+  font: var(--text--heading-sm);
 }

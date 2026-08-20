@@ -6,6 +6,7 @@
     <title>im not paying for figma lmfao</title>
     <link rel="stylesheet" href="./page.css" />
     <link rel="stylesheet" href="./page_components.css" />
+    <link rel="stylesheet" href="./page_app_steam.css" />
     <script src="./index.js"></script>
   </head>
 
@@ -61,6 +62,13 @@
         </page-section-grid>
       </page-section>
 
+      <page-section id="status">
+        <status-container data-name="button"></status-container>
+        <status-container data-name="dialog"></status-container>
+        <status-container data-name="menu"></status-container>
+        <status-container data-name="others"></status-container>
+      </page-section>
+
       <page-section id="absent">
         <page-section-grid>
           <absent-item>
@@ -82,10 +90,15 @@
                   --popup--shadow-opacity: 0.1;
                   --popup--shadow:
                     0 var(--popup--shadow-offset) var(--popup--shadow-size)
-                      hsl(0 0 0 / var(--popup--shadow-opacity)),
+                      hsl(
+                        from currentColor h s l / var(--popup--shadow-opacity)
+                      ),
                     0 calc(var(--popup--shadow-offset) * 3)
                       calc(var(--popup--shadow-size) * 3)
-                      hsl(0 0 0 / calc(var(--popup--shadow-opacity) * 3));
+                      hsl(
+                        from currentColor h s l /
+                          calc(var(--popup--shadow-opacity) * 3)
+                      );
 
                   box-shadow: var(--popup--shadow);
                 "
@@ -96,10 +109,16 @@
       </page-section>
 
       <page-section id="colors">
+        <h3 data-bg-clip>Primitives</h3>
         <color-gradient data-name="accent"></color-gradient>
         <color-gradient data-name="blue"></color-gradient>
         <color-gradient data-name="green"></color-gradient>
         <color-gradient data-name="red"></color-gradient>
+        <color-gradient data-name="white"></color-gradient>
+
+        <h3 data-bg-clip>Tokens</h3>
+        todo
+
         <color-gradient-controls>
           <color-slider
             data-name="accent-h"
@@ -148,12 +167,12 @@
             from the Piano roll by selecting a range of programmed dance moves.
           </typography-info-var>
         </typography-info>
-        <typography-info data-name="heading-large"></typography-info>
-        <typography-info data-name="heading-medium"></typography-info>
-        <typography-info data-name="heading-small"></typography-info>
-        <typography-info data-name="body-large"></typography-info>
-        <typography-info data-name="body-medium"></typography-info>
-        <typography-info data-name="body-small"></typography-info>
+        <typography-info data-name="heading-lg"></typography-info>
+        <typography-info data-name="heading-md"></typography-info>
+        <typography-info data-name="heading-sm"></typography-info>
+        <typography-info data-name="body-lg"></typography-info>
+        <typography-info data-name="body-md"></typography-info>
+        <typography-info data-name="body-sm"></typography-info>
       </page-section>
 
       <page-section id="components-button">
@@ -177,8 +196,15 @@
           <page-button
             data-where="accent"
             id="components-dialog--open-dialog-button"
-            >Open dialog</page-button
           >
+            Open dialog
+          </page-button>
+          <page-button
+            data-where="accent"
+            id="components-dialog--open-steam-button"
+          >
+            Open Steam app mockup
+          </page-button>
         </page-section-grid>
       </page-section>
 
@@ -203,7 +229,11 @@
       </page-section>
     </page-content>
 
-    <page-dialog-backdrop id="dialog-backdrop" hidden data-variant="accent">
+    <page-dialog-backdrop
+      id="dialog-backdrop--showcase"
+      hidden
+      data-variant="accent"
+    >
       <page-dialog id="dialog" data-size="md">
         <page-dialog-header>
           <page-dialog-title>Dialog (wip)</page-dialog-title>
@@ -234,6 +264,58 @@
           </page-button>
           <page-button data-where="accent">Cancel</page-button>
         </page-dialog-footer>
+      </page-dialog>
+    </page-dialog-backdrop>
+
+    <page-dialog-backdrop id="dialog-backdrop--steam" hidden>
+      <page-dialog data-size="fill">
+        <steam-sidebar-container>
+          <steam-sidebar-top>
+            <page-button data-variant="combobox" data-where="accent">
+              Games
+            </page-button>
+            <page-button
+              data-variant="icon"
+              data-where="accent"
+              data-icon="desktop_windows"
+            ></page-button>
+            <page-button
+              data-variant="icon"
+              data-where="accent"
+              data-icon="nest_clock_farsight_analog"
+            ></page-button>
+            <page-button
+              data-variant="icon"
+              data-where="accent"
+              data-icon="play_circle"
+            ></page-button>
+          </steam-sidebar-top>
+          <steam-sidebar-game-list></steam-sidebar-game-list>
+        </steam-sidebar-container>
+        <steam-content>
+          <steam-library-app-hero-container>
+            <steam-library-app-hero>
+              <img
+                class="dark"
+                src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3557620/library_hero.jpg"
+              />
+              <img
+                class="light"
+                src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/17410/library_hero.jpg"
+              />
+            </steam-library-app-hero>
+            <steam-library-app-logo>
+              <img
+                class="dark"
+                src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3557620/c33ea91a3b132483b94da790da8005d2ac314c4a/logo.png"
+              />
+              <img
+                class="light"
+                src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/17410/logo.png"
+              />
+            </steam-library-app-logo>
+          </steam-library-app-hero-container>
+        </steam-content>
       </page-dialog>
     </page-dialog-backdrop>
   </body>

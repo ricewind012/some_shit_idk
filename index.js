@@ -1,12 +1,48 @@
 /** @type {Record< string, string >} */
 const k_mapFonts =
 {
-	"heading-large": "Heading (large)",
-	"heading-medium": "Heading (medium)",
-	"heading-small": "Heading (small)",
-	"body-large": "Body (large)",
-	"body-medium": "Body (medium)",
-	"body-small": "Body (small)",
+	"heading-lg": "Heading (large)",
+	"heading-md": "Heading (medium)",
+	"heading-sm": "Heading (small)",
+	"body-lg": "Body (large)",
+	"body-md": "Body (medium)",
+	"body-sm": "Body (small)",
+};
+
+/** @type {Record< string, { bDone: boolean; strTitle: string; vecDescription: string } >} */
+const k_mapStatusText =
+{
+	button: {
+		bDone: false,
+		strTitle: "Button",
+		vecDescription: [
+			"Fix icon variant hover",
+		],
+	},
+	dialog: {
+		bDone: false,
+		strTitle: "Dialog",
+		vecDescription: [
+			"Decide on a single variant, but both look like shit",
+			"Decide on backdrop, maybe make it lighter/darker",
+		],
+	},
+	menu: {
+		bDone: false,
+		strTitle: "Button",
+		vecDescription: [
+			"Checked variant looks weird, other color?",
+			"Finish the vars for it, like bg-{hover,active}, etc.",
+		],
+	},
+	others: {
+		bDone: false,
+		strTitle: "Others",
+		vecDescription: [
+			"Maybe do it like in Primer? Avatars, alerts, etc.",
+			"Sliders",
+		],
+	},
 };
 
 /** @type {Record< string, { strDescription: string; strHeader: string } >} */
@@ -16,16 +52,20 @@ const k_mapText =
 		strDescription: "No Storybook, Figma and others, only raw CSS, as it's made primarily for theming web applications, easily copypastable.",
 		strHeader: "hello",
 	},
+	status: {
+		strDescription: "Is x or y done?",
+		strHeader: "Status",
+	},
 	absent: {
-		strDescription: "desc",
-		strHeader: "Absent shit",
+		strDescription: "Things not used in the design.",
+		strHeader: "Absent",
 	},
 	colors: {
-		strDescription: "A (by default) harsh contrast with the left side being focused on a specific accent color. Freely configurable saturation and lightness, with lightness step being set to max on high contrast.",
+		strDescription: "A harsh contrast with the left side being focused on a specific accent color. Freely configurable saturation and lightness, with lightness step being set to max on high contrast.",
 		strHeader: "Colors",
 	},
 	spacing: {
-		strDescription: "based on text size XD",
+		strDescription: "Compact (todo density) and based on text size. (todo actually)",
 		strHeader: "Spacing",
 	},
 	typography: {
@@ -177,7 +217,7 @@ customElements.define( "color-slider", class extends HTMLElement
 
 		this.appendChild(
 			CreateElement( "label", {}, [
-				CreateElement( "h3", {}, this.m_labels[ name ] ),
+				CreateElement( "color-slider-label", {}, this.m_labels[ name ] ),
 				elInput,
 			] ),
 		);
@@ -250,7 +290,7 @@ customElements.define( "menu-stuff", class extends HTMLElement
 				<page-menu-item data-hover data-icon="align_center">
 					Hover state
 					<page-menu-item-description>
-						Some kind of description
+						May be used for focus as well
 					</page-menu-item-description>
 				</page-menu-item>
 				<page-menu-item data-active data-icon="left_click">
@@ -287,11 +327,41 @@ customElements.define( "page-section", class extends HTMLElement
 {
 	connectedCallback()
 	{
+		const strHeaderTag = this.parentElement.children[0] === this ? "h1" : "h2";
 		const { strDescription, strHeader } = k_mapText[ this.id ];
-		const elDescription = CreateElement( "h2", { "data-bg-clip": "" }, strHeader );
+
+		const elDescription = CreateElement( strHeaderTag, { "data-bg-clip": "" }, strHeader );
 		this.appendChild( elDescription );
 		const elHeader = CreateElement( "p", { "data-bg-clip": "" }, strDescription );
 		this.appendChild( elHeader );
+	}
+} );
+
+customElements.define( "status-container", class extends HTMLElement
+{
+	connectedCallback()
+	{
+		this.dataset.bgClip = true;
+		this.dataset.twoColumnsSection = true;
+
+		const { name } = this.dataset;
+		const { bDone, strTitle, vecDescription } = k_mapStatusText[ name ];
+		this.appendChild(
+			CreateElement( "status-container-left", {}, [
+				CreateElement( "page-checkbox", bDone && { "data-checked": true }, "" ),
+				CreateElement( "status-title", {}, strTitle ),
+			], ),
+		);
+
+		const elDescription = this.appendChild(
+			CreateElement( "status-description", {}, "" ),
+		);
+		for ( const desc of vecDescription )
+		{
+			elDescription.appendChild(
+				CreateElement( "status-description-item", {}, desc ),
+			);
+		}
 	}
 } );
 
@@ -334,8 +404,10 @@ document.addEventListener( "DOMContentLoaded", () =>
 	{
 		cDialog_Dialog: id( "dialog" ),
 		cDialog_DialogBackdrop: id( "dialog-backdrop" ),
+		cDialog_DialogSteamBackdrop: id( "dialog-backdrop--steam" ),
 		cDialog_OK: id( "components-dialog--ok-button" ),
 		cDialog_OpenDialog: id( "components-dialog--open-dialog-button" ),
+		cDialog_OpenSteam: id( "components-dialog--open-steam-button" ),
 		cMenu_Menu: id( "components-menu--menu" ),
 		cMenu_ToggleMenu: id( "components-menu--toggle-menu-button" ),
 	};
@@ -352,7 +424,7 @@ document.addEventListener( "DOMContentLoaded", () =>
 		},
 		"radio--dialog-variant": ( arg ) =>
 		{
-			els.cDialog_Dialog.dataset.variant = arg;
+			els.cDialog_DialogBackdrop.dataset.variant = arg;
 		},
 	};
 
@@ -382,6 +454,11 @@ document.addEventListener( "DOMContentLoaded", () =>
 	els.cDialog_OpenDialog.addEventListener( "click", () =>
 	{
 		els.cDialog_DialogBackdrop.hidden = false;
+	} );
+
+	els.cDialog_OpenSteam.addEventListener( "click", () =>
+	{
+		els.cDialog_DialogSteamBackdrop.hidden = false;
 	} );
 
 	els.cDialog_OK.addEventListener( "click", () =>
