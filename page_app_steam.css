@@ -36,13 +36,13 @@ steam-content {
 }
 
 steam-library-app-logo {
-  position: absolute;
-  inset-block-end: var(--spacing-xl);
-  inset-inline-start: var(--spacing-xl);
+  & > img {
+    margin: var(--spacing-xl) auto;
+  }
 }
 
 steam-library-app-hero {
-  inline-size: 100%;
+  inset: 0;
 
   & > img {
     inline-size: 100%;
@@ -50,7 +50,7 @@ steam-library-app-hero {
 }
 
 steam-library-app-hero-container {
-  block-size: 25%;
+  block-size: 360px;
   inline-size: 100%;
   position: relative;
 }
@@ -59,7 +59,7 @@ steam-sidebar-container {
   background: var(--color--accent-bg);
   color: var(--color--accent-fg);
   flex-direction: column;
-  min-inline-size: 25%;
+  max-inline-size: 320px;
 }
 
 steam-sidebar-game-list {

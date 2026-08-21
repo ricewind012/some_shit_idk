@@ -343,8 +343,8 @@ status-description-item {
     content: counter(count) ")";
     display: inline-block;
     font-family: var(--text--font-family-monospace);
-    min-inline-size: 20px;
-    opacity: var(--disabled-opacity);
+    min-inline-size: 3ch;
+    opacity: var(--dim-opacity);
   }
 }
 

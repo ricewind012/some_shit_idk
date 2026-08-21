@@ -47,6 +47,16 @@
   --red-8: hsl(from var(--red-5) h s calc(l + var(--l-step) * 3));
   --red-9: hsl(from var(--red-5) h s calc(l + var(--l-step) * 4));
 
+  --black-1: hsl(from var(--black-5) h s calc(l - var(--l-step) * 4));
+  --black-2: hsl(from var(--black-5) h s calc(l - var(--l-step) * 3));
+  --black-3: hsl(from var(--black-5) h s calc(l - var(--l-step) * 2));
+  --black-4: hsl(from var(--black-5) h s calc(l - var(--l-step)));
+  --black-5: hsl(0 0 28%);
+  --black-6: hsl(from var(--black-5) h s calc(l + var(--l-step)));
+  --black-7: hsl(from var(--black-5) h s calc(l + var(--l-step) * 2));
+  --black-8: hsl(from var(--black-5) h s calc(l + var(--l-step) * 3));
+  --black-9: hsl(from var(--black-5) h s calc(l + var(--l-step) * 4));
+
   --white-1: hsl(from var(--white-5) h s calc(l - var(--l-step) * 4));
   --white-2: hsl(from var(--white-5) h s calc(l - var(--l-step) * 3));
   --white-3: hsl(from var(--white-5) h s calc(l - var(--l-step) * 2));
@@ -71,6 +81,7 @@
   );
 
   --color--content-bg-primary: light-dark(#fff, #000);
+  --color--content-bg-primary: light-dark(var(--white-9), var(--black-1));
   --color--content-bg-secondary: hsl(
     from var(--color--content-bg-primary) h s calc(l - 10)
   );
@@ -91,6 +102,19 @@
   --icon-size-sm: 0.75rem;
   --icon-size-md: 1rem;
   --icon-size-lg: 1.25rem;
+
+  /** Menu **/
+  --menu--bg: var(--popup--bg);
+  --menu--fg: var(--popup--fg);
+  --menu--shadow-border-size: var(--border-md);
+  --menu--shadow-l-diff: 10;
+
+  --menuitem--bg-hover: var(--accent-3);
+  --menuitem--bg-active: var(--accent-1);
+  --menuitem--checked-color: var(--blue-8);
+  --menuitem--icon-gap: var(--spacing-sm);
+  --menuitem--icon-size: var(--icon-size-md);
+  --menuitem--spacing: 8px;
 
   /** Popup **/
   --popup--bg: var(--color--accent-bg);
@@ -157,7 +181,7 @@
     var(--text--body-sm-size)/var(--text--line-height) var(--text--font-family);
 
   /** Other **/
-  --disabled-opacity: 0.5;
+  --dim-opacity: 0.5;
 
   &:where([data-icon-variant="outlined"]) {
     --text--font-family-icon: "Material Symbols Outlined";
@@ -177,9 +201,10 @@
     --motion-duration-short: 0ms;
   }
 
-  /* todo? idk */
   @media (prefers-contrast) {
+    /* todo? idk */
     --l-step: 7;
+    --menu--shadow-l-diff: 15;
   }
 }
 
@@ -208,7 +233,7 @@ page-button {
   transition: var(--motion-duration-short);
 
   &:where([data-disabled]) {
-    opacity: var(--disabled-opacity);
+    opacity: var(--dim-opacity);
     pointer-events: none;
   }
 
@@ -436,15 +461,10 @@ page-field {
 }
 
 page-menu {
-  --menu--icon-gap: var(--spacing-sm);
-  --menu--icon-size: var(--icon-size-md);
-  --menu--shadow-border-size: var(--border-md);
-  --menuitem--spacing: 8px;
-
   animation: var(--popup--animation);
-  background: var(--popup--bg);
-  color: var(--popup--fg);
-  line-height: calc(var(--menu--icon-size) / var(--text--body-md-size));
+  background: var(--menu--bg);
+  color: var(--menu--fg);
+  line-height: calc(var(--menuitem--icon-size) / var(--text--body-md-size));
 
   &::before,
   &::after {
@@ -454,30 +474,38 @@ page-menu {
   }
 
   &::before {
-    border-block-start-color: hsl(255 255 255 / 0.5);
-    border-block-end-color: hsl(255 255 255 / 0.25);
+    border-block-start-color: hsl(
+      from var(--menu--bg) h s calc(l + var(--menu--shadow-l-diff) * 2)
+    );
+    border-block-end-color: hsl(
+      from var(--menu--bg) h s calc(l + var(--menu--shadow-l-diff))
+    );
     margin-block-end: var(--menu--shadow-border-size);
   }
 
   &::after {
-    border-block-start-color: hsl(0 0 0 / 0.25);
-    border-block-end-color: hsl(0 0 0 / 0.5);
+    border-block-start-color: hsl(
+      from var(--menu--bg) h s calc(l - var(--menu--shadow-l-diff))
+    );
+    border-block-end-color: hsl(
+      from var(--menu--bg) h s calc(l - var(--menu--shadow-l-diff) * 2)
+    );
     margin-block-start: var(--menu--shadow-border-size);
   }
 }
 
 page-menu-heading {
-  color: var(--popup--fg);
   font-weight: var(--text--weight-bold);
   padding: calc(var(--menuitem--spacing) / 2) var(--menuitem--spacing);
-  margin-inline-start: calc(var(--menu--icon-size) + var(--menu--icon-gap));
+  margin-inline-start: calc(
+    var(--menuitem--icon-size) + var(--menuitem--icon-gap)
+  );
 }
 
 page-menu-item {
   align-items: center;
-  background: var(--bg);
-  color: var(--color--accent-fg);
-  color: contrast-color(var(--bg, var(--popup--bg)));
+  background: var(--menuitem--bg);
+  color: contrast-color(var(--menuitem--bg, var(--menu--bg)));
   cursor: pointer;
   display: grid;
   grid-template-areas:
@@ -488,17 +516,19 @@ page-menu-item {
   position: relative;
 
   &:where([data-hover], :hover) {
-    --bg: var(--accent-4);
+    --menuitem--bg: var(--menuitem--bg-hover);
   }
 
   &:where([data-active], :active) {
-    --bg: var(--accent-3);
+    --menuitem--bg: var(--menuitem--bg-active);
   }
 
   &:where([data-checked]:not([data-radio]))::after {
     border-inline: var(--menu--shadow-border-size) solid;
-    border-inline-start-color: var(--blue-5);
-    border-inline-end-color: hsl(from var(--blue-5) h s l / 0.5);
+    border-inline-start-color: var(--menuitem--checked-color);
+    border-inline-end-color: hsl(
+      from var(--menuitem--checked-color) h s l / var(--dim-opacity)
+    );
     content: "";
     inset-block: 0;
     inset-inline-start: 0;
@@ -507,7 +537,7 @@ page-menu-item {
 
   &:where([data-radio]) {
     &::after {
-      border-inline-start: solid var(--blue-5);
+      border-inline-start: solid var(--menuitem--checked-color);
       border-inline-start-width: calc(var(--menu--shadow-border-size) / 2);
       content: "";
       inset-block: 25%;
@@ -526,31 +556,30 @@ page-menu-item {
   }
 
   &:where([data-disabled]) {
-    opacity: var(--disabled-opacity);
+    opacity: var(--dim-opacity);
     pointer-events: none;
   }
 
   &::before {
     align-items: center;
     align-self: start;
-    block-size: var(--menu--icon-size);
+    block-size: var(--menuitem--icon-size);
     content: attr(data-icon);
     display: inline-flex;
     font-family: var(--text--font-family-icon);
-    font-size: var(--menu--icon-size);
+    font-size: var(--menuitem--icon-size);
     grid-area: icon;
-    inline-size: var(--menu--icon-size);
-    margin-inline-end: var(--menu--icon-gap);
+    inline-size: var(--menuitem--icon-size);
+    margin-inline-end: var(--menuitem--icon-gap);
   }
 }
 
 page-menu-item-description {
-  color: var(--color--accent-fg);
-  color: contrast-color(var(--bg, var(--popup--bg)));
+  color: contrast-color(var(--menuitem--bg, var(--menu--bg)));
   font: var(--text--body-sm);
   /* This doesn't even affect anything but alright */
   grid-area: description;
-  opacity: 0.5;
+  opacity: var(--dim-opacity);
   margin-block-start: var(--spacing-xs);
 }
 
@@ -572,6 +601,7 @@ page-radio-container {
 
 page-tooltip {
   --bg: var(--color--accent-bg-secondary);
+
   background: var(--bg);
   color: var(--color--accent-fg-secondary);
   border-block: var(--border-md) solid;

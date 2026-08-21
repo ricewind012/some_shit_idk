@@ -72,15 +72,29 @@
       <page-section id="absent">
         <page-section-grid>
           <absent-item>
-            <h3>No rounded corners</h3>
+            <h3>No borders / rounded corners</h3>
+            <p>
+              Rounded corners suck, and as for borders, the contrast should be
+              good enough to avoid them
+            </p>
             <absent-item-content>
-              <page-button data-where="accent" style="border-radius: 6px">
+              <page-button
+                data-where="accent"
+                style="
+                  border: 1px solid hsl(from currentColor h s l / 0.5);
+                  border-radius: 6px;
+                "
+              >
                 Help me
               </page-button>
             </absent-item-content>
           </absent-item>
           <absent-item>
             <h3>No shadows</h3>
+            <p>
+              Slight vertical borders are used instead for popups (dialogs,
+              menus and tooltips)
+            </p>
             <absent-item-content>
               <menu-stuff
                 data-name="showcase"
@@ -114,10 +128,16 @@
         <color-gradient data-name="blue"></color-gradient>
         <color-gradient data-name="green"></color-gradient>
         <color-gradient data-name="red"></color-gradient>
+
+        <p>These don't get affected by hue/saturation</p>
+        <color-gradient data-name="black"></color-gradient>
         <color-gradient data-name="white"></color-gradient>
 
         <h3 data-bg-clip>Tokens</h3>
-        todo
+        <p>TODO:</p>
+        <ul>
+          <li>Everything in the Colors section</li>
+        </ul>
 
         <color-gradient-controls>
           <color-slider
@@ -269,6 +289,7 @@
 
     <page-dialog-backdrop id="dialog-backdrop--steam" hidden>
       <page-dialog data-size="fill">
+        <steam-rootmenu> </steam-rootmenu>
         <steam-sidebar-container>
           <steam-sidebar-top>
             <page-button data-variant="combobox" data-where="accent">
@@ -297,7 +318,7 @@
             <steam-library-app-hero>
               <img
                 class="dark"
-                src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3557620/library_hero.jpg"
+                src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/312520/library_hero.jpg"
               />
               <img
                 class="light"
@@ -307,7 +328,7 @@
             <steam-library-app-logo>
               <img
                 class="dark"
-                src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3557620/c33ea91a3b132483b94da790da8005d2ac314c4a/logo.png"
+                src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/312520/logo.png"
               />
               <img
                 class="light"

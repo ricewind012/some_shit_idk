@@ -9,9 +9,16 @@ const k_mapFonts =
 	"body-sm": "Body (small)",
 };
 
-/** @type {Record< string, { bDone: boolean; strTitle: string; vecDescription: string } >} */
+/** @type {Record< string, { bDone: boolean; strTitle: string; vecDescription: string; } >} */
 const k_mapStatusText =
 {
+	colors: {
+		bDone: false,
+		strTitle: "Colors",
+		vecDescription: [
+			"Decide on primary content bg, pure white/black or not ?",
+		],
+	},
 	button: {
 		bDone: false,
 		strTitle: "Button",
@@ -29,10 +36,11 @@ const k_mapStatusText =
 	},
 	menu: {
 		bDone: false,
-		strTitle: "Button",
+		strTitle: "Menu",
 		vecDescription: [
 			"Checked variant looks weird, other color?",
-			"Finish the vars for it, like bg-{hover,active}, etc.",
+			"Fix(?) the top header spacing, there is less of it below than above",
+			"Move shadow-l-diff to be used for others, so maybe get it a namespace, or move to 'others'",
 		],
 	},
 	others: {
@@ -40,8 +48,9 @@ const k_mapStatusText =
 		strTitle: "Others",
 		vecDescription: [
 			"Maybe do these like in Primer? Avatars, alerts, etc.",
-			"Cards (maybe like in <color-gradient>)",
+			"Cards (maybe like in color-gradient)",
 			"Checkboxes",
+			"Lists (already there)",
 			"Radios",
 			"Sliders",
 			"Tags",
@@ -50,7 +59,7 @@ const k_mapStatusText =
 	},
 };
 
-/** @type {Record< string, { strDescription: string; strHeader: string } >} */
+/** @type {Record< string, { strDescription: string; strHeader: string; } >} */
 const k_mapText =
 {
 	intro: {
@@ -408,7 +417,7 @@ document.addEventListener( "DOMContentLoaded", () =>
 	const els =
 	{
 		cDialog_Dialog: id( "dialog" ),
-		cDialog_DialogBackdrop: id( "dialog-backdrop" ),
+		cDialog_DialogBackdrop: id( "dialog-backdrop--showcase" ),
 		cDialog_DialogSteamBackdrop: id( "dialog-backdrop--steam" ),
 		cDialog_OK: id( "components-dialog--ok-button" ),
 		cDialog_OpenDialog: id( "components-dialog--open-dialog-button" ),
