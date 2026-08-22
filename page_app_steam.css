@@ -1,76 +1,76 @@
 #dialog-backdrop--steam > page-dialog {
-  flex-direction: row;
+	flex-direction: row;
 
-  &::before,
-  &::after {
-    display: none;
-  }
+	&::before,
+	&::after {
+		display: none;
+	}
 
-  * {
-    display: flex;
-  }
+	* {
+		display: flex;
+	}
 
-  @media (prefers-color-scheme: dark) {
-    --dark: flex;
-    --light: none;
-  }
+	@media (prefers-color-scheme: dark) {
+		--dark: flex;
+		--light: none;
+	}
 
-  @media (prefers-color-scheme: light) {
-    --dark: none;
-    --light: flex;
-  }
+	@media (prefers-color-scheme: light) {
+		--dark: none;
+		--light: flex;
+	}
 
-  .dark {
-    display: var(--dark);
-  }
+	.dark {
+		display: var(--dark);
+	}
 
-  .light {
-    display: var(--light);
-  }
+	.light {
+		display: var(--light);
+	}
 }
 
 steam-content {
-  background: var(--color--content-bg-primary);
-  color: var(--color--content-fg);
-  flex-grow: 1;
+	background: var(--color--content-bg-primary);
+	color: var(--color--content-fg);
+	flex-grow: 1;
 }
 
 steam-library-app-logo {
-  & > img {
-    margin: var(--space-4) auto;
-  }
+	& > img {
+		margin: var(--space-4) auto;
+	}
 }
 
 steam-library-app-hero {
-  inset: 0;
+	inset: 0;
 
-  & > img {
-    inline-size: 100%;
-  }
+	& > img {
+		inline-size: 100%;
+	}
 }
 
 steam-library-app-hero-container {
-  block-size: 360px;
-  inline-size: 100%;
-  position: relative;
+	block-size: 360px;
+	inline-size: 100%;
+	position: relative;
 }
 
 steam-sidebar-container {
-  background: var(--color--accent-bg);
-  color: var(--color--accent-fg);
-  flex-direction: column;
-  max-inline-size: 320px;
+	background: var(--color--accent-bg);
+	color: var(--color--accent-fg);
+	flex-direction: column;
+	max-inline-size: 320px;
 }
 
 steam-sidebar-game-list {
-  flex-grow: 1;
+	flex-grow: 1;
 }
 
 steam-sidebar-top {
-  padding: var(--space-2);
+	padding: var(--space-2);
 
-  page-button[data-variant="combobox"] {
-    flex-grow: 1;
-    margin-inline-end: var(--space-2);
-  }
+	page-button[data-variant="combobox"] {
+		flex-grow: 1;
+		margin-inline-end: var(--space-2);
+	}
 }

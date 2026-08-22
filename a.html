@@ -1,343 +1,343 @@
 <!doctype html>
 <html lang="en" data-icon-variant="rounded">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="color-scheme" content="light dark" />
-    <title>im not paying for figma lmfao</title>
-    <link rel="stylesheet" href="./page.css" />
-    <link rel="stylesheet" href="./page_components.css" />
-    <link rel="stylesheet" href="./page_app_steam.css" />
-    <script src="./index.js"></script>
-  </head>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="color-scheme" content="light dark" />
+		<title>im not paying for figma lmfao</title>
+		<link rel="stylesheet" href="./page.css" />
+		<link rel="stylesheet" href="./page_components.css" />
+		<link rel="stylesheet" href="./page_app_steam.css" />
+		<script src="./index.js"></script>
+	</head>
 
-  <body>
-    <page-nav>
-      <page-button data-variant="icon" data-where="accent" data-icon="info">
-        <page-tooltip></page-tooltip>
-      </page-button>
-      <page-button data-variant="icon" data-where="accent" data-icon="close">
-        <page-tooltip></page-tooltip>
-      </page-button>
-      <page-button data-variant="icon" data-where="accent" data-icon="colors">
-        <page-tooltip></page-tooltip>
-      </page-button>
-      <page-button
-        data-variant="icon"
-        data-where="accent"
-        data-icon="space_bar"
-      >
-        <page-tooltip></page-tooltip>
-      </page-button>
-      <page-button
-        data-variant="icon"
-        data-where="accent"
-        data-icon="custom_typography"
-      >
-        <page-tooltip></page-tooltip>
-      </page-button>
-      <page-button
-        data-variant="icon"
-        data-where="accent"
-        data-icon="left_click"
-      >
-        <page-tooltip></page-tooltip>
-      </page-button>
-      <page-button
-        data-variant="icon"
-        data-where="accent"
-        data-icon="select_window_2"
-      >
-        <page-tooltip></page-tooltip>
-      </page-button>
-      <page-button data-variant="icon" data-where="accent" data-icon="menu">
-        <page-tooltip></page-tooltip>
-      </page-button>
-    </page-nav>
+	<body>
+		<page-nav>
+			<page-button data-variant="icon" data-where="accent" data-icon="info">
+				<page-tooltip></page-tooltip>
+			</page-button>
+			<page-button data-variant="icon" data-where="accent" data-icon="close">
+				<page-tooltip></page-tooltip>
+			</page-button>
+			<page-button data-variant="icon" data-where="accent" data-icon="colors">
+				<page-tooltip></page-tooltip>
+			</page-button>
+			<page-button
+				data-variant="icon"
+				data-where="accent"
+				data-icon="space_bar"
+			>
+				<page-tooltip></page-tooltip>
+			</page-button>
+			<page-button
+				data-variant="icon"
+				data-where="accent"
+				data-icon="custom_typography"
+			>
+				<page-tooltip></page-tooltip>
+			</page-button>
+			<page-button
+				data-variant="icon"
+				data-where="accent"
+				data-icon="left_click"
+			>
+				<page-tooltip></page-tooltip>
+			</page-button>
+			<page-button
+				data-variant="icon"
+				data-where="accent"
+				data-icon="select_window_2"
+			>
+				<page-tooltip></page-tooltip>
+			</page-button>
+			<page-button data-variant="icon" data-where="accent" data-icon="menu">
+				<page-tooltip></page-tooltip>
+			</page-button>
+		</page-nav>
 
-    <page-content>
-      <page-section id="intro">
-        <page-section-grid>
-          <page-button data-where="accent">Stuff</page-button>
-          <page-button data-where="content">Stuff 2</page-button>
-        </page-section-grid>
-      </page-section>
+		<page-content>
+			<page-section id="intro">
+				<page-section-grid>
+					<page-button data-where="accent">Stuff</page-button>
+					<page-button data-where="content">Stuff 2</page-button>
+				</page-section-grid>
+			</page-section>
 
-      <page-section id="status">
-        <status-container data-name="button"></status-container>
-        <status-container data-name="dialog"></status-container>
-        <status-container data-name="menu"></status-container>
-        <status-container data-name="others"></status-container>
-      </page-section>
+			<page-section id="status">
+				<status-container data-name="button"></status-container>
+				<status-container data-name="dialog"></status-container>
+				<status-container data-name="menu"></status-container>
+				<status-container data-name="others"></status-container>
+			</page-section>
 
-      <page-section id="absent">
-        <page-section-grid>
-          <absent-item>
-            <h3>No borders / rounded corners</h3>
-            <p>
-              Rounded corners suck, and as for borders, the contrast should be
-              good enough to avoid them
-            </p>
-            <absent-item-content>
-              <page-button
-                data-where="accent"
-                style="
-                  border: 1px solid hsl(from currentColor h s l / 0.5);
-                  border-radius: 6px;
-                "
-              >
-                Help me
-              </page-button>
-            </absent-item-content>
-          </absent-item>
-          <absent-item>
-            <h3>No shadows</h3>
-            <p>
-              Slight vertical borders are used instead for popups (dialogs,
-              menus and tooltips)
-            </p>
-            <absent-item-content>
-              <menu-stuff
-                data-name="showcase"
-                style="
-                  --popup--shadow-offset: 6px;
-                  --popup--shadow-size: 12px;
-                  --popup--shadow-opacity: 0.1;
-                  --popup--shadow:
-                    0 var(--popup--shadow-offset) var(--popup--shadow-size)
-                      hsl(
-                        from currentColor h s l / var(--popup--shadow-opacity)
-                      ),
-                    0 calc(var(--popup--shadow-offset) * 3)
-                      calc(var(--popup--shadow-size) * 3)
-                      hsl(
-                        from currentColor h s l /
-                          calc(var(--popup--shadow-opacity) * 3)
-                      );
+			<page-section id="absent">
+				<page-section-grid>
+					<absent-item>
+						<h3>No borders / rounded corners</h3>
+						<p>
+							Rounded corners suck, and as for borders, the contrast should be
+							good enough to avoid them
+						</p>
+						<absent-item-content>
+							<page-button
+								data-where="accent"
+								style="
+									border: 1px solid hsl(from currentColor h s l / 0.5);
+									border-radius: 6px;
+								"
+							>
+								Help me
+							</page-button>
+						</absent-item-content>
+					</absent-item>
+					<absent-item>
+						<h3>No shadows</h3>
+						<p>
+							Slight vertical borders are used instead for popups (dialogs,
+							menus and tooltips)
+						</p>
+						<absent-item-content>
+							<menu-stuff
+								data-name="showcase"
+								style="
+									--popup--shadow-offset: 6px;
+									--popup--shadow-size: 12px;
+									--popup--shadow-opacity: 0.1;
+									--popup--shadow:
+										0 var(--popup--shadow-offset) var(--popup--shadow-size)
+											hsl(
+												from currentColor h s l / var(--popup--shadow-opacity)
+											),
+										0 calc(var(--popup--shadow-offset) * 3)
+											calc(var(--popup--shadow-size) * 3)
+											hsl(
+												from currentColor h s l /
+													calc(var(--popup--shadow-opacity) * 3)
+											);
 
-                  box-shadow: var(--popup--shadow);
-                "
-              ></menu-stuff>
-            </absent-item-content>
-          </absent-item>
-        </page-section-grid>
-      </page-section>
+									box-shadow: var(--popup--shadow);
+								"
+							></menu-stuff>
+						</absent-item-content>
+					</absent-item>
+				</page-section-grid>
+			</page-section>
 
-      <page-section id="colors">
-        <h3 data-bg-clip>Primitives</h3>
-        <color-gradient data-name="accent"></color-gradient>
-        <color-gradient data-name="blue"></color-gradient>
-        <color-gradient data-name="green"></color-gradient>
-        <color-gradient data-name="red"></color-gradient>
+			<page-section id="colors">
+				<h3 data-bg-clip>Primitives</h3>
+				<color-gradient data-name="accent"></color-gradient>
+				<color-gradient data-name="blue"></color-gradient>
+				<color-gradient data-name="green"></color-gradient>
+				<color-gradient data-name="red"></color-gradient>
 
-        <h3 data-bg-clip>These get affected by lightness step</h3>
-        <color-gradient data-name="black"></color-gradient>
-        <color-gradient data-name="white"></color-gradient>
+				<h3 data-bg-clip>These get affected by lightness step</h3>
+				<color-gradient data-name="black"></color-gradient>
+				<color-gradient data-name="white"></color-gradient>
 
-        <h3 data-bg-clip>Tokens</h3>
-        <p>TODO:</p>
-        <ul>
-          <li>Everything in the Colors section</li>
-        </ul>
+				<h3 data-bg-clip>Tokens</h3>
+				<p>TODO:</p>
+				<ul>
+					<li>Everything in the Colors section</li>
+				</ul>
 
-        <color-gradient-controls>
-          <color-slider
-            data-name="accent-h"
-            data-min="0"
-            data-max="360"
-            data-step="1"
-          ></color-slider>
-          <color-slider
-            data-name="base-s"
-            data-min="0"
-            data-max="60"
-            data-step="1"
-          ></color-slider>
-          <color-slider
-            data-name="base-l"
-            data-min="30"
-            data-max="60"
-            data-step="1"
-          ></color-slider>
-          <color-slider
-            data-name="l-step"
-            data-min="1"
-            data-max="7"
-            data-step="0.1"
-          ></color-slider>
-        </color-gradient-controls>
-      </page-section>
+				<color-gradient-controls>
+					<color-slider
+						data-name="accent-h"
+						data-min="0"
+						data-max="360"
+						data-step="1"
+					></color-slider>
+					<color-slider
+						data-name="base-s"
+						data-min="0"
+						data-max="60"
+						data-step="1"
+					></color-slider>
+					<color-slider
+						data-name="base-l"
+						data-min="30"
+						data-max="60"
+						data-step="1"
+					></color-slider>
+					<color-slider
+						data-name="l-step"
+						data-min="1"
+						data-max="7"
+						data-step="0.1"
+					></color-slider>
+				</color-gradient-controls>
+			</page-section>
 
-      <page-section id="spacing">
-        <spacing-unit data-unit="05"></spacing-unit>
-        <spacing-unit data-unit="1"></spacing-unit>
-        <spacing-unit data-unit="2"></spacing-unit>
-        <spacing-unit data-unit="3"></spacing-unit>
-        <spacing-unit data-unit="4"></spacing-unit>
-      </page-section>
+			<page-section id="spacing">
+				<spacing-unit data-unit="05"></spacing-unit>
+				<spacing-unit data-unit="1"></spacing-unit>
+				<spacing-unit data-unit="2"></spacing-unit>
+				<spacing-unit data-unit="3"></spacing-unit>
+				<spacing-unit data-unit="4"></spacing-unit>
+			</page-section>
 
-      <page-section id="typography">
-        <typography-info>
-          <typography-info-container>
-            <typography-info-title>Quicksand</typography-info-title>
-            <typography-info-subtitle>1.4 line height</typography-info-subtitle>
-          </typography-info-container>
-          <typography-info-var>
-            <b>Fruity Dance</b> is an animation plugin. The default animation is
-            'FL Chan', the FL Studio mascot. You can control her dance movements
-            from the Piano roll by selecting a range of programmed dance moves.
-          </typography-info-var>
-        </typography-info>
-        <typography-info data-name="heading-lg"></typography-info>
-        <typography-info data-name="heading-md"></typography-info>
-        <typography-info data-name="heading-sm"></typography-info>
-        <typography-info data-name="body-lg"></typography-info>
-        <typography-info data-name="body-md"></typography-info>
-        <typography-info data-name="body-sm"></typography-info>
-      </page-section>
+			<page-section id="typography">
+				<typography-info>
+					<typography-info-container>
+						<typography-info-title>Quicksand</typography-info-title>
+						<typography-info-subtitle>1.4 line height</typography-info-subtitle>
+					</typography-info-container>
+					<typography-info-var>
+						<b>Fruity Dance</b> is an animation plugin. The default animation is
+						'FL Chan', the FL Studio mascot. You can control her dance movements
+						from the Piano roll by selecting a range of programmed dance moves.
+					</typography-info-var>
+				</typography-info>
+				<typography-info data-name="heading-lg"></typography-info>
+				<typography-info data-name="heading-md"></typography-info>
+				<typography-info data-name="heading-sm"></typography-info>
+				<typography-info data-name="body-lg"></typography-info>
+				<typography-info data-name="body-md"></typography-info>
+				<typography-info data-name="body-sm"></typography-info>
+			</page-section>
 
-      <page-section id="components-button">
-        <page-section-grid>
-          <page-button data-where="accent"> Button in accent </page-button>
-          <page-button data-where="content"> Button in content </page-button>
-          <page-button data-where="accent" data-variant="combobox">
-            Combobox
-          </page-button>
-          <page-button data-state="success">
-            Button with state="success"
-          </page-button>
-          <page-button data-state="danger">
-            Button with state="danger"
-          </page-button>
-        </page-section-grid>
-      </page-section>
+			<page-section id="components-button">
+				<page-section-grid>
+					<page-button data-where="accent"> Button in accent </page-button>
+					<page-button data-where="content"> Button in content </page-button>
+					<page-button data-where="accent" data-variant="combobox">
+						Combobox
+					</page-button>
+					<page-button data-state="success">
+						Button with state="success"
+					</page-button>
+					<page-button data-state="danger">
+						Button with state="danger"
+					</page-button>
+				</page-section-grid>
+			</page-section>
 
-      <page-section id="components-dialog">
-        <page-section-grid>
-          <page-button
-            data-where="accent"
-            id="components-dialog--open-dialog-button"
-          >
-            Open dialog
-          </page-button>
-          <page-button
-            data-where="accent"
-            id="components-dialog--open-steam-button"
-          >
-            Open Steam app mockup
-          </page-button>
-        </page-section-grid>
-      </page-section>
+			<page-section id="components-dialog">
+				<page-section-grid>
+					<page-button
+						data-where="accent"
+						id="components-dialog--open-dialog-button"
+					>
+						Open dialog
+					</page-button>
+					<page-button
+						data-where="accent"
+						id="components-dialog--open-steam-button"
+					>
+						Open Steam app mockup
+					</page-button>
+				</page-section-grid>
+			</page-section>
 
-      <page-section id="components-menu">
-        <page-section-grid>
-          <page-button
-            data-variant="combobox"
-            data-where="accent"
-            id="components-menu--toggle-menu-button"
-            style="anchor-name: --toggle-menu-button"
-          >
-            Toggle menu
-          </page-button>
-          <menu-stuff
-            id="components-menu--menu"
-            hidden
-            data-anchored
-            data-name="github"
-            style="--anchor-id: --toggle-menu-button"
-          ></menu-stuff>
-        </page-section-grid>
-      </page-section>
-    </page-content>
+			<page-section id="components-menu">
+				<page-section-grid>
+					<page-button
+						data-variant="combobox"
+						data-where="accent"
+						id="components-menu--toggle-menu-button"
+						style="anchor-name: --toggle-menu-button"
+					>
+						Toggle menu
+					</page-button>
+					<menu-stuff
+						id="components-menu--menu"
+						hidden
+						data-anchored
+						data-name="github"
+						style="--anchor-id: --toggle-menu-button"
+					></menu-stuff>
+				</page-section-grid>
+			</page-section>
+		</page-content>
 
-    <page-dialog-backdrop
-      id="dialog-backdrop--showcase"
-      hidden
-      data-variant="accent"
-    >
-      <page-dialog id="dialog" data-size="md">
-        <page-dialog-header>
-          <page-dialog-title>Dialog (wip)</page-dialog-title>
-          <page-button data-variant="icon" data-where="accent"></page-button>
-        </page-dialog-header>
-        <page-dialog-body>
-          stuff here later for dialog width maybeeeeeeeee idk
-          <page-field>
-            Dialog size
-            <page-radio-container data-name="radio--dialog-size">
-              <page-button data-arg="sm"></page-button>
-              <page-button data-arg="md"></page-button>
-              <page-button data-arg="lg"></page-button>
-              <page-button data-arg="fill"></page-button>
-            </page-radio-container>
-          </page-field>
-          <page-field>
-            Dialog variant
-            <page-radio-container data-name="radio--dialog-variant">
-              <page-button data-arg="accent"></page-button>
-              <page-button data-arg="bordered"></page-button>
-            </page-radio-container>
-          </page-field>
-        </page-dialog-body>
-        <page-dialog-footer>
-          <page-button id="components-dialog--ok-button" data-where="accent">
-            OK
-          </page-button>
-          <page-button data-where="accent">Cancel</page-button>
-        </page-dialog-footer>
-      </page-dialog>
-    </page-dialog-backdrop>
+		<page-dialog-backdrop
+			id="dialog-backdrop--showcase"
+			hidden
+			data-variant="accent"
+		>
+			<page-dialog id="dialog" data-size="md">
+				<page-dialog-header>
+					<page-dialog-title>Dialog (wip)</page-dialog-title>
+					<page-button data-variant="icon" data-where="accent"></page-button>
+				</page-dialog-header>
+				<page-dialog-body>
+					stuff here later for dialog width maybeeeeeeeee idk
+					<page-field>
+						Dialog size
+						<page-radio-container data-name="radio--dialog-size">
+							<page-button data-arg="sm"></page-button>
+							<page-button data-arg="md"></page-button>
+							<page-button data-arg="lg"></page-button>
+							<page-button data-arg="fill"></page-button>
+						</page-radio-container>
+					</page-field>
+					<page-field>
+						Dialog variant
+						<page-radio-container data-name="radio--dialog-variant">
+							<page-button data-arg="accent"></page-button>
+							<page-button data-arg="bordered"></page-button>
+						</page-radio-container>
+					</page-field>
+				</page-dialog-body>
+				<page-dialog-footer>
+					<page-button id="components-dialog--ok-button" data-where="accent">
+						OK
+					</page-button>
+					<page-button data-where="accent">Cancel</page-button>
+				</page-dialog-footer>
+			</page-dialog>
+		</page-dialog-backdrop>
 
-    <page-dialog-backdrop id="dialog-backdrop--steam" hidden>
-      <page-dialog data-size="fill">
-        <steam-rootmenu> </steam-rootmenu>
-        <steam-sidebar-container>
-          <steam-sidebar-top>
-            <page-button data-variant="combobox" data-where="accent">
-              Games
-            </page-button>
-            <page-button
-              data-variant="icon"
-              data-where="accent"
-              data-icon="desktop_windows"
-            ></page-button>
-            <page-button
-              data-variant="icon"
-              data-where="accent"
-              data-icon="nest_clock_farsight_analog"
-            ></page-button>
-            <page-button
-              data-variant="icon"
-              data-where="accent"
-              data-icon="play_circle"
-            ></page-button>
-          </steam-sidebar-top>
-          <steam-sidebar-game-list></steam-sidebar-game-list>
-        </steam-sidebar-container>
-        <steam-content>
-          <steam-library-app-hero-container>
-            <steam-library-app-hero>
-              <img
-                class="dark"
-                src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/312520/library_hero.jpg"
-              />
-              <img
-                class="light"
-                src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/17410/library_hero.jpg"
-              />
-            </steam-library-app-hero>
-            <steam-library-app-logo>
-              <img
-                class="dark"
-                src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/312520/logo.png"
-              />
-              <img
-                class="light"
-                src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/17410/logo.png"
-              />
-            </steam-library-app-logo>
-          </steam-library-app-hero-container>
-        </steam-content>
-      </page-dialog>
-    </page-dialog-backdrop>
-  </body>
+		<page-dialog-backdrop id="dialog-backdrop--steam" hidden>
+			<page-dialog data-size="fill">
+				<steam-rootmenu> </steam-rootmenu>
+				<steam-sidebar-container>
+					<steam-sidebar-top>
+						<page-button data-variant="combobox" data-where="accent">
+							Games
+						</page-button>
+						<page-button
+							data-variant="icon"
+							data-where="accent"
+							data-icon="desktop_windows"
+						></page-button>
+						<page-button
+							data-variant="icon"
+							data-where="accent"
+							data-icon="nest_clock_farsight_analog"
+						></page-button>
+						<page-button
+							data-variant="icon"
+							data-where="accent"
+							data-icon="play_circle"
+						></page-button>
+					</steam-sidebar-top>
+					<steam-sidebar-game-list></steam-sidebar-game-list>
+				</steam-sidebar-container>
+				<steam-content>
+					<steam-library-app-hero-container>
+						<steam-library-app-hero>
+							<img
+								class="dark"
+								src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/312520/library_hero.jpg"
+							/>
+							<img
+								class="light"
+								src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/17410/library_hero.jpg"
+							/>
+						</steam-library-app-hero>
+						<steam-library-app-logo>
+							<img
+								class="dark"
+								src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/312520/logo.png"
+							/>
+							<img
+								class="light"
+								src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/17410/logo.png"
+							/>
+						</steam-library-app-logo>
+					</steam-library-app-hero-container>
+				</steam-content>
+			</page-dialog>
+		</page-dialog-backdrop>
+	</body>
 </html>
