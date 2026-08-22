@@ -19,6 +19,13 @@ const k_mapStatusText =
 			"Decide on primary content bg, pure white/black or not ?",
 		],
 	},
+	typography: {
+		bDone: false,
+		strTitle: "Typography",
+		vecDescription: [
+			"12/10 for md/sm?",
+		],
+	},
 	button: {
 		bDone: false,
 		strTitle: "Button",
@@ -31,7 +38,6 @@ const k_mapStatusText =
 		strTitle: "Dialog",
 		vecDescription: [
 			"Decide on a single variant, but both look like shit",
-			"Decide on backdrop, maybe make it lighter/darker",
 		],
 	},
 	menu: {
@@ -41,12 +47,14 @@ const k_mapStatusText =
 			"Checked variant looks weird, other color?",
 			"Fix(?) the top header spacing, there is less of it below than above",
 			"Move shadow-l-diff to be used for others, so maybe get it a namespace, or move to 'others'",
+			"Unify line-height (16 / 14) with others, maybe do this for other controls ?",
 		],
 	},
 	others: {
 		bDone: false,
 		strTitle: "Others",
 		vecDescription: [
+			"Use icon size sizes? or just use md",
 			"Maybe do these like in Primer? Avatars, alerts, etc.",
 			"Cards (maybe like in color-gradient)",
 			"Checkboxes",

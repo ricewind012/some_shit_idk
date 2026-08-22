@@ -37,7 +37,7 @@ steam-content {
 
 steam-library-app-logo {
   & > img {
-    margin: var(--spacing-xl) auto;
+    margin: var(--space-4) auto;
   }
 }
 
@@ -67,10 +67,10 @@ steam-sidebar-game-list {
 }
 
 steam-sidebar-top {
-  padding: var(--spacing-md);
+  padding: var(--space-2);
 
   page-button[data-variant="combobox"] {
     flex-grow: 1;
-    margin-inline-end: var(--spacing-md);
+    margin-inline-end: var(--space-2);
   }
 }

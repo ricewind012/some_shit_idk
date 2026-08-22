@@ -109,45 +109,37 @@
   --menu--shadow-border-size: var(--border-md);
   --menu--shadow-l-diff: 10;
 
-  --menuitem--bg-hover: var(--accent-3);
-  --menuitem--bg-active: var(--accent-1);
+  --menuitem--bg-hover: light-dark(var(--accent-7), var(--accent-3));
+  --menuitem--bg-active: light-dark(var(--accent-9), var(--accent-1));
   --menuitem--checked-color: var(--blue-8);
-  --menuitem--icon-gap: var(--spacing-sm);
+  --menuitem--icon-gap: var(--space-1);
   --menuitem--icon-size: var(--icon-size-md);
-  --menuitem--spacing: 8px;
+  --menuitem--space: 8px;
 
   /** Popup **/
-  --popup--bg: var(--color--accent-bg);
-  --popup--fg: var(--color--accent-fg);
-
   --popup--animation: popup-dropdown var(--motion-duration-medium)
     cubic-bezier(0.2, 0.9, 0.6, 1);
   --popup--backdrop-bg: radial-gradient(
     at center,
     transparent,
-    hsl(from var(--color--content-bg-primary) h s l / 0.25)
+    hsl(from var(--color--content-bg-primary) h s l / 0.75)
   );
   --popup--backdrop-filter: blur(1dvb) saturate(50%);
-
-  --popup--shadow-offset: 8px;
-  --popup--shadow-size: 16px;
-  --popup--shadow-opacity: 0.05;
-  --popup--shadow:
-    0 var(--popup--shadow-offset) var(--popup--shadow-size)
-      hsl(0 0 0 / var(--popup--shadow-opacity)),
-    0 calc(var(--popup--shadow-offset) * 3) calc(var(--popup--shadow-size) * 3)
-      hsl(0 0 0 / calc(var(--popup--shadow-opacity) * 3));
+  --popup--bg: var(--color--accent-bg);
+  --popup--fg: var(--color--accent-fg);
 
   /** Spacing **/
-  --spacing-xs: 3px;
-  --spacing-sm: 6px;
-  --spacing-md: 12px;
-  --spacing-lg: 18px;
-  --spacing-xl: 24px;
+  --space-base: 6px;
+  --space-05: calc(var(--space-base) / 2);
+  --space-1: var(--space-base);
+  --space-2: calc(var(--space-base) * 2);
+  --space-3: calc(var(--space-base) * 3);
+  --space-4: calc(var(--space-base) * 4);
 
   /** Typography **/
   --text--font-family: "Quicksand", Arial, sans-serif;
   --text--font-family-monospace: "Roboto-Mono", "Roboto Mono", monospace;
+  --text--header-letter-spacing: -0.025em;
   --text--line-height: 1.4;
 
   --text--weight-light: 400;
@@ -210,7 +202,7 @@
 
 @keyframes popup-dropdown {
   from {
-    transform: translateY(calc(var(--spacing-md) * -1));
+    transform: translateY(calc(var(--space-2) * -1));
     opacity: 0;
   }
 
@@ -228,8 +220,8 @@ page-button {
   cursor: pointer;
   display: flex;
   font: var(--text--body-md);
-  gap: var(--spacing-sm);
-  padding: var(--spacing-sm) var(--spacing-md);
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-2);
   transition: var(--motion-duration-short);
 
   &:where([data-disabled]) {
@@ -254,7 +246,7 @@ page-button {
   &:where([data-variant="icon"]) {
     background: inherit;
     color: inherit;
-    padding-inline: var(--spacing-sm);
+    padding-inline: var(--space-1);
 
     &::before {
       align-items: center;
@@ -390,7 +382,7 @@ page-dialog-backdrop {
 
 page-dialog-footer {
   display: flex;
-  gap: var(--spacing-md);
+  gap: var(--space-2);
   justify-content: end;
 }
 
@@ -406,19 +398,19 @@ page-dialog-backdrop:where([data-variant="accent"]) {
     background: var(--color--content-bg-primary);
     color: var(--color--content-fg);
     flex-grow: 1;
-    padding: var(--spacing-xl);
+    padding: var(--space-4);
   }
 
   page-dialog-footer {
     background: var(--popup--bg);
     color: var(--popup--fg);
-    padding: var(--spacing-lg) var(--spacing-xl);
+    padding: var(--space-3) var(--space-4);
   }
 
   page-dialog-header {
     background: var(--popup--bg);
     color: var(--popup--fg);
-    padding: var(--spacing-lg) var(--spacing-xl);
+    padding: var(--space-3) var(--space-4);
   }
 }
 
@@ -429,31 +421,31 @@ page-dialog-backdrop:where([data-variant="bordered"]) {
 
     background: var(--popup--bg);
     color: var(--popup--fg);
-    padding: var(--spacing-xl);
+    padding: var(--space-4);
   }
 
   page-dialog-body {
     background: var(--color--content-bg-primary);
     color: var(--color--content-fg);
     flex-grow: 1;
-    margin-block: var(--spacing-md);
+    margin-block: var(--space-2);
   }
 
   page-dialog-footer {
     border-block-start: var(--border-md) solid;
-    padding-block: var(--spacing-md);
+    padding-block: var(--space-2);
   }
 
   page-dialog-header {
     border-block-end: var(--border-md) solid;
-    padding-block: var(--spacing-md);
+    padding-block: var(--space-2);
   }
 }
 
 page-field {
   display: flex;
   justify-content: space-between;
-  padding-block: var(--spacing-sm);
+  padding-block: var(--space-1);
 
   &:not(:last-child) {
     border-block-end: var(--border-sm) solid currentColor;
@@ -496,7 +488,7 @@ page-menu {
 
 page-menu-heading {
   font-weight: var(--text--weight-bold);
-  padding: calc(var(--menuitem--spacing) / 2) var(--menuitem--spacing);
+  padding: calc(var(--menuitem--space) / 2) var(--menuitem--space);
   margin-inline-start: calc(
     var(--menuitem--icon-size) + var(--menuitem--icon-gap)
   );
@@ -512,7 +504,7 @@ page-menu-item {
     "icon title      "
     "icon description";
   grid-template-columns: min-content max-content;
-  padding: calc(var(--menuitem--spacing) / 2) var(--menuitem--spacing);
+  padding: calc(var(--menuitem--space) / 2) var(--menuitem--space);
   position: relative;
 
   &:where([data-hover], :hover) {
@@ -580,13 +572,13 @@ page-menu-item-description {
   /* This doesn't even affect anything but alright */
   grid-area: description;
   opacity: var(--dim-opacity);
-  margin-block-start: var(--spacing-xs);
+  margin-block-start: var(--space-05);
 }
 
 page-menu-separator {
   background: currentColor;
   block-size: var(--border-md);
-  margin: calc(var(--menuitem--spacing) / 2) var(--menuitem--spacing);
+  margin: calc(var(--menuitem--space) / 2) var(--menuitem--space);
 }
 
 page-radio-container {
@@ -607,7 +599,7 @@ page-tooltip {
   border-block: var(--border-md) solid;
   border-block-start-color: hsl(from var(--bg) h s calc(l + 10));
   border-block-end-color: hsl(from var(--bg) h s calc(l - 10));
-  padding: var(--spacing-sm) var(--spacing-md);
+  padding: var(--space-1) var(--space-2);
   width: max-content;
 }
 
