@@ -241,13 +241,17 @@ color-gradient {
 color-gradient-container {
 	background: var(--bg);
 	border-block: var(--border-md) solid;
-	border-block-start-color: hsl(from var(--bg) h s calc(l + 10));
-	border-block-end-color: hsl(from var(--bg) h s calc(l - 10));
+	border-block-start-color: hsl(
+		from var(--bg) h s calc(l + var(--shadow-l-diff))
+	);
+	border-block-end-color: hsl(
+		from var(--bg) h s calc(l - var(--shadow-l-diff))
+	);
 	color: contrast-color(var(--bg));
 	display: flex;
 	flex-direction: column;
 	inline-size: calc(100% / 9);
-	padding: var(--space-1);
+	padding: var(--space-05) var(--space-1);
 	/* Trick for watching style changes */
 	transition: background-color 0.001ms step-start;
 
@@ -275,6 +279,11 @@ color-slider {
 		color: var(--color--accent-fg);
 		justify-content: space-between;
 	}
+}
+
+icons-container {
+	display: flex;
+	flex-wrap: wrap;
 }
 
 spacing-unit {
@@ -363,8 +372,4 @@ typography-info-container {
 	color: var(--color--accent-fg);
 	display: flex;
 	flex-direction: column;
-}
-
-typography-info-title {
-	font: var(--text--heading-sm);
 }

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-icon-variant="rounded">
+<html lang="en" data-density="normal" data-icon-variant="rounded">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="color-scheme" content="light dark" />
@@ -63,6 +63,9 @@
 			</page-section>
 
 			<page-section id="status">
+				<status-container data-name="colors"></status-container>
+				<status-container data-name="spacing"></status-container>
+				<status-container data-name="typography"></status-container>
 				<status-container data-name="button"></status-container>
 				<status-container data-name="dialog"></status-container>
 				<status-container data-name="menu"></status-container>
@@ -167,6 +170,38 @@
 				</color-gradient-controls>
 			</page-section>
 
+			<page-section id="icons">
+				<page-section-grid>
+					<icons-container>
+						<page-button
+							data-variant="icon"
+							data-where="accent"
+							data-icon="monitor"
+						></page-button>
+						<page-button
+							data-variant="icon"
+							data-where="accent"
+							data-icon="person_edit"
+						></page-button>
+						<page-button
+							data-variant="icon"
+							data-where="accent"
+							data-icon="split_scene_left"
+						></page-button>
+						<page-button
+							data-variant="icon"
+							data-where="accent"
+							data-icon="video_camera_front"
+						></page-button>
+						<page-button
+							data-variant="icon"
+							data-where="accent"
+							data-icon="weekend"
+						></page-button>
+					</icons-container>
+				</page-section-grid>
+			</page-section>
+
 			<page-section id="spacing">
 				<spacing-unit data-unit="05"></spacing-unit>
 				<spacing-unit data-unit="1"></spacing-unit>
@@ -178,7 +213,7 @@
 			<page-section id="typography">
 				<typography-info>
 					<typography-info-container>
-						<typography-info-title>Quicksand</typography-info-title>
+						<h3>Quicksand</h3>
 						<typography-info-subtitle>1.4 line height</typography-info-subtitle>
 					</typography-info-container>
 					<typography-info-var>
@@ -228,6 +263,18 @@
 				</page-section-grid>
 			</page-section>
 
+			<page-section id="components-list">
+				<page-section-grid>
+					<page-list>
+						<page-list-item>List item 1</page-list-item>
+						<page-list-item>List item 2</page-list-item>
+						<page-list-item data-selected>Selected state</page-list-item>
+						<page-list-item data-hover>Hover state</page-list-item>
+						<page-list-item data-active>Active state</page-list-item>
+					</page-list>
+				</page-section-grid>
+			</page-section>
+
 			<page-section id="components-menu">
 				<page-section-grid>
 					<page-button
@@ -256,13 +303,19 @@
 		>
 			<page-dialog id="dialog" data-size="md">
 				<page-dialog-header>
-					<page-dialog-title>Dialog (wip)</page-dialog-title>
-					<page-button data-variant="icon" data-where="accent"></page-button>
+					<page-dialog-title>Dialog</page-dialog-title>
+					<page-button
+						data-variant="icon"
+						data-where="accent"
+						data-icon="close"
+					></page-button>
 				</page-dialog-header>
 				<page-dialog-body>
-					stuff here later for dialog width maybeeeeeeeee idk
+					Dialogs are used to display content that requires user interaction.
+					They can be used for a variety of purposes, such as displaying
+					information, confirming actions, or collecting input from the user.
 					<page-field>
-						Dialog size
+						<h3>Dialog size</h3>
 						<page-radio-container data-name="radio--dialog-size">
 							<page-button data-arg="sm"></page-button>
 							<page-button data-arg="md"></page-button>
@@ -271,7 +324,7 @@
 						</page-radio-container>
 					</page-field>
 					<page-field>
-						Dialog variant
+						<h3>Dialog variant</h3>
 						<page-radio-container data-name="radio--dialog-variant">
 							<page-button data-arg="accent"></page-button>
 							<page-button data-arg="bordered"></page-button>

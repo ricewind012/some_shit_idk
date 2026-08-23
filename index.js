@@ -19,6 +19,13 @@ const k_mapStatusText =
 			"Decide on primary content bg, pure white/black or not ?",
 		],
 	},
+	spacing: {
+		bDone: false,
+		strTitle: "Spacing",
+		vecDescription: [
+			"Density",
+		],
+	},
 	typography: {
 		bDone: false,
 		strTitle: "Typography",
@@ -34,10 +41,9 @@ const k_mapStatusText =
 		],
 	},
 	dialog: {
-		bDone: false,
+		bDone: true,
 		strTitle: "Dialog",
 		vecDescription: [
-			"Decide on a single variant, but both look like shit",
 		],
 	},
 	menu: {
@@ -46,7 +52,6 @@ const k_mapStatusText =
 		vecDescription: [
 			"Checked variant looks weird, other color?",
 			"Fix(?) the top header spacing, there is less of it below than above",
-			"Move shadow-l-diff to be used for others, so maybe get it a namespace, or move to 'others'",
 			"Unify line-height (16 / 14) with others, maybe do this for other controls ?",
 		],
 	},
@@ -58,7 +63,6 @@ const k_mapStatusText =
 			"Maybe do these like in Primer? Avatars, alerts, etc.",
 			"Cards (maybe like in color-gradient)",
 			"Checkboxes",
-			"Lists (already there)",
 			"Radios",
 			"Sliders",
 			"Tags",
@@ -86,8 +90,12 @@ const k_mapText =
 		strDescription: "A harsh contrast with the left side being focused on a specific accent color. Freely configurable saturation and lightness, with lightness step being set to max on high contrast.",
 		strHeader: "Colors",
 	},
+	icons: {
+		strDescription: "Material Symbols",
+		strHeader: "Icons",
+	},
 	spacing: {
-		strDescription: "Compact (todo density) and based on text size. (todo actually)",
+		strDescription: "Compact and based on text size.",
 		strHeader: "Spacing",
 	},
 	typography: {
@@ -103,6 +111,10 @@ const k_mapText =
 		strDescription: "yes",
 		strHeader: "Components - Dialog",
 	},
+	"components-list": {
+		strDescription: "yes",
+		strHeader: "Components - List",
+	},
 	"components-menu": {
 		strDescription: "It's usually in the content, so should not have content colors... right ?",
 		strHeader: "Components - Menu",
@@ -116,16 +128,21 @@ const k_mapText =
 /**
  * Take a guess
  * @param {keyof HTMLElementTagNameMap} strTag
- * @param {Record< string, string >} attrs
+ * @param {Record< string, string > & { [ev: `on${ keyof HTMLElementEventMap }`]: Function }} attrs
  * @param {string | HTMLElement[]} child
  * @returns {HTMLElement}
  */
 function CreateElement( strTag, attrs, child )
 {
 	const el = document.createElement( strTag );
-	for ( const [ k, v ] of Object.entries( attrs ) )
+	for ( const [ k, v ] of Object.entries( attrs ).filter( (e) => !e[0].startsWith( "on" ) ) )
 	{
 		el.setAttribute( k, v );
+	}
+
+	for ( const [ k, v ] of Object.entries( attrs ).filter( (e) => e[0].startsWith( "on" ) ) )
+	{
+		el.addEventListener( k.slice( 2 ), v );
 	}
 
 	if ( Array.isArray( child ) )
@@ -189,7 +206,20 @@ customElements.define( "color-gradient", class extends HTMLElement
 			const strVarName = `--${ name }-${ color }`;
 			const elContainer = CreateElement(
 				"color-gradient-container",
-				{ style: `--bg: var(${ strVarName })` },
+				{
+					ontransitionstart: ( ev ) =>
+					{
+						if ( ev.propertyName !== "background-color" )
+						{
+							return;
+						}
+
+						const bg = getComputedStyle( elContainer ).background;
+						const val = this.GetHexColor( bg );
+						elValue.textContent = val;
+					},
+					style: `--bg: var(${ strVarName })`,
+				},
 				"",
 			);
 			this.appendChild( elContainer );
@@ -198,17 +228,6 @@ customElements.define( "color-gradient", class extends HTMLElement
 			const val = this.GetHexColor( getComputedStyle( elContainer ).background );
 			const elValue = CreateElement( "color-gradient-value", {}, val );
 			elContainer.appendChild( elValue );
-
-			elContainer.addEventListener( "transitionstart",	( ev ) =>
-			{
-				if ( ev.propertyName !== "background-color" )
-				{
-					return;
-				}
-
-				const val = this.GetHexColor( getComputedStyle( elContainer ).background );
-				elValue.textContent = val;
-			} );
 		}
 	}
 } );
@@ -229,17 +248,25 @@ customElements.define( "color-slider", class extends HTMLElement
 		const doc = document.documentElement;
 		const prop = `--${ name }`;
 
-		const elInput = CreateElement( "input", { type: "range", min, max, step }, "" );
+		const elInput = CreateElement(
+			"input",
+			{
+				type: "range", min, max, step,
+				oninput: () =>
+				{
+					const value = name.startsWith( "base" )
+						? `${ elInput.value }%`
+						: elInput.value;
+					doc.style.setProperty( prop, value );
+				},
+			},
+			"",
+		);
 		elInput.value = getComputedStyle( doc ).getPropertyValue( prop ).replace( "%", "" );
-		elInput.addEventListener( "input", () =>
-		{
-			const value = name.startsWith( "base" ) ? `${ elInput.value }%` : elInput.value;
-			doc.style.setProperty( prop, value );
-		} );
 
 		this.appendChild(
-			CreateElement( "label", {}, [
-				CreateElement( "color-slider-label", {}, this.m_labels[ name ] ),
+			CreateElement( "page-field", {}, [
+				CreateElement( "h3", {}, this.m_labels[ name ] ),
 				elInput,
 			] ),
 		);
@@ -406,7 +433,7 @@ customElements.define( "typography-info", class extends HTMLElement
 			.match(/^\w+\s+(\d+)\s+(\d+px)/);
 		this.appendChild(
 			CreateElement( "typography-info-container", {}, [
-				CreateElement( "typography-info-title", {}, k_mapFonts[ name ] ),
+				CreateElement( "h3", {}, k_mapFonts[ name ] ),
 				CreateElement( "typography-info-subtitle", {}, `${ fontWeight } / ${ fontSize }` ),
 			] ),
 		);
