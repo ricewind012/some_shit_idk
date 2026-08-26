@@ -20,17 +20,15 @@ const k_mapStatusText =
 		],
 	},
 	spacing: {
-		bDone: false,
+		bDone: true,
 		strTitle: "Spacing",
 		vecDescription: [
-			"Density",
 		],
 	},
 	typography: {
-		bDone: false,
+		bDone: true,
 		strTitle: "Typography",
 		vecDescription: [
-			"12/10 for md/sm?",
 		],
 	},
 	button: {
@@ -41,9 +39,10 @@ const k_mapStatusText =
 		],
 	},
 	dialog: {
-		bDone: true,
+		bDone: false,
 		strTitle: "Dialog",
 		vecDescription: [
+			"Weird footer buttons",
 		],
 	},
 	menu: {
@@ -462,11 +461,56 @@ document.addEventListener( "DOMContentLoaded", () =>
 	};
 
 	//
+	// Page nav
+	//
+	const k_ButtonToSectionID =
+	{
+		info: "intro",
+		close: "absent",
+		colors: "colors",
+		space_bar: "spacing",
+		custom_typography: "typography",
+		left_click: "components-button",
+		select_window_2: "components-dialog",
+		menu: "components-menu",
+	};
+	for ( const btn of document.querySelectorAll( "page-nav > page-button" ) )
+	{
+		const strSectionID = k_ButtonToSectionID[ btn.dataset.icon ];
+		btn.children[ 0 ].textContent = k_mapText[ strSectionID ].strHeader;
+		btn.addEventListener( "click", () =>
+		{
+			location.hash = strSectionID;
+		} );
+	}
+
+	//
+	// Lists
+	//
+	const sel = "page-list-item:where( :nth-child( 1 ), :nth-child( 2 ), :nth-child( 3 ) )";
+	const listItems = document.querySelectorAll( sel );
+	for ( const elItem of listItems )
+	{
+		elItem.addEventListener( "click", () =>
+		{
+			for ( let i = 0; i < listItems.length; i++ )
+			{
+				const elItem = listItems[ i ];
+				delete elItem.dataset.selected;
+				elItem.textContent = `List item ${ i + 1 }`;
+			}
+			elItem.dataset.selected = true;
+			elItem.textContent = "Selected state";
+		} );
+	}
+
+	//
 	// Radios
 	//
 
 	const k_RadioCallbacks =
 	{
+		// TODO: doesn't exist anymore, need a new radio
 		"radio--dialog-size": ( arg ) =>
 		{
 			els.cDialog_Dialog.dataset.size = arg;
@@ -523,26 +567,4 @@ document.addEventListener( "DOMContentLoaded", () =>
 	{
 		els.cMenu_Menu.hidden = !els.cMenu_Menu.hidden;
 	} );
-
-	// Page nav
-	const k_ButtonToSectionID =
-	{
-		info: "intro",
-		close: "absent",
-		colors: "colors",
-		space_bar: "spacing",
-		custom_typography: "typography",
-		left_click: "components-button",
-		select_window_2: "components-dialog",
-		menu: "components-menu",
-	};
-	for ( const btn of document.querySelectorAll( "page-nav > page-button" ) )
-	{
-		const strSectionID = k_ButtonToSectionID[ btn.dataset.icon ];
-		btn.children[ 0 ].textContent = k_mapText[ strSectionID ].strHeader;
-		btn.addEventListener( "click", () =>
-		{
-			location.hash = strSectionID;
-		} );
-	}
 });

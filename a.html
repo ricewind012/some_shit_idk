@@ -296,17 +296,13 @@
 			</page-section>
 		</page-content>
 
-		<page-dialog-backdrop
-			id="dialog-backdrop--showcase"
-			hidden
-			data-variant="accent"
-		>
-			<page-dialog id="dialog" data-size="md">
+		<page-dialog-backdrop id="dialog-backdrop--showcase" hidden>
+			<page-dialog id="dialog">
 				<page-dialog-header>
 					<page-dialog-title>Dialog</page-dialog-title>
 					<page-button
 						data-variant="icon"
-						data-where="accent"
+						data-where="content"
 						data-icon="close"
 					></page-button>
 				</page-dialog-header>
@@ -332,16 +328,16 @@
 					</page-field>
 				</page-dialog-body>
 				<page-dialog-footer>
-					<page-button id="components-dialog--ok-button" data-where="accent">
+					<page-button id="components-dialog--ok-button" data-where="content">
 						OK
 					</page-button>
-					<page-button data-where="accent">Cancel</page-button>
+					<page-button data-where="content">Cancel</page-button>
 				</page-dialog-footer>
 			</page-dialog>
 		</page-dialog-backdrop>
 
 		<page-dialog-backdrop id="dialog-backdrop--steam" hidden>
-			<page-dialog data-size="fill">
+			<page-dialog>
 				<steam-rootmenu> </steam-rootmenu>
 				<steam-sidebar-container>
 					<steam-sidebar-top>

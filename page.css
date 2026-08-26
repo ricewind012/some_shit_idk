@@ -87,9 +87,7 @@ body {
 	}
 
 	page-dialog {
-		inset: 0;
 		margin: auto;
-		position: fixed;
 	}
 
 	page-menu {

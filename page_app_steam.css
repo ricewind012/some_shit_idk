@@ -1,31 +1,38 @@
-#dialog-backdrop--steam > page-dialog {
-	flex-direction: row;
+#dialog-backdrop--steam {
+	padding: 0;
 
-	&::before,
-	&::after {
-		display: none;
-	}
+	& > page-dialog {
+		block-size: 100%;
+		flex-direction: row;
+		max-inline-size: 100%;
+		padding: 0;
 
-	* {
-		display: flex;
-	}
+		&::before,
+		&::after {
+			display: none;
+		}
 
-	@media (prefers-color-scheme: dark) {
-		--dark: flex;
-		--light: none;
-	}
+		* {
+			display: flex;
+		}
 
-	@media (prefers-color-scheme: light) {
-		--dark: none;
-		--light: flex;
-	}
+		@media (prefers-color-scheme: dark) {
+			--dark: flex;
+			--light: none;
+		}
 
-	.dark {
-		display: var(--dark);
-	}
+		@media (prefers-color-scheme: light) {
+			--dark: none;
+			--light: flex;
+		}
 
-	.light {
-		display: var(--light);
+		.dark {
+			display: var(--dark);
+		}
+
+		.light {
+			display: var(--light);
+		}
 	}
 }
 
@@ -62,7 +69,7 @@ steam-sidebar-container {
 	background: var(--color--accent-bg);
 	color: var(--color--accent-fg);
 	flex-direction: column;
-	max-inline-size: 320px;
+	inline-size: 320px;
 }
 
 steam-sidebar-game-list {
