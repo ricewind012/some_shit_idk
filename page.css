@@ -102,6 +102,10 @@ body {
 		}
 	}
 
+	page-section-grid > page-list {
+		color: var(--color--accent-fg);
+	}
+
 	page-tooltip {
 		inset-inline-start: calc(100% + var(--space-2));
 		opacity: 0;
@@ -273,9 +277,15 @@ color-gradient-controls {
 }
 
 color-slider {
-	label {
+	page-field {
 		color: var(--color--accent-fg);
-		justify-content: space-between;
+		/* todo doesn't work wtf */
+		border-image: linear-gradient(
+			90deg,
+			var(--color--accent-bg) 50%,
+			var(--color--content-bg-primary) 50%
+		);
+		border-image-slice: 1;
 	}
 }
 

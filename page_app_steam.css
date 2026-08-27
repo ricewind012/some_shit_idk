@@ -4,6 +4,7 @@
 	& > page-dialog {
 		block-size: 100%;
 		flex-direction: row;
+		inline-size: 100%;
 		max-inline-size: 100%;
 		padding: 0;
 

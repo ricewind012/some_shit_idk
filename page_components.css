@@ -96,11 +96,6 @@
 	--dialog--fg: var(--color--content-fg);
 	--dialog--border-size: var(--border-md);
 
-	/** Motion **/
-	--motion-duration-long: 500ms; /* todo: use */
-	--motion-duration-medium: 250ms;
-	--motion-duration-short: 100ms;
-
 	/** Icon size **/
 	--icon-size-sm: 0.75rem;
 	--icon-size-md: 1rem;
@@ -133,7 +128,12 @@
 	--menuitem--checked-color: var(--blue-8);
 	--menuitem--icon-gap: var(--space-1);
 	--menuitem--icon-size: var(--icon-size-md);
-	--menuitem--space: 6px;
+	--menuitem--space: 8px;
+
+	/** Motion **/
+	--motion-duration-long: 500ms; /* todo: use */
+	--motion-duration-medium: 250ms;
+	--motion-duration-short: 100ms;
 
 	/** Popup **/
 	--popup--animation: popup-dropdown var(--motion-duration-medium)
@@ -198,6 +198,8 @@
 	--shadow-l-diff: 10;
 
 	&:where([data-density="compact"]) {
+		--menuitem--space: 6px;
+
 		--space-base: 0.25rem;
 
 		--text--heading-lg-size: 24px;
@@ -247,15 +249,21 @@
 }
 
 page-button {
+	--button--border-size: var(--border-md);
 	align-items: center;
 	background: var(--button-bg);
-	color: var(--button-fg);
+	border-block-end: var(--button--border-size) solid;
+	border-block-end-color: hsl(
+		from var(--button-bg) h s calc(l - var(--shadow-l-diff))
+	);
 	color: contrast-color(var(--button-bg));
 	cursor: pointer;
 	display: flex;
 	font: var(--text--body-md);
 	gap: var(--space-1);
 	padding: var(--space-1) var(--space-2);
+	padding-block-end: calc(var(--space-1) - var(--button--border-size));
+	position: relative;
 	transition: var(--motion-duration-short);
 
 	&:where([data-disabled]) {
@@ -268,57 +276,56 @@ page-button {
 
 		&::after {
 			align-items: center;
+			block-size: 1em;
 			content: "keyboard_arrow_down";
 			display: flex;
 			font-family: var(--text--font-family-icon);
 			font-size: var(--icon-size-md);
-			height: 1em;
 			justify-content: center;
 		}
 	}
 
 	&:where([data-variant="icon"]) {
+		/*
 		background: inherit;
 		color: inherit;
+		*/
 		padding-inline: var(--space-1);
 
 		&::before {
 			align-items: center;
+			block-size: 1em;
 			content: var(--icon);
 			display: flex;
 			font-family: var(--text--font-family-icon);
 			font-size: var(--icon-size-md);
-			height: 1em;
 			justify-content: center;
 		}
 	}
 
 	&:where([data-where="accent"]) {
-		--button-bg: var(--color--content-bg-primary);
-		--button-bg-active: var(--color--content-bg-tertiary);
-		--button-bg-hover: var(--color--content-bg-secondary);
-		--button-fg: var(--color--content-fg);
+		--button-bg: var(--white-7);
+		--button-bg: transparent;
+		--button-bg-active: var(--white-3);
+		--button-bg-hover: var(--white-5);
 	}
 
 	&:where([data-where="content"]) {
 		--button-bg: var(--accent-5);
 		--button-bg-active: var(--accent-3);
 		--button-bg-hover: var(--accent-4);
-		--button-fg: var(--color--accent-fg);
 	}
 
 	&:where([data-state="danger"]) {
 		--button-bg: var(--red-5);
 		--button-bg-active: var(--red-3);
 		--button-bg-hover: var(--red-4);
-		--button-fg: var(--color--accent-fg);
 	}
 
 	&:where([data-state="success"]) {
 		--button-bg: var(--green-5);
 		--button-bg-active: var(--green-3);
 		--button-bg-hover: var(--green-4);
-		--button-fg: var(--color--accent-fg);
 	}
 
 	&:where(:hover) {
@@ -479,11 +486,11 @@ page-list-item {
 		content: "";
 		pointer-events: none;
 		position: absolute;
-		transition: background var(--motion-duration-medium);
+		transition: background var(--motion-duration-short);
 	}
 
 	&::after {
-		transition-delay: calc(var(--motion-duration-medium) / 2);
+		transition-delay: calc(var(--motion-duration-short) / 2);
 	}
 }
 
@@ -617,8 +624,11 @@ page-menu-separator {
 }
 
 page-radio-container {
+	background-color: color-mix(in srgb, light-dark(#fff, #000) 50%, transparent);
 	display: flex;
 	flex-wrap: wrap;
+	gap: var(--space-05);
+	padding: var(--space-1);
 
 	page-button {
 		&:where([data-checked]) {
@@ -638,6 +648,7 @@ page-tooltip {
 	border-block-end-color: hsl(
 		from var(--bg) h s calc(l - var(--shadow-l-diff))
 	);
+	inline-size: max-content;
 	padding: var(--space-1) var(--space-2);
-	width: max-content;
+	z-index: 999;
 }
