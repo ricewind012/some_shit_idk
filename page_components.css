@@ -249,20 +249,23 @@
 }
 
 page-button {
-	--button--border-size: var(--border-md);
 	align-items: center;
 	background: var(--button-bg);
-	border-block-end: var(--button--border-size) solid;
+	border-block-end: var(--shadow-border-size) solid;
+	/* TODO: * 2 for dark? better visibility */
 	border-block-end-color: hsl(
 		from var(--button-bg) h s calc(l - var(--shadow-l-diff))
 	);
 	color: contrast-color(var(--button-bg));
+	color: hsla(
+		from contrast-color(var(--button-bg)) h s calc(l + var(--text-l-diff))
+	);
 	cursor: pointer;
 	display: flex;
 	font: var(--text--body-md);
 	gap: var(--space-1);
 	padding: var(--space-1) var(--space-2);
-	padding-block-end: calc(var(--space-1) - var(--button--border-size));
+	padding-block-end: calc(var(--space-1) - var(--shadow-border-size));
 	position: relative;
 	transition: var(--motion-duration-short);
 
@@ -311,9 +314,9 @@ page-button {
 	}
 
 	&:where([data-where="content"]) {
-		--button-bg: var(--accent-5);
-		--button-bg-active: var(--accent-3);
-		--button-bg-hover: var(--accent-4);
+		--button-bg: var(--white-8);
+		--button-bg-active: var(--white-6);
+		--button-bg-hover: var(--white-7);
 	}
 
 	&:where([data-state="danger"]) {
@@ -335,6 +338,28 @@ page-button {
 	&:where(:active) {
 		--button-bg: var(--button-bg-active);
 	}
+	--text-l-diff: 25;
+
+	@media (prefers-color-scheme: dark) {
+		--text-l-diff: -15;
+	}
+
+	@media (prefers-contrast) {
+		--text-l-diff: 0;
+	}
+}
+
+page-card {
+	background: var(--bg);
+	border-block: var(--shadow-border-size) solid;
+	border-block-start-color: hsl(
+		from var(--bg) h s calc(l + var(--shadow-l-diff))
+	);
+	border-block-end-color: hsl(
+		from var(--bg) h s calc(l - var(--shadow-l-diff))
+	);
+	color: contrast-color(var(--bg));
+	padding: var(--space-05) var(--space-1);
 }
 
 page-checkbox {

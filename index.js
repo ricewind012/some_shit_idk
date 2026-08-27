@@ -35,7 +35,7 @@ const k_mapStatusText =
 		bDone: false,
 		strTitle: "Button",
 		vecDescription: [
-			"Fix icon variant hover",
+			"Wait for bDone ... playing w/ text contrast, def need ts",
 		],
 	},
 	dialog: {
@@ -86,7 +86,7 @@ const k_mapText =
 		strHeader: "Absent",
 	},
 	colors: {
-		strDescription: "A harsh contrast with the left side being focused on a specific accent color. Freely configurable saturation and lightness, with lightness step being set to max on high contrast.",
+		strDescription: "A harsh contrast (hence no text colors) with the left side being focused on a specific accent color. Freely configurable saturation and lightness, with lightness step being set to max on high contrast.",
 		strHeader: "Colors",
 	},
 	icons: {
@@ -107,11 +107,11 @@ const k_mapText =
 		strHeader: "Components - Button",
 	},
 	"components-dialog": {
-		strDescription: "yes",
+		strDescription: "hm",
 		strHeader: "Components - Dialog",
 	},
 	"components-list": {
-		strDescription: "yes",
+		strDescription: "Including a little selected state animation!",
 		strHeader: "Components - List",
 	},
 	"components-menu": {
@@ -204,7 +204,7 @@ customElements.define( "color-gradient", class extends HTMLElement
 		{
 			const strVarName = `--${ name }-${ color }`;
 			const elContainer = CreateElement(
-				"color-gradient-container",
+				"page-card",
 				{
 					ontransitionstart: ( ev ) =>
 					{
