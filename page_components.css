@@ -102,20 +102,22 @@
 	--icon-size-lg: 1.25rem;
 
 	/** Lists **/
-	--listitem--bg-hover: var(--accent-4);
-	--listitem--bg-active: var(--accent-3);
+	--list--spacing: calc(var(--listitem--selected-border-size) * 2);
+
+	--listitem--bg-hover: light-dark(var(--accent-6), var(--accent-4));
+	--listitem--bg-active: light-dark(var(--accent-7), var(--accent-3));
 	/* TODO: idk why this one lol */
 	--listitem--bg-selected: var(--color--accent-fg);
 	--listitem--selected-border-offset: 2.5%;
 	--listitem--selected-border-size: var(--border-md);
 	--listitem--selected-elevation-1: color-mix(
 		in srgb,
-		var(--color--accent-fg) 75%,
+		var(--listitem--bg-selected) 75%,
 		var(--color--accent-bg)
 	);
 	--listitem--selected-elevation-2: color-mix(
 		in srgb,
-		var(--color--accent-fg) 50%,
+		var(--listitem--bg-selected) 50%,
 		var(--color--accent-bg)
 	);
 
@@ -235,6 +237,18 @@
 		--shadow-l-diff: 15;
 	}
 }
+
+/*
+
+body::before{
+	--a: calc( 1 * ( var(--l-step) / 100 ) );
+	background: hsl(var(--accent-h) var(--base-s) 0 / calc(var(--a) * 2));
+	content: 'var(--accent-h) var(--base-s)';
+	inset: 0;
+	position: absolute;
+}
+
+*/
 
 @keyframes popup-dropdown {
 	from {
@@ -467,8 +481,9 @@ page-field {
 
 page-list {
 	display: flex;
-	gap: calc(var(--listitem--selected-border-size) * 2);
+	gap: var(--list--spacing);
 	flex-direction: column;
+	padding-block: var(--list--spacing);
 }
 
 page-list-item {

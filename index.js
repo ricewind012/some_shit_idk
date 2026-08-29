@@ -60,7 +60,6 @@ const k_mapStatusText =
 		vecDescription: [
 			"Use icon size sizes? or just use md",
 			"Maybe do these like in Primer? Avatars, alerts, etc.",
-			"Cards (maybe like in color-gradient)",
 			"Checkboxes",
 			"Radios",
 			"Sliders",
@@ -106,6 +105,11 @@ const k_mapText =
 		strDescription: "yep",
 		strHeader: "Components - Button",
 	},
+	"components-card": {
+		// TODO
+		strDescription: "May be used in groups, but I'd rather see them separated.",
+		strHeader: "Components - Card",
+	},
 	"components-dialog": {
 		strDescription: "hm",
 		strHeader: "Components - Dialog",
@@ -127,7 +131,7 @@ const k_mapText =
 /**
  * Take a guess
  * @param {keyof HTMLElementTagNameMap} strTag
- * @param {Record< string, string > & { [ev: `on${ keyof HTMLElementEventMap }`]: Function }} attrs
+ * @param {Record< string, string > & { [ev: `on${ keyof HTMLElementEventMap }`]: ( ev: Event ) => void }} attrs
  * @param {string | HTMLElement[]} child
  * @returns {HTMLElement}
  */
@@ -224,8 +228,8 @@ customElements.define( "color-gradient", class extends HTMLElement
 			this.appendChild( elContainer );
 			elContainer.appendChild( CreateElement( "color-gradient-var", {}, strVarName ) );
 
-			const val = this.GetHexColor( getComputedStyle( elContainer ).background );
-			const elValue = CreateElement( "color-gradient-value", {}, val );
+			const strColor = this.GetHexColor( getComputedStyle( elContainer ).background );
+			const elValue = CreateElement( "color-gradient-value", {}, strColor );
 			elContainer.appendChild( elValue );
 		}
 	}
@@ -397,19 +401,16 @@ customElements.define( "status-container", class extends HTMLElement
 		this.appendChild(
 			CreateElement( "status-container-left", {}, [
 				CreateElement( "page-checkbox", bDone && { "data-checked": true }, "" ),
-				CreateElement( "status-title", {}, strTitle ),
+				CreateElement( "h3", {}, strTitle ),
 			], ),
 		);
-
-		const elDescription = this.appendChild(
-			CreateElement( "status-description", {}, "" ),
+		this.appendChild(
+			CreateElement(
+				"status-description",
+				{},
+				vecDescription.map( (e) => CreateElement( "status-description-item", {}, e ) ),
+			),
 		);
-		for ( const desc of vecDescription )
-		{
-			elDescription.appendChild(
-				CreateElement( "status-description-item", {}, desc ),
-			);
-		}
 	}
 } );
 
@@ -487,15 +488,31 @@ document.addEventListener( "DOMContentLoaded", () =>
 	//
 	// Lists
 	//
-	const sel = "page-list-item:where( :nth-child( 1 ), :nth-child( 2 ), :nth-child( 3 ) )";
-	const listItems = document.querySelectorAll( sel );
-	for ( const elItem of listItems )
+	const vecListContainers = document.querySelectorAll( "page-list" );
+	for ( const elContainer of vecListContainers )
+	{
+		for ( const elItem of elContainer.children )
+		{
+			elItem.addEventListener( "click", () =>
+			{
+				for ( let i = 0; i < elContainer.children.length; i++ )
+				{
+					delete elContainer.children[ i ].dataset.selected;
+				}
+				elItem.dataset.selected = true;
+			} );
+		}
+	}
+
+	const showcaseSel = "#components-list page-list-item:where( :nth-child( 1 ), :nth-child( 2 ), :nth-child( 3 ) )";
+	const showcaseListItems = document.querySelectorAll( showcaseSel );
+	for ( const elItem of showcaseListItems )
 	{
 		elItem.addEventListener( "click", () =>
 		{
-			for ( let i = 0; i < listItems.length; i++ )
+			for ( let i = 0; i < showcaseListItems.length; i++ )
 			{
-				const elItem = listItems[ i ];
+				const elItem = showcaseListItems[ i ];
 				delete elItem.dataset.selected;
 				elItem.textContent = `List item ${ i + 1 }`;
 			}

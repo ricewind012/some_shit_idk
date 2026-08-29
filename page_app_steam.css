@@ -13,7 +13,7 @@
 			display: none;
 		}
 
-		* {
+		:where(& *) {
 			display: flex;
 		}
 
@@ -74,7 +74,27 @@ steam-sidebar-container {
 }
 
 steam-sidebar-game-list {
-	flex-grow: 1;
+	display: contents;
+
+	page-list {
+		overflow: auto;
+	}
+
+	page-list-item {
+		gap: var(--space-1);
+
+		& > div {
+			display: block;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
+
+		& > img {
+			block-size: var(--icon-size-md);
+			inline-size: var(--icon-size-md);
+		}
+	}
 }
 
 steam-sidebar-top {

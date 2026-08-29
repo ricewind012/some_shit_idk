@@ -279,6 +279,39 @@ color-slider {
 	}
 }
 
+custom-card {
+	& > page-card {
+		border-block-start: none;
+		display: flex;
+		flex-direction: column;
+		padding: 0;
+	}
+}
+
+custom-card-desc {
+	font: var(--text--body-sm);
+	font-weight: var(--text--weight-light);
+}
+
+custom-card-footer {
+	display: flex;
+	flex-direction: column;
+	padding: var(--space-05) var(--space-1);
+}
+
+custom-card-header {
+	font: var(--text--body-lg);
+	font-weight: var(--text--weight-bold);
+}
+
+custom-card-image {
+	background-image: url("https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/312520/dc5bd100e86dbdb088e7ff17cdb601e7eb2e00bc/header_2x.jpg");
+	background-size: cover;
+	block-size: 318px;
+	box-shadow: inset 0 var(--shadow-border-size)
+		hsl(from var(--bg) h s calc(l + var(--shadow-l-diff) / 0.5));
+}
+
 icons-container {
 	display: flex;
 	flex-wrap: wrap;
@@ -338,6 +371,11 @@ status-container {
 	}
 }
 
+status-container-left {
+	align-items: center;
+	display: flex;
+}
+
 status-description {
 	display: flex;
 	flex-direction: column;
@@ -355,10 +393,6 @@ status-description-item {
 		min-inline-size: 3ch;
 		opacity: var(--dim-opacity);
 	}
-}
-
-status-title {
-	font: var(--text--heading-sm);
 }
 
 typography-info {
