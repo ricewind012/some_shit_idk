@@ -295,8 +295,51 @@ custom-card-desc {
 
 custom-card-footer {
 	display: flex;
+	justify-content: space-between;
+}
+
+custom-card-footer-left {
+	display: flex;
 	flex-direction: column;
 	padding: var(--space-05) var(--space-1);
+}
+
+custom-card-footer-right {
+	steam-store-discount {
+		--bg: var(--blue-3);
+
+		background: var(--bg);
+		color: contrast-color(var(--bg));
+		display: flex;
+		/* TODO */
+		margin: var(--space-1) calc(var(--space-1) * 1.5);
+	}
+
+	steam-store-discount-new-price {
+		font-weight: var(--text--weight-semibold);
+		line-height: 1;
+	}
+
+	steam-store-discount-original-price {
+		font: var(--text--body-sm);
+		line-height: 1;
+		text-decoration: line-through;
+		text-decoration-thickness: var(--border-md);
+	}
+
+	steam-store-discount-pct {
+		--bg: var(--green-8);
+
+		background: var(--bg);
+		color: contrast-color(var(--bg));
+		padding: var(--space-1);
+	}
+
+	steam-store-discount-prices {
+		display: flex;
+		flex-direction: column;
+		padding: var(--space-05) var(--space-1);
+	}
 }
 
 custom-card-header {
