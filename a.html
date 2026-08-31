@@ -95,10 +95,7 @@
 					</absent-item>
 					<absent-item>
 						<h3>No shadows</h3>
-						<p>
-							Slight vertical borders are used instead for popups (dialogs,
-							menus and tooltips)
-						</p>
+						<p>Slight vertical borders are used instead</p>
 						<absent-item-content>
 							<menu-stuff
 								data-name="showcase"
@@ -235,8 +232,17 @@
 				<page-section-grid>
 					<page-button data-where="accent"> Button in accent </page-button>
 					<page-button data-where="content"> Button in content </page-button>
-					<page-button data-where="accent" data-variant="combobox">
-						Combobox
+					<page-button data-disabled data-where="accent">
+						Disabled button in accent
+					</page-button>
+					<page-button data-disabled data-where="content">
+						Disabled button in content
+					</page-button>
+					<page-button data-variant="combobox" data-where="accent">
+						Combobox (in accent)
+					</page-button>
+					<page-button data-variant="combobox" data-where="content">
+						Combobox (in content)
 					</page-button>
 					<page-button data-state="success">
 						Button with state="success"
@@ -248,28 +254,20 @@
 			</page-section>
 
 			<page-section id="components-card">
+				<h3 data-bg-clip>Group</h3>
 				<color-gradient data-name="accent"></color-gradient>
+				<h3 data-bg-clip>Custom</h3>
 				<custom-card>
-					<page-card style="--bg: var(--blue-8)">
+					<page-card>
 						<custom-card-image></custom-card-image>
 						<custom-card-footer>
 							<custom-card-footer-left>
-								<custom-card-header>Custom card example</custom-card-header>
-								<custom-card-desc>Looks like shit but yeah</custom-card-desc>
+								<custom-card-header>Example</custom-card-header>
+								<custom-card-desc>
+									Bigger top shadow for the image size. Looks like shit but yeah
+								</custom-card-desc>
 							</custom-card-footer-left>
-							<custom-card-footer-right>
-								<steam-store-discount>
-									<steam-store-discount-pct> +50% </steam-store-discount-pct>
-									<steam-store-discount-prices>
-										<steam-store-discount-original-price>
-											69,99€
-										</steam-store-discount-original-price>
-										<steam-store-discount-new-price>
-											104,99€
-										</steam-store-discount-new-price>
-									</steam-store-discount-prices>
-								</steam-store-discount>
-							</custom-card-footer-right>
+							<steam-store-discount></steam-store-discount>
 						</custom-card-footer>
 					</page-card>
 				</custom-card>
@@ -323,6 +321,23 @@
 					></menu-stuff>
 				</page-section-grid>
 			</page-section>
+
+			<page-section id="components-radio">
+				<page-section-grid>
+					<page-radios>
+						<page-radio-container>
+							<page-radio></page-radio>
+							<h3>Header</h3>
+							<page-radio-description>Description</page-radio-description>
+						</page-radio-container>
+						<page-radio-container>
+							<page-radio></page-radio>
+							<h3>Header</h3>
+							<page-radio-description>Description</page-radio-description>
+						</page-radio-container>
+					</page-radios>
+				</page-section-grid>
+			</page-section>
 		</page-content>
 
 		<page-dialog-backdrop id="dialog-backdrop--showcase" hidden>
@@ -339,22 +354,6 @@
 					Dialogs are used to display content that requires user interaction.
 					They can be used for a variety of purposes, such as displaying
 					information, confirming actions, or collecting input from the user.
-					<page-field>
-						<h3>Dialog size</h3>
-						<page-radio-container data-name="radio--dialog-size">
-							<page-button data-arg="sm"></page-button>
-							<page-button data-arg="md"></page-button>
-							<page-button data-arg="lg"></page-button>
-							<page-button data-arg="fill"></page-button>
-						</page-radio-container>
-					</page-field>
-					<page-field>
-						<h3>Dialog variant</h3>
-						<page-radio-container data-name="radio--dialog-variant">
-							<page-button data-arg="accent"></page-button>
-							<page-button data-arg="bordered"></page-button>
-						</page-radio-container>
-					</page-field>
 				</page-dialog-body>
 				<page-dialog-footer>
 					<page-button id="components-dialog--ok-button" data-where="content">

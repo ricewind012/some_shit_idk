@@ -98,3 +98,19 @@ customElements.define( "steam-sidebar-game-list", class extends HTMLElement
 		this.appendChild( list );
 	}
 } );
+
+customElements.define( "steam-store-discount", class extends HTMLElement
+{
+	connectedCallback()
+	{
+		this.appendChild(
+			CreateElement( "steam-store-discount-pct", {}, "+50%" ),
+		);
+		this.appendChild(
+			CreateElement( "steam-store-discount-prices", {}, [
+				CreateElement( "steam-store-discount-original-price", {}, "69,99€" ),
+				CreateElement( "steam-store-discount-new-price", {}, "104,99€" ),
+			] ),
+		);
+	}
+} );

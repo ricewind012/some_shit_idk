@@ -36,13 +36,13 @@ const k_mapStatusText =
 		strTitle: "Button",
 		vecDescription: [
 			"Wait for bDone ... playing w/ text contrast, def need ts",
+			"also where=accent bg",
 		],
 	},
 	dialog: {
-		bDone: false,
+		bDone: true,
 		strTitle: "Dialog",
 		vecDescription: [
-			"Weird footer buttons",
 		],
 	},
 	menu: {
@@ -61,7 +61,6 @@ const k_mapStatusText =
 			"Use icon size sizes? or just use md",
 			"Maybe do these like in Primer? Avatars, alerts, etc.",
 			"Checkboxes",
-			"Radios",
 			"Sliders",
 			"Tags",
 			"Text inputs",
@@ -121,6 +120,10 @@ const k_mapText =
 	"components-menu": {
 		strDescription: "It's usually in the content, so should not have content colors... right ?",
 		strHeader: "Components - Menu",
+	},
+	"components-radio": {
+		strDescription: "The exact same shit.",
+		strHeader: "Components - Radio",
 	},
 	"components-slider": {
 		strDescription: "yes",
@@ -538,7 +541,7 @@ document.addEventListener( "DOMContentLoaded", () =>
 		},
 	};
 
-	for ( const container of document.querySelectorAll( "page-radio-container" ) )
+	for ( const container of document.querySelectorAll( "page-radios" ) )
 	{
 		const { name } = container.dataset;
 		for ( const radio of container.children )
@@ -552,7 +555,8 @@ document.addEventListener( "DOMContentLoaded", () =>
 				radio.dataset.checked = "";
 
 				const { arg } = radio.dataset;
-				k_RadioCallbacks[ name ]( arg );
+				// todo
+				k_RadioCallbacks[ name ]?.( arg );
 			} );
 		}
 	}

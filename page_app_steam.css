@@ -53,7 +53,7 @@ steam-library-app-logo {
 }
 
 steam-library-app-hero {
-	inset: 0;
+	inline-size: 100%;
 
 	& > img {
 		inline-size: 100%;
@@ -104,4 +104,53 @@ steam-sidebar-top {
 		flex-grow: 1;
 		margin-inline-end: var(--space-2);
 	}
+}
+
+steam-store-discount {
+	--bg: light-dark(var(--blue-5), var(--blue-1));
+
+	background: var(--bg);
+	color: contrast-color(var(--bg));
+	display: flex;
+	margin: var(--space-1);
+}
+
+steam-store-discount-new-price {
+	font-weight: var(--text--weight-semibold);
+	line-height: 1;
+}
+
+steam-store-discount-original-price {
+	font: var(--text--body-sm);
+	line-height: 1;
+	text-decoration: line-through;
+	text-decoration-thickness: var(--border-md);
+}
+
+steam-store-discount-pct {
+	--bg: light-dark(var(--green-9), var(--green-3));
+
+	background: var(--bg);
+	border-block: var(--shadow-border-size) solid;
+	border-block-start-color: hsl(
+		from var(--bg) h s calc(l + var(--shadow-l-diff))
+	);
+	border-block-end-color: hsl(
+		from var(--bg) h s calc(l - var(--shadow-l-diff))
+	);
+	color: contrast-color(var(--bg));
+	padding: var(--space-1);
+}
+
+steam-store-discount-prices {
+	border-block: var(--shadow-border-size) solid;
+	border-block-start-color: hsl(
+		from var(--bg) h s calc(l + var(--shadow-l-diff))
+	);
+	border-block-end-color: hsl(
+		from var(--bg) h s calc(l - var(--shadow-l-diff))
+	);
+	display: flex;
+	flex-direction: column;
+	padding: var(--space-05) var(--space-1);
 }
