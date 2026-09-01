@@ -70,6 +70,9 @@
 	--border-md: 2px;
 	--border-lg: 4px;
 
+	/** Card **/
+	--card--space: var(--space-05) var(--space-1);
+
 	/** Colors **/
 	--color--accent-bg: var(--accent-5);
 	--color--accent-bg-secondary: var(--accent-4);
@@ -80,21 +83,23 @@
 
 	--color--content-bg-primary: light-dark(#fff, #000);
 	--color--content-bg-primary: light-dark(var(--white-9), var(--black-1));
-	--color--content-bg-secondary: hsl(
-		from var(--color--content-bg-primary) h s calc(l - 10)
-	);
-	--color--content-bg-tertiary: hsl(
-		from var(--color--content-bg-primary) h s calc(l - 20)
-	);
+	--color--content-bg-secondary: light-dark(var(--white-8), var(--black-2));
+	--color--content-bg-tertiary: light-dark(var(--white-7), var(--black-3));
 	--color--content-fg: contrast-color(var(--color--content-bg-primary));
 
 	/** Content width **/
 	--content-width--md: max(680px, 40dvi);
 
 	/** Dialog **/
+	--dialog--backdrop-bg: radial-gradient(
+		at center,
+		transparent,
+		hsl(from var(--color--content-bg-primary) h s l / 0.75)
+	);
+	--dialog--backdrop-filter: blur(1dvb) saturate(50%);
 	--dialog--bg: var(--color--content-bg-primary);
-	--dialog--fg: var(--color--content-fg);
 	--dialog--border-size: var(--border-md);
+	--dialog--fg: var(--color--content-fg);
 
 	/** Icon size **/
 	--icon-size-sm: 0.75rem;
@@ -124,9 +129,11 @@
 	/** Menu **/
 	--menu--bg: var(--popup--bg);
 	--menu--fg: var(--popup--fg);
+	--menu--font-size: var(--text--body-md-size);
 
 	--menuitem--bg-hover: light-dark(var(--accent-7), var(--accent-3));
 	--menuitem--bg-active: light-dark(var(--accent-9), var(--accent-1));
+	/* TODO: remove with proper checkboxes */
 	--menuitem--checked-color: var(--blue-8);
 	--menuitem--icon-gap: var(--space-1);
 	--menuitem--icon-size: var(--icon-size-md);
@@ -140,18 +147,12 @@
 	/** Popup **/
 	--popup--animation: popup-dropdown var(--motion-duration-medium)
 		cubic-bezier(0.2, 0.9, 0.6, 1);
-	--popup--backdrop-bg: radial-gradient(
-		at center,
-		transparent,
-		hsl(from var(--color--content-bg-primary) h s l / 0.75)
-	);
-	--popup--backdrop-filter: blur(1dvb) saturate(50%);
 	--popup--bg: var(--color--accent-bg);
 	--popup--fg: var(--color--accent-fg);
 
 	/** Radio **/
 	--radio--border-size: var(--border-md);
-	--radio--size: calc(var(--icon-size-md) - var(--radio--border-size));
+	--radio--size: calc(var(--text--body-md-size) - var(--radio--border-size));
 
 	/** Spacing **/
 	--space-base: 6px;
@@ -274,7 +275,6 @@ page-button {
 	align-items: center;
 	background: var(--button--bg);
 	border-block-end: var(--shadow-border-size) solid;
-	/* TODO: * 2 for dark? better visibility */
 	border-block-end-color: hsl(
 		from var(--button--bg) h s
 			calc(l - var(--shadow-l-diff) * var(--button--shadow-l-mult))
@@ -356,6 +356,8 @@ page-button {
 	&:where(:active) {
 		--button--bg: var(--button--bg-active);
 	}
+
+	/* TODO: apply everywhere ? */
 	--button--shadow-l-mult: 2;
 	--button--text-l-diff: 10;
 
@@ -379,7 +381,7 @@ page-card {
 		from var(--bg) h s calc(l - var(--shadow-l-diff))
 	);
 	color: contrast-color(var(--bg));
-	padding: var(--space-05) var(--space-1);
+	padding: var(--card--space);
 }
 
 page-checkbox {
@@ -448,8 +450,8 @@ page-dialog-backdrop {
 	}
 
 	&:not([hidden]) {
-		backdrop-filter: var(--popup--backdrop-filter);
-		background: var(--popup--backdrop-bg);
+		backdrop-filter: var(--dialog--backdrop-filter);
+		background: var(--dialog--backdrop-bg);
 	}
 }
 
@@ -545,7 +547,7 @@ page-menu {
 	animation: var(--popup--animation);
 	background: var(--menu--bg);
 	color: var(--menu--fg);
-	line-height: calc(var(--menuitem--icon-size) / var(--text--body-md-size));
+	line-height: calc(var(--menuitem--icon-size) / var(--menu--font-size));
 
 	&::before,
 	&::after {
@@ -674,7 +676,7 @@ page-menu-separator {
 page-menu-item:where([data-radio])::after,
 page-radio {
 	block-size: var(--radio--size);
-	border: var(--radio--border-size) solid transparent;
+	border: var(--radio--border-size) solid var(--radiofield--bg);
 	border-radius: 50%;
 	box-shadow: 0 0 0 var(--radio--border-size);
 	inline-size: var(--radio--size);
@@ -685,25 +687,59 @@ page-radio {
 	}
 }
 
-page-radio-container {
-	background: var(--accent-4);
-	display: grid;
-	grid-template-areas: "radio header" "radio description";
-	padding: var(--space-05) var(--space-1);
+/* TODO: unify with button mabye */
+page-radio-field {
+	--radiofield--bg: light-dark(var(--accent-6), var(--accent-4));
+	--radiofield-space-block: var(--space-05);
+	--radiofield-space-inline: var(--space-1);
 
-	& > h3 {
-		grid-area: header;
+	background: var(--radiofield--bg);
+	border-block-end: var(--shadow-border-size) solid;
+	border-block-end-color: hsl(
+		from var(--radiofield--bg) h s calc(l - var(--shadow-l-diff) * 1)
+	);
+	color: contrast-color(var(--radiofield--bg));
+	cursor: pointer;
+	display: grid;
+	grid-column-gap: var(--radiofield-space-inline);
+	grid-template-areas:
+		"icon title      "
+		"icon description";
+	grid-template-columns: min-content max-content;
+	padding: var(--radiofield-space-block) var(--radiofield-space-inline);
+
+	&:hover {
+		--radiofield--bg: light-dark(var(--accent-7), var(--accent-3));
+	}
+
+	&:active {
+		--radiofield--bg: light-dark(var(--accent-8), var(--accent-2));
 	}
 
 	& > page-radio {
-		grid-area: radio;
+		grid-area: icon;
+		inset-block-start: calc(
+			(var(--radiofield-space-block) * var(--text--line-height)) / 2
+		);
+		position: relative;
 	}
 }
 
-page-radio-description {
+page-radio-field-description {
 	font: var(--text--body-sm);
 	font-weight: var(--text--weight-light);
 	grid-area: description;
+}
+
+page-radio-field-header {
+	font-weight: var(--text--weight-bold);
+	grid-area: title;
+}
+
+page-radios {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-1);
 }
 
 page-tooltip {

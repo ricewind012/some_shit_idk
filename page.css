@@ -269,11 +269,10 @@ color-gradient-controls {
 color-slider {
 	page-field {
 		color: var(--color--accent-fg);
-		/* todo doesn't work wtf */
 		border-image: linear-gradient(
 			90deg,
-			var(--color--accent-bg) 50%,
-			var(--color--content-bg-primary) 50%
+			var(--color--accent-fg) 50%,
+			var(--color--content-fg) 50%
 		);
 		border-image-slice: 1;
 	}
@@ -306,7 +305,7 @@ custom-card-footer-left {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	padding: var(--space-05) var(--space-1);
+	padding: var(--card--space);
 }
 
 custom-card-header {
@@ -322,7 +321,7 @@ custom-card-image {
 		url("https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/312520/dc5bd100e86dbdb088e7ff17cdb601e7eb2e00bc/header_2x.jpg")
 	);
 	background-size: cover;
-	block-size: 318px;
+	block-size: calc(430px / 1.5);
 	box-shadow:
 		inset 0 var(--border-lg) var(--shadow-color),
 		inset 0 var(--border-md) var(--shadow-color);

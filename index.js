@@ -378,6 +378,58 @@ customElements.define( "menu-stuff", class extends HTMLElement
 	}
 } );
 
+customElements.define( "page-radios", class extends HTMLElement
+{
+	/** @type {Record< string, { bChecked: boolean; onclick: () => void; strDescription: string; strHeader: string }[] >} */
+	m_mapRadios =
+	{
+		density: [
+			{
+				bChecked: false,
+				onclick: () =>
+				{
+					document.documentElement.dataset.density = "compact";
+				},
+				strDescription: "Compact density",
+				strHeader: "Compact",
+			},
+			{
+				bChecked: true,
+				onclick: () =>
+				{
+					document.documentElement.dataset.density = "normal";
+				},
+				strDescription: "Standard density",
+				strHeader: "Normal",
+			},
+		],
+	};
+
+	connectedCallback()
+	{
+		const { name } = this.dataset;
+		for ( const radio of this.m_mapRadios[ name ] )
+		{
+			const { bChecked, onclick, strDescription, strHeader } = radio;
+			const el = CreateElement( "page-radio-field", {}, [
+				CreateElement( "page-radio", bChecked ? { "data-checked": true } : {}, "" ),
+				CreateElement( "page-radio-field-header", {}, strHeader ),
+				CreateElement( "page-radio-field-description", {}, strDescription ),
+			], );
+			el.addEventListener( "click", () =>
+			{
+				onclick();
+				for ( const container of this.children )
+				{
+					delete container.children[ 0 ].dataset.checked;
+				}
+				el.children[ 0 ].dataset.checked = "";
+			} );
+			this.appendChild( el );
+		}
+	}
+} );
+
 customElements.define( "page-section", class extends HTMLElement
 {
 	connectedCallback()
@@ -396,8 +448,8 @@ customElements.define( "status-container", class extends HTMLElement
 {
 	connectedCallback()
 	{
-		this.dataset.bgClip = true;
-		this.dataset.twoColumnsSection = true;
+		this.dataset.bgClip = "";
+		this.dataset.twoColumnsSection = "";
 
 		const { name } = this.dataset;
 		const { bDone, strTitle, vecDescription } = k_mapStatusText[ name ];
@@ -421,7 +473,7 @@ customElements.define( "typography-info", class extends HTMLElement
 {
 	connectedCallback()
 	{
-		this.dataset.twoColumnsSection = true;
+		this.dataset.twoColumnsSection = "";
 
 		const { name } = this.dataset;
 		if ( !name )
@@ -502,7 +554,7 @@ document.addEventListener( "DOMContentLoaded", () =>
 				{
 					delete elContainer.children[ i ].dataset.selected;
 				}
-				elItem.dataset.selected = true;
+				elItem.dataset.selected = "";
 			} );
 		}
 	}
@@ -519,52 +571,14 @@ document.addEventListener( "DOMContentLoaded", () =>
 				delete elItem.dataset.selected;
 				elItem.textContent = `List item ${ i + 1 }`;
 			}
-			elItem.dataset.selected = true;
+			elItem.dataset.selected = "";
 			elItem.textContent = "Selected state";
 		} );
 	}
 
 	//
-	// Radios
-	//
-
-	const k_RadioCallbacks =
-	{
-		// TODO: doesn't exist anymore, need a new radio
-		"radio--dialog-size": ( arg ) =>
-		{
-			els.cDialog_Dialog.dataset.size = arg;
-		},
-		"radio--dialog-variant": ( arg ) =>
-		{
-			els.cDialog_DialogBackdrop.dataset.variant = arg;
-		},
-	};
-
-	for ( const container of document.querySelectorAll( "page-radios" ) )
-	{
-		const { name } = container.dataset;
-		for ( const radio of container.children )
-		{
-			radio.addEventListener( "click", () =>
-			{
-				for ( const radio of container.children )
-				{
-					delete radio.dataset.checked;
-				}
-				radio.dataset.checked = "";
-
-				const { arg } = radio.dataset;
-				// todo
-				k_RadioCallbacks[ name ]?.( arg );
-			} );
-		}
-	}
-
-	//
 	// Dialog
 	//
-
 	els.cDialog_OpenDialog.addEventListener( "click", () =>
 	{
 		els.cDialog_DialogBackdrop.hidden = false;
@@ -583,7 +597,6 @@ document.addEventListener( "DOMContentLoaded", () =>
 	//
 	// Menu
 	//
-
 	els.cMenu_ToggleMenu.addEventListener( "click", () =>
 	{
 		els.cMenu_Menu.hidden = !els.cMenu_Menu.hidden;
