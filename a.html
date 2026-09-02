@@ -95,7 +95,10 @@
 					</absent-item>
 					<absent-item>
 						<h3>No shadows</h3>
-						<p>Slight vertical borders are used instead</p>
+						<p>
+							Slight vertical borders are used instead, see
+							<a href="#components-menu">Components - Menu</a>
+						</p>
 						<absent-item-content>
 							<menu-stuff
 								data-name="showcase"
@@ -231,26 +234,16 @@
 
 			<page-section id="components-button">
 				<page-section-grid>
-					<page-button data-where="accent"> Button in accent </page-button>
-					<page-button data-where="content"> Button in content </page-button>
-					<page-button data-disabled data-where="accent">
-						Disabled button in accent
-					</page-button>
-					<page-button data-disabled data-where="content">
-						Disabled button in content
-					</page-button>
+					<page-button data-where="accent"></page-button>
+					<page-button data-where="content"></page-button>
+					<page-button data-disabled data-where="accent"></page-button>
+					<page-button data-disabled data-where="content"></page-button>
 					<page-button data-variant="combobox" data-where="accent">
-						Combobox (in accent)
 					</page-button>
 					<page-button data-variant="combobox" data-where="content">
-						Combobox (in content)
 					</page-button>
-					<page-button data-state="success">
-						Button with state="success"
-					</page-button>
-					<page-button data-state="danger">
-						Button with state="danger"
-					</page-button>
+					<page-button data-state="success"></page-button>
+					<page-button data-state="danger"></page-button>
 				</page-section-grid>
 			</page-section>
 
@@ -305,9 +298,10 @@
 
 			<page-section id="components-menu">
 				<page-section-grid>
+					<div></div>
 					<page-button
 						data-variant="combobox"
-						data-where="accent"
+						data-where="content"
 						id="components-menu--toggle-menu-button"
 						style="anchor-name: --toggle-menu-button"
 					>
@@ -325,6 +319,7 @@
 
 			<page-section id="components-radio">
 				<page-section-grid>
+					<div></div>
 					<page-radios data-name="density"></page-radios>
 				</page-section-grid>
 			</page-section>
@@ -356,7 +351,39 @@
 
 		<page-dialog-backdrop id="dialog-backdrop--steam" hidden>
 			<page-dialog>
-				<steam-rootmenu> </steam-rootmenu>
+				<steam-rootmenu>
+					<page-button
+						data-variant="icon"
+						data-where="accent"
+						data-icon="settings"
+					>
+						<page-tooltip>Steam</page-tooltip>
+					</page-button>
+					<page-button
+						data-variant="icon"
+						data-where="accent"
+						data-icon="view_cozy"
+					>
+						<page-tooltip>View</page-tooltip>
+					</page-button>
+					<page-button
+						data-variant="icon"
+						data-where="accent"
+						data-icon="person"
+					>
+						<page-tooltip>Friends</page-tooltip>
+					</page-button>
+					<page-button
+						data-variant="icon"
+						data-where="accent"
+						data-icon="videogame_asset"
+					>
+						<page-tooltip>Games</page-tooltip>
+					</page-button>
+					<page-button data-variant="icon" data-where="accent" data-icon="help">
+						<page-tooltip>Help</page-tooltip>
+					</page-button>
+				</steam-rootmenu>
 				<steam-sidebar-container>
 					<steam-sidebar-top>
 						<page-button data-variant="combobox" data-where="accent">
@@ -381,8 +408,8 @@
 					<steam-sidebar-game-list></steam-sidebar-game-list>
 				</steam-sidebar-container>
 				<steam-content>
-					<steam-library-app-hero-container>
-						<steam-library-app-hero>
+					<steam-appdetails-hero-container>
+						<steam-appdetails-hero>
 							<img
 								class="dark"
 								src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/312520/library_hero.jpg"
@@ -391,8 +418,8 @@
 								class="light"
 								src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/17410/library_hero.jpg"
 							/>
-						</steam-library-app-hero>
-						<steam-library-app-logo>
+						</steam-appdetails-hero>
+						<steam-appdetails-logo>
 							<img
 								class="dark"
 								src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/312520/logo.png"
@@ -401,8 +428,34 @@
 								class="light"
 								src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/17410/logo.png"
 							/>
-						</steam-library-app-logo>
-					</steam-library-app-hero-container>
+						</steam-appdetails-logo>
+					</steam-appdetails-hero-container>
+					<steam-appdetails>
+						<page-card>
+							<page-button data-where="content">Store Page</page-button>
+							<page-button data-where="content">DLC</page-button>
+							<page-button data-where="content">Community Hub</page-button>
+							<page-button data-where="content">Points Shop</page-button>
+							<page-button data-where="content">Discussions</page-button>
+							<page-button data-where="content">Guides</page-button>
+							<page-button data-where="content">Workshop</page-button>
+						</page-card>
+						<page-card class="writereview_RatingContainer">
+							<div class="writereview_LeftContainer">
+								<div class="writereview_Playtime">
+									You've played for 9001 hours
+								</div>
+								<div class="writereview_RecommendGame">
+									Would you recommend this game to other players?
+								</div>
+							</div>
+							<div class="writereview_RightContainer">
+								<page-button data-where="content">Yes</page-button>
+								<page-button data-where="content">No</page-button>
+								<page-button data-where="content">Maybe later</page-button>
+							</div>
+						</page-card>
+					</steam-appdetails>
 				</steam-content>
 			</page-dialog>
 		</page-dialog-backdrop>

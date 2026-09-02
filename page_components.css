@@ -70,6 +70,17 @@
 	--border-md: 2px;
 	--border-lg: 4px;
 
+	/** Button **/
+	--button--gap-inline: var(--space-1);
+	--button--shadow-l-mult: 2;
+	--button--space-block: var(--space-1);
+	--button--space-inline: var(--space-2);
+	--button--text-l-diff: 10;
+
+	--button--bg-content: light-dark(var(--white-8), var(--black-2));
+	--button--bg-content-active: light-dark(var(--white-6), var(--black-4));
+	--button--bg-content-hover: light-dark(var(--white-7), var(--black-3));
+
 	/** Card **/
 	--card--space: var(--space-05) var(--space-1);
 
@@ -112,17 +123,17 @@
 	--listitem--bg-hover: light-dark(var(--accent-6), var(--accent-4));
 	--listitem--bg-active: light-dark(var(--accent-7), var(--accent-3));
 	/* TODO: idk why this one lol */
-	--listitem--bg-selected: var(--color--accent-fg);
+	--listitem--selected-bg: var(--color--accent-fg);
 	--listitem--selected-border-offset: 2.5%;
 	--listitem--selected-border-size: var(--border-md);
 	--listitem--selected-elevation-1: color-mix(
 		in srgb,
-		var(--listitem--bg-selected) 75%,
+		var(--listitem--selected-bg) 75%,
 		var(--color--accent-bg)
 	);
 	--listitem--selected-elevation-2: color-mix(
 		in srgb,
-		var(--listitem--bg-selected) 50%,
+		var(--listitem--selected-bg) 50%,
 		var(--color--accent-bg)
 	);
 
@@ -145,6 +156,7 @@
 	--motion-duration-short: 100ms;
 
 	/** Popup **/
+	--popup--anchor-space: var(--space-2);
 	--popup--animation: popup-dropdown var(--motion-duration-medium)
 		cubic-bezier(0.2, 0.9, 0.6, 1);
 	--popup--bg: var(--color--accent-bg);
@@ -230,9 +242,15 @@
 		--text--font-family-icon: "Material Symbols Sharp";
 	}
 
+	@media (prefers-color-scheme: dark) {
+		--button--shadow-l-mult: 1;
+		--button--text-l-diff: -15;
+	}
+
 	@media (prefers-contrast) {
 		--l-step: 7;
 		--shadow-l-diff: 25;
+		--button--text-l-diff: 0;
 	}
 
 	@media (prefers-reduced-motion) {
@@ -256,7 +274,7 @@ body::before{
 
 @keyframes popup-dropdown {
 	from {
-		transform: translateY(calc(var(--space-2) * -1));
+		transform: translateY(calc(var(--popup--anchor-space) * -1));
 		opacity: 0;
 	}
 
@@ -287,9 +305,11 @@ page-button {
 	cursor: pointer;
 	display: flex;
 	font: var(--text--body-md);
-	gap: var(--space-1);
-	padding: var(--space-1) var(--space-2);
-	padding-block-end: calc(var(--space-1) - var(--shadow-border-size));
+	gap: var(--button--gap-inline);
+	padding: var(--button--space-block) var(--button--space-inline);
+	padding-block-end: calc(
+		var(--button--space-block) - var(--shadow-border-size)
+	);
 	position: relative;
 	transition: var(--motion-duration-short);
 
@@ -298,7 +318,7 @@ page-button {
 
 		&::after {
 			align-items: center;
-			block-size: 1em;
+			block-size: var(--icon-size-md);
 			content: "keyboard_arrow_down";
 			display: flex;
 			font-family: var(--text--font-family-icon);
@@ -316,7 +336,7 @@ page-button {
 
 		&::before {
 			align-items: center;
-			block-size: 1em;
+			block-size: var(--icon-size-md);
 			content: var(--icon);
 			display: flex;
 			font-family: var(--text--font-family-icon);
@@ -332,9 +352,9 @@ page-button {
 	}
 
 	&:where([data-where="content"]) {
-		--button--bg: light-dark(var(--white-8), var(--black-2));
-		--button--bg-active: light-dark(var(--white-6), var(--black-4));
-		--button--bg-hover: light-dark(var(--white-7), var(--black-3));
+		--button--bg: var(--button--bg-content);
+		--button--bg-active: var(--button--bg-content-active);
+		--button--bg-hover: var(--button--bg-content-hover);
 	}
 
 	&:where([data-state="danger"]) {
@@ -356,19 +376,6 @@ page-button {
 	&:where(:active) {
 		--button--bg: var(--button--bg-active);
 	}
-
-	/* TODO: apply everywhere ? */
-	--button--shadow-l-mult: 2;
-	--button--text-l-diff: 10;
-
-	@media (prefers-color-scheme: dark) {
-		--button--shadow-l-mult: 1;
-		--button--text-l-diff: -15;
-	}
-
-	@media (prefers-contrast) {
-		--button--text-l-diff: 0;
-	}
 }
 
 page-card {
@@ -384,6 +391,7 @@ page-card {
 	padding: var(--card--space);
 }
 
+:where(page-menu-item[data-check])::after,
 page-checkbox {
 	align-items: center;
 	background: var(--color--content-bg-primary);
@@ -392,11 +400,12 @@ page-checkbox {
 	display: flex;
 	inline-size: var(--icon-size-md);
 	justify-content: center;
+}
 
-	&:where([data-checked])::before {
-		content: "check";
-		font-family: var(--text--font-family-icon);
-	}
+page-menu-item[data-check][data-checked]::after,
+page-checkbox:where([data-checked])::before {
+	content: "check";
+	font-family: var(--text--font-family-icon);
 }
 
 page-dialog {
@@ -499,6 +508,7 @@ page-list-item {
 	background: var(--bg);
 	align-items: center;
 	color: contrast-color(var(--bg));
+	cursor: pointer;
 	display: flex;
 	padding: var(--space-1) var(--space-2);
 	position: relative;
@@ -512,7 +522,7 @@ page-list-item {
 	}
 
 	&:where([data-selected]) {
-		--bg: var(--listitem--bg-selected);
+		--bg: var(--listitem--selected-bg);
 
 		&::before {
 			background: var(--listitem--selected-elevation-1);
@@ -581,19 +591,23 @@ page-menu-heading {
 	font-weight: var(--text--weight-bold);
 	padding: calc(var(--menuitem--space) / 2) var(--menuitem--space);
 	margin-inline-start: calc(
-		var(--menuitem--icon-size) + var(--menuitem--icon-gap)
+		var(--radio--size) + var(--menuitem--icon-size) +
+			var(--menuitem--icon-gap) * 2
 	);
+
+	&:first-of-type {
+		margin-block-start: calc(var(--shadow-border-size) * -1);
+	}
 }
 
 page-menu-item {
-	align-items: center;
 	background: var(--menuitem--bg);
 	color: contrast-color(var(--menuitem--bg, var(--menu--bg)));
 	cursor: pointer;
 	display: grid;
 	grid-template-areas:
-		"icon title      "
-		"icon description";
+		"state icon title      "
+		"state icon description";
 	grid-template-columns: min-content max-content;
 	padding: calc(var(--menuitem--space) / 2) var(--menuitem--space);
 	position: relative;
@@ -606,42 +620,9 @@ page-menu-item {
 		--menuitem--bg: var(--menuitem--bg-active);
 	}
 
-	&:where([data-checked]:not([data-radio]))::after {
-		border-inline: var(--shadow-border-size) solid;
-		border-inline-start-color: var(--menuitem--checked-color);
-		border-inline-end-color: hsl(
-			from var(--menuitem--checked-color) h s l / var(--dim-opacity)
-		);
-		content: "";
-		inset-block: 0;
-		inset-inline-start: 0;
-		position: absolute;
-	}
-
-	&:where([data-radio]) {
-		/*
-		&::after {
-			border-inline-start: solid var(--menuitem--checked-color);
-			border-inline-start-width: calc(var(--shadow-border-size) / 2);
-			content: "";
-			inset-block: 25%;
-			inset-inline-start: 0;
-			position: absolute;
-			transition: inset-block var(--motion-duration-short);
-		}
-
-		&:where(:hover)::after {
-			inset-block: 0;
-		}
-
-		&:where([data-checked])::after {
-			border-inline-start-width: var(--shadow-border-size);
-		}
-	*/
-
-		&::after {
-			content: "";
-		}
+	&:where([data-checked]) {
+		--radio--bg: currentColor;
+		--radio--border-color: var(--menu--bg);
 	}
 
 	&::before {
@@ -656,12 +637,18 @@ page-menu-item {
 		inline-size: var(--menuitem--icon-size);
 		margin-inline-end: var(--menuitem--icon-gap);
 	}
+
+	&::after {
+		content: "";
+		grid-area: state;
+		inline-size: var(--radio--size);
+		margin-inline-end: var(--menuitem--icon-gap);
+	}
 }
 
 page-menu-item-description {
 	color: contrast-color(var(--menuitem--bg, var(--menu--bg)));
 	font: var(--text--body-sm);
-	/* This doesn't even affect anything but alright */
 	grid-area: description;
 	opacity: var(--dim-opacity);
 	margin-block-start: var(--space-05);
@@ -673,54 +660,57 @@ page-menu-separator {
 	margin: calc(var(--menuitem--space) / 2) var(--menuitem--space);
 }
 
-page-menu-item:where([data-radio])::after,
+:where(page-menu-item[data-radio])::after,
 page-radio {
+	background: var(--radio--bg);
 	block-size: var(--radio--size);
-	border: var(--radio--border-size) solid var(--radiofield--bg);
+	border: var(--radio--border-size) solid var(--radio--border-color);
 	border-radius: 50%;
 	box-shadow: 0 0 0 var(--radio--border-size);
 	inline-size: var(--radio--size);
 	margin: var(--radio--border-size);
-
-	&:where([data-checked]) {
-		background: currentColor;
-	}
+	transition:
+		background var(--motion-duration-medium),
+		border var(--motion-duration-medium);
 }
 
-/* TODO: unify with button mabye */
-page-radio-field {
-	--radiofield--bg: light-dark(var(--accent-6), var(--accent-4));
-	--radiofield-space-block: var(--space-05);
-	--radiofield-space-inline: var(--space-1);
+page-radio:where([data-checked]) {
+	--radio--bg: currentColor;
+	--radio--border-color: var(--button--bg);
+}
 
-	background: var(--radiofield--bg);
+page-radio-field {
+	--button--bg: var(--button--bg-content);
+
+	background: var(--button--bg);
 	border-block-end: var(--shadow-border-size) solid;
 	border-block-end-color: hsl(
-		from var(--radiofield--bg) h s calc(l - var(--shadow-l-diff) * 1)
+		from var(--button--bg) h s calc(l - var(--shadow-l-diff) * 1)
 	);
-	color: contrast-color(var(--radiofield--bg));
+	color: contrast-color(var(--button--bg));
 	cursor: pointer;
 	display: grid;
-	grid-column-gap: var(--radiofield-space-inline);
+	grid-column-gap: var(--button--gap-inline);
 	grid-template-areas:
 		"icon title      "
 		"icon description";
 	grid-template-columns: min-content max-content;
-	padding: var(--radiofield-space-block) var(--radiofield-space-inline);
+	padding: var(--button--space-block) var(--button--space-inline);
+	padding-block-end: calc(
+		var(--button--space-block) - var(--shadow-border-size)
+	);
 
 	&:hover {
-		--radiofield--bg: light-dark(var(--accent-7), var(--accent-3));
+		--button--bg: var(--button--bg-content-hover);
 	}
 
 	&:active {
-		--radiofield--bg: light-dark(var(--accent-8), var(--accent-2));
+		--button--bg: var(--button--bg-content-active);
 	}
 
 	& > page-radio {
 		grid-area: icon;
-		inset-block-start: calc(
-			(var(--radiofield-space-block) * var(--text--line-height)) / 2
-		);
+		inset-block-start: calc(var(--button--space-block) / 2);
 		position: relative;
 	}
 }

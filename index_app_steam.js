@@ -87,10 +87,10 @@ customElements.define( "steam-sidebar-game-list", class extends HTMLElement
 
 	connectedCallback()
 	{
-		const list = CreateElement( "page-list", {}, this.m_items.map( ( [ name, srcPart ] ) =>
+		const list = CreateElement( "page-list", {}, this.m_items.map( ( [ name, srcPart ], i ) =>
 		{
 			const src = `https://shared.fastly.steamstatic.com/community_assets/images/apps/${srcPart}`;
-			return CreateElement( "page-list-item", {}, [
+			return CreateElement( "page-list-item", i === 4 && { "data-selected": "" }, [
 				CreateElement( "img", { src }, "", ),
 				CreateElement( "div", {}, name ),
 			], );

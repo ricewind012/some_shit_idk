@@ -49,8 +49,7 @@ const k_mapStatusText =
 		bDone: false,
 		strTitle: "Menu",
 		vecDescription: [
-			"Checked variant looks weird, other color?",
-			"Fix(?) the top header spacing, there is less of it below than above",
+			"Fix (the solution sucks) the top header spacing, there is less of it below than above",
 			"Unify line-height (16 / 14) with others, maybe do this for other controls ?",
 		],
 	},
@@ -101,12 +100,11 @@ const k_mapText =
 	},
 
 	"components-button": {
-		strDescription: "yep",
+		strDescription: "your usual generic button",
 		strHeader: "Components - Button",
 	},
 	"components-card": {
-		// TODO
-		strDescription: "May be used in groups, but I'd rather see them separated.",
+		strDescription: "May be used in groups for similar info.",
 		strHeader: "Components - Card",
 	},
 	"components-dialog": {
@@ -122,11 +120,11 @@ const k_mapText =
 		strHeader: "Components - Menu",
 	},
 	"components-radio": {
-		strDescription: "The exact same shit.",
+		strDescription: "The exact same shit. No accent variant, since it will most likely only live in content.",
 		strHeader: "Components - Radio",
 	},
 	"components-slider": {
-		strDescription: "yes",
+		strDescription: "todo",
 		strHeader: "Components - Slider",
 	},
 };
@@ -307,16 +305,16 @@ customElements.define( "menu-stuff", class extends HTMLElement
 				<page-menu-heading>
 					View options
 				</page-menu-heading>
-				<page-menu-item data-checked data-icon="unfold_less">
+				<page-menu-item data-check data-checked data-icon="unfold_less">
 					Show code folding buttons
 				</page-menu-item>
 				<page-menu-item data-disabled data-icon="wrap_text">
 					Wrap lines
 				</page-menu-item>
-				<page-menu-item data-hover data-icon="align_center">
+				<page-menu-item data-icon="align_center">
 					Center content
 				</page-menu-item>
-				<page-menu-item data-active data-icon="left_click">
+				<page-menu-item data-icon="left_click">
 					Open symbols on click
 				</page-menu-item>
 				<page-menu-separator></page-menu-separator>
@@ -330,7 +328,7 @@ customElements.define( "menu-stuff", class extends HTMLElement
 				<page-menu-heading>
 					States
 				</page-menu-heading>
-				<page-menu-item data-checked data-icon="unfold_less">
+				<page-menu-item data-check data-checked data-icon="unfold_less">
 					Checked
 					<page-menu-item-description>
 						Some kind of description
@@ -361,10 +359,10 @@ customElements.define( "menu-stuff", class extends HTMLElement
 				<page-menu-item data-radio data-checked data-icon="database">
 					Radio checked
 				</page-menu-item>
-				<page-menu-item data-radio data-checked data-icon="deceased">
+				<page-menu-item data-radio data-icon="deceased">
 					Radio unchecked
 				</page-menu-item>
-				<page-menu-item data-radio data-checked data-icon="distance">
+				<page-menu-item data-radio data-icon="distance">
 					Radio unchecked
 				</page-menu-item>
 			</page-menu>
@@ -412,7 +410,7 @@ customElements.define( "page-radios", class extends HTMLElement
 		{
 			const { bChecked, onclick, strDescription, strHeader } = radio;
 			const el = CreateElement( "page-radio-field", {}, [
-				CreateElement( "page-radio", bChecked ? { "data-checked": true } : {}, "" ),
+				CreateElement( "page-radio", bChecked && { "data-checked": true }, "" ),
 				CreateElement( "page-radio-field-header", {}, strHeader ),
 				CreateElement( "page-radio-field-description", {}, strDescription ),
 			], );
@@ -579,6 +577,19 @@ document.addEventListener( "DOMContentLoaded", () =>
 	//
 	// Dialog
 	//
+	document.addEventListener( "keydown", ( ev ) =>
+	{
+		if ( ev.key !== "Escape" )
+		{
+			return;
+		}
+
+		for ( const el of document.querySelectorAll( "page-dialog-backdrop" ) )
+		{
+			el.hidden = true;
+		}
+	} );
+
 	els.cDialog_OpenDialog.addEventListener( "click", () =>
 	{
 		els.cDialog_DialogBackdrop.hidden = false;

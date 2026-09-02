@@ -37,13 +37,13 @@
 	}
 }
 
-steam-content {
-	background: var(--color--content-bg-primary);
-	color: var(--color--content-fg);
-	flex-grow: 1;
+steam-appdetails {
+	block-size: 100%;
+	flex-direction: column;
+	padding: var(--space-4);
 }
 
-steam-library-app-logo {
+steam-appdetails-logo {
 	inset: 0;
 	position: absolute;
 
@@ -52,7 +52,7 @@ steam-library-app-logo {
 	}
 }
 
-steam-library-app-hero {
+steam-appdetails-hero {
 	inline-size: 100%;
 
 	& > img {
@@ -60,10 +60,47 @@ steam-library-app-hero {
 	}
 }
 
-steam-library-app-hero-container {
+steam-appdetails-hero-container {
 	block-size: 360px;
 	inline-size: 100%;
 	position: relative;
+}
+
+steam-content {
+	background: var(--color--content-bg-primary);
+	color: var(--color--content-fg);
+	flex-direction: column;
+	flex-grow: 1;
+}
+
+.writereview_LeftContainer {
+	flex-direction: column;
+
+	.writereview_Playtime {
+		font-weight: var(--text--weight-bold);
+	}
+
+	.writereview_RecommendGame {
+		font-weight: var(--text--weight-light);
+	}
+}
+
+.writereview_RatingContainer {
+	--bg: var(--green-8);
+
+	justify-content: space-between;
+}
+
+.writereview_RightContainer {
+	block-size: fit-content;
+	gap: var(--space-1);
+	margin: auto var(--space-1);
+}
+
+steam-rootmenu {
+	background: var(--color--accent-bg-secondary);
+	color: var(--color--accent-fg);
+	flex-direction: column;
 }
 
 steam-sidebar-container {
