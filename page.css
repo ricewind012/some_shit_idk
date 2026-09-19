@@ -75,6 +75,11 @@ body {
 		letter-spacing: var(--text--header-letter-spacing);
 	}
 
+	input {
+		appearance: none;
+		border: none;
+	}
+
 	p {
 		margin-block-end: var(--space-2);
 	}

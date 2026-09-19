@@ -17,6 +17,7 @@ const k_mapStatusText =
 		strTitle: "Colors",
 		vecDescription: [
 			"Decide on primary content bg, pure white/black or not ?",
+			"Transparent colors ?",
 		],
 	},
 	spacing: {
@@ -36,7 +37,6 @@ const k_mapStatusText =
 		strTitle: "Button",
 		vecDescription: [
 			"Wait for bDone ... playing w/ text contrast, def need ts",
-			"also where=accent bg",
 		],
 	},
 	dialog: {
@@ -126,6 +126,10 @@ const k_mapText =
 	"components-slider": {
 		strDescription: "todo",
 		strHeader: "Components - Slider",
+	},
+	"components-textbox": {
+		strDescription: "Same as buttons with a bright border.",
+		strHeader: "Components - Text Box",
 	},
 };
 

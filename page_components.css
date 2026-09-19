@@ -289,6 +289,56 @@ body::before{
 	pointer-events: none;
 }
 
+:where(:focus) {
+	--outline--border-color: var(--blue-5);
+	--outline--border-size: 2px;
+
+	outline: var(--outline--border-size) solid var(--blue-5);
+	outline-offset: var(--outline--border-size);
+}
+
+input[type="text"] {
+	background: var(--button--bg);
+	border-block-end: var(--shadow-border-size) solid;
+	color: contrast-color(var(--button--bg));
+	color: hsla(
+		from contrast-color(var(--button--bg)) h s
+			calc(l + var(--button--text-l-diff))
+	);
+	font: var(--text--body-md);
+	line-height: calc(var(--text--body-md-size) + var(--button--space-block));
+	padding: var(--button--space-block) var(--button--space-inline);
+	padding-block-end: calc(
+		var(--button--space-block) - var(--shadow-border-size)
+	);
+	transition: var(--motion-duration-short);
+
+	&:where([data-where="accent"]) {
+		--button--bg: light-dark(var(--accent-7), var(--accent-3));
+		--button--bg-active: light-dark(var(--accent-9), var(--accent-1));
+		--button--bg-hover: light-dark(var(--accent-8), var(--accent-2));
+	}
+
+	&:where([data-where="content"]) {
+		--button--bg: var(--button--bg-content);
+		--button--bg-active: var(--button--bg-content-active);
+		--button--bg-hover: var(--button--bg-content-hover);
+	}
+
+	&:where(:hover) {
+		--button--bg: var(--button--bg-hover);
+	}
+
+	&:where(:active) {
+		--button--bg: var(--button--bg-active);
+	}
+
+	&::placeholder {
+		color: inherit;
+		opacity: var(--dim-opacity);
+	}
+}
+
 page-button {
 	align-items: center;
 	background: var(--button--bg);
@@ -306,6 +356,7 @@ page-button {
 	display: flex;
 	font: var(--text--body-md);
 	gap: var(--button--gap-inline);
+	line-height: calc(var(--text--body-md-size) + var(--button--space-block));
 	padding: var(--button--space-block) var(--button--space-inline);
 	padding-block-end: calc(
 		var(--button--space-block) - var(--shadow-border-size)
@@ -328,10 +379,6 @@ page-button {
 	}
 
 	&:where([data-variant="icon"]) {
-		/*
-		background: inherit;
-		color: inherit;
-		*/
 		padding-inline: var(--space-1);
 
 		&::before {
