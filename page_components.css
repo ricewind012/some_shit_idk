@@ -75,11 +75,20 @@
 	--button--shadow-l-mult: 2;
 	--button--space-block: var(--space-1);
 	--button--space-inline: var(--space-2);
-	--button--text-l-diff: 10;
 
 	--button--bg-content: light-dark(var(--white-8), var(--black-2));
 	--button--bg-content-active: light-dark(var(--white-6), var(--black-4));
 	--button--bg-content-hover: light-dark(var(--white-7), var(--black-3));
+
+	/** Text field (TODO: unify?) **/
+	--textfield--gap-inline: var(--space-1);
+	--textfield--shadow-l-mult: 2;
+	--textfield--space-block: var(--space-1);
+	--textfield--space-inline: var(--space-2);
+
+	--textfield--bg-content: light-dark(var(--white-8), var(--black-2));
+	--textfield--bg-content-active: light-dark(var(--white-6), var(--black-4));
+	--textfield--bg-content-hover: light-dark(var(--white-7), var(--black-3));
 
 	/** Card **/
 	--card--space: var(--space-05) var(--space-1);
@@ -96,7 +105,10 @@
 	--color--content-bg-primary: light-dark(var(--white-9), var(--black-1));
 	--color--content-bg-secondary: light-dark(var(--white-8), var(--black-2));
 	--color--content-bg-tertiary: light-dark(var(--white-7), var(--black-3));
-	--color--content-fg: contrast-color(var(--color--content-bg-primary));
+	--color--content-fg: hsl(
+		from contrast-color(var(--color--content-bg-primary)) h s
+			calc(l + var(--text-l-diff))
+	);
 
 	/** Content width **/
 	--content-width--md: max(680px, 40dvi);
@@ -144,8 +156,6 @@
 
 	--menuitem--bg-hover: light-dark(var(--accent-7), var(--accent-3));
 	--menuitem--bg-active: light-dark(var(--accent-9), var(--accent-1));
-	/* TODO: remove with proper checkboxes */
-	--menuitem--checked-color: var(--blue-8);
 	--menuitem--icon-gap: var(--space-1);
 	--menuitem--icon-size: var(--icon-size-md);
 	--menuitem--space: 8px;
@@ -215,6 +225,7 @@
 	--dim-opacity: 0.5;
 	--shadow-border-size: var(--border-md);
 	--shadow-l-diff: 10;
+	--text-l-diff: 15;
 
 	&:where([data-density="compact"]) {
 		--menuitem--space: 6px;
@@ -244,19 +255,66 @@
 
 	@media (prefers-color-scheme: dark) {
 		--button--shadow-l-mult: 1;
-		--button--text-l-diff: -15;
+		--textfield--shadow-l-mult: 1;
+		--text-l-diff: -15;
 	}
 
 	@media (prefers-contrast) {
 		--l-step: 7;
 		--shadow-l-diff: 25;
-		--button--text-l-diff: 0;
+		--text-l-diff: 0;
 	}
 
 	@media (prefers-reduced-motion) {
 		--motion-duration-long: 0ms;
 		--motion-duration-medium: 0ms;
 		--motion-duration-short: 0ms;
+	}
+}
+
+:where(:focus) {
+	--outline--border-color: var(--blue-5);
+	--outline--border-size: 2px;
+
+	outline: var(--outline--border-size) solid var(--blue-5);
+	outline-offset: var(--outline--border-size);
+}
+
+input[type="text"] {
+	background: var(--textfield--bg);
+	border-block-end: var(--shadow-border-size) solid;
+	color: contrast-color(var(--textfield--bg));
+	color: hsla(
+		from contrast-color(var(--textfield--bg)) h s calc(l + var(--text-l-diff))
+	);
+	font: var(--text--body-md);
+	line-height: calc(var(--text--body-md-size) + var(--textfield--space-block));
+	padding: var(--textfield--space-block) var(--textfield--space-inline);
+	padding-block-end: calc(
+		var(--textfield--space-block) - var(--shadow-border-size)
+	);
+	transition: background-color var(--motion-duration-short);
+
+	&:where([data-where="accent"]) {
+		--textfield--bg: light-dark(var(--accent-7), var(--accent-3));
+		--textfield--bg-active: light-dark(var(--accent-9), var(--accent-1));
+		--textfield--bg-hover: light-dark(var(--accent-8), var(--accent-2));
+		/* Colored backgrounds have high contrast */
+		--text-l-diff: 0;
+	}
+
+	&:where([data-where="content"]) {
+		--textfield--bg: var(--textfield--bg-content);
+		--textfield--bg-active: var(--textfield--bg-content-active);
+		--textfield--bg-hover: var(--textfield--bg-content-hover);
+	}
+
+	&:where(:hover) {
+		--textfield--bg: var(--textfield--bg-hover);
+	}
+
+	&:where(:active) {
+		--textfield--bg: var(--textfield--bg-active);
 	}
 }
 
@@ -289,54 +347,13 @@ body::before{
 	pointer-events: none;
 }
 
-:where(:focus) {
-	--outline--border-color: var(--blue-5);
-	--outline--border-size: 2px;
-
-	outline: var(--outline--border-size) solid var(--blue-5);
-	outline-offset: var(--outline--border-size);
+::placeholder {
+	font-weight: var(--text--weight-light);
 }
 
-input[type="text"] {
-	background: var(--button--bg);
-	border-block-end: var(--shadow-border-size) solid;
-	color: contrast-color(var(--button--bg));
-	color: hsla(
-		from contrast-color(var(--button--bg)) h s
-			calc(l + var(--button--text-l-diff))
-	);
-	font: var(--text--body-md);
-	line-height: calc(var(--text--body-md-size) + var(--button--space-block));
-	padding: var(--button--space-block) var(--button--space-inline);
-	padding-block-end: calc(
-		var(--button--space-block) - var(--shadow-border-size)
-	);
-	transition: var(--motion-duration-short);
-
-	&:where([data-where="accent"]) {
-		--button--bg: light-dark(var(--accent-7), var(--accent-3));
-		--button--bg-active: light-dark(var(--accent-9), var(--accent-1));
-		--button--bg-hover: light-dark(var(--accent-8), var(--accent-2));
-	}
-
-	&:where([data-where="content"]) {
-		--button--bg: var(--button--bg-content);
-		--button--bg-active: var(--button--bg-content-active);
-		--button--bg-hover: var(--button--bg-content-hover);
-	}
-
-	&:where(:hover) {
-		--button--bg: var(--button--bg-hover);
-	}
-
-	&:where(:active) {
-		--button--bg: var(--button--bg-active);
-	}
-
-	&::placeholder {
-		color: inherit;
-		opacity: var(--dim-opacity);
-	}
+::selection {
+	background: var(--blue-5);
+	color: contrast-color(var(--blue-5));
 }
 
 page-button {
@@ -347,10 +364,8 @@ page-button {
 		from var(--button--bg) h s
 			calc(l - var(--shadow-l-diff) * var(--button--shadow-l-mult))
 	);
-	color: contrast-color(var(--button--bg));
 	color: hsla(
-		from contrast-color(var(--button--bg)) h s
-			calc(l + var(--button--text-l-diff))
+		from contrast-color(var(--button--bg)) h s calc(l + var(--text-l-diff))
 	);
 	cursor: pointer;
 	display: flex;
@@ -396,6 +411,8 @@ page-button {
 		--button--bg: light-dark(var(--accent-7), var(--accent-3));
 		--button--bg-active: light-dark(var(--accent-9), var(--accent-1));
 		--button--bg-hover: light-dark(var(--accent-8), var(--accent-2));
+		/* Colored backgrounds have high contrast */
+		--text-l-diff: 0;
 	}
 
 	&:where([data-where="content"]) {
@@ -408,12 +425,16 @@ page-button {
 		--button--bg: var(--red-5);
 		--button--bg-active: var(--red-3);
 		--button--bg-hover: var(--red-4);
+		/* Colored backgrounds have high contrast */
+		--text-l-diff: 0;
 	}
 
 	&:where([data-state="success"]) {
 		--button--bg: var(--green-9);
 		--button--bg-active: var(--green-7);
 		--button--bg-hover: var(--green-8);
+		/* Colored backgrounds have high contrast */
+		--text-l-diff: 0;
 	}
 
 	&:where(:hover) {
@@ -436,6 +457,13 @@ page-card {
 	);
 	color: contrast-color(var(--bg));
 	padding: var(--card--space);
+
+	/* Only colored backgrounds have high contrast */
+	&:where([style*="white"], [style*="black"]) {
+		color: hsla(
+			from contrast-color(var(--bg)) h s calc(l + var(--text-l-diff))
+		);
+	}
 }
 
 :where(page-menu-item[data-check])::after,
@@ -498,6 +526,7 @@ page-dialog-backdrop {
 	z-index: 999;
 
 	&:where([hidden]) {
+		opacity: 0;
 		pointer-events: none;
 
 		& > page-dialog {
@@ -734,7 +763,9 @@ page-radio-field {
 	border-block-end-color: hsl(
 		from var(--button--bg) h s calc(l - var(--shadow-l-diff) * 1)
 	);
-	color: contrast-color(var(--button--bg));
+	color: hsla(
+		from contrast-color(var(--button--bg)) h s calc(l + var(--text-l-diff))
+	);
 	cursor: pointer;
 	display: grid;
 	grid-column-gap: var(--button--gap-inline);

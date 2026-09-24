@@ -33,10 +33,9 @@ const k_mapStatusText =
 		],
 	},
 	button: {
-		bDone: false,
+		bDone: true,
 		strTitle: "Button",
 		vecDescription: [
-			"Wait for bDone ... playing w/ text contrast, def need ts",
 		],
 	},
 	dialog: {

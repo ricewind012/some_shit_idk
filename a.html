@@ -377,114 +377,133 @@
 		</page-dialog-backdrop>
 
 		<page-dialog-backdrop id="dialog-backdrop--steam" hidden>
-			<page-dialog>
-				<steam-rootmenu>
-					<page-button
-						data-variant="icon"
-						data-where="accent"
-						data-icon="settings"
-					>
-						<page-tooltip>Steam</page-tooltip>
+			<steam-rootmenu>
+				<page-button
+					data-variant="icon"
+					data-where="accent"
+					data-icon="settings"
+				>
+					<page-tooltip>Steam</page-tooltip>
+				</page-button>
+				<page-button
+					data-variant="icon"
+					data-where="accent"
+					data-icon="view_cozy"
+				>
+					<page-tooltip>View</page-tooltip>
+				</page-button>
+				<page-button data-variant="icon" data-where="accent" data-icon="person">
+					<page-tooltip>Friends</page-tooltip>
+				</page-button>
+				<page-button
+					data-variant="icon"
+					data-where="accent"
+					data-icon="videogame_asset"
+				>
+					<page-tooltip>Games</page-tooltip>
+				</page-button>
+				<page-button data-variant="icon" data-where="accent" data-icon="help">
+					<page-tooltip>Help</page-tooltip>
+				</page-button>
+			</steam-rootmenu>
+			<steam-sidebar-container>
+				<steam-sidebar-top>
+					<page-button data-variant="combobox" data-where="accent">
+						Games
 					</page-button>
 					<page-button
 						data-variant="icon"
 						data-where="accent"
-						data-icon="view_cozy"
-					>
-						<page-tooltip>View</page-tooltip>
-					</page-button>
+						data-icon="desktop_windows"
+					></page-button>
 					<page-button
 						data-variant="icon"
 						data-where="accent"
-						data-icon="person"
-					>
-						<page-tooltip>Friends</page-tooltip>
-					</page-button>
+						data-icon="nest_clock_farsight_analog"
+					></page-button>
 					<page-button
 						data-variant="icon"
 						data-where="accent"
-						data-icon="videogame_asset"
-					>
-						<page-tooltip>Games</page-tooltip>
+						data-icon="play_circle"
+					></page-button>
+				</steam-sidebar-top>
+				<steam-sidebar-top>
+					<input type="text" data-where="accent" placeholder="Search by name" />
+					<page-button data-variant="combobox" data-where="accent">
 					</page-button>
-					<page-button data-variant="icon" data-where="accent" data-icon="help">
-						<page-tooltip>Help</page-tooltip>
-					</page-button>
-				</steam-rootmenu>
-				<steam-sidebar-container>
-					<steam-sidebar-top>
-						<page-button data-variant="combobox" data-where="accent">
-							Games
-						</page-button>
-						<page-button
-							data-variant="icon"
-							data-where="accent"
-							data-icon="desktop_windows"
-						></page-button>
-						<page-button
-							data-variant="icon"
-							data-where="accent"
-							data-icon="nest_clock_farsight_analog"
-						></page-button>
-						<page-button
-							data-variant="icon"
-							data-where="accent"
-							data-icon="play_circle"
-						></page-button>
-					</steam-sidebar-top>
-					<steam-sidebar-game-list></steam-sidebar-game-list>
-				</steam-sidebar-container>
-				<steam-content>
-					<steam-appdetails-hero-container>
-						<steam-appdetails-hero>
-							<img
-								class="dark"
-								src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/312520/library_hero.jpg"
-							/>
-							<img
-								class="light"
-								src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/17410/library_hero.jpg"
-							/>
-						</steam-appdetails-hero>
-						<steam-appdetails-logo>
-							<img
-								class="dark"
-								src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/312520/logo.png"
-							/>
-							<img
-								class="light"
-								src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/17410/logo.png"
-							/>
-						</steam-appdetails-logo>
-					</steam-appdetails-hero-container>
-					<steam-appdetails>
-						<page-card>
-							<page-button data-where="content">Store Page</page-button>
-							<page-button data-where="content">DLC</page-button>
-							<page-button data-where="content">Community Hub</page-button>
-							<page-button data-where="content">Points Shop</page-button>
-							<page-button data-where="content">Discussions</page-button>
-							<page-button data-where="content">Guides</page-button>
-							<page-button data-where="content">Workshop</page-button>
-						</page-card>
-						<page-card class="writereview_RatingContainer">
-							<div class="writereview_LeftContainer">
-								<div class="writereview_Playtime">
-									You've played for 9001 hours
-								</div>
-								<div class="writereview_RecommendGame">
-									Would you recommend this game to other players?
-								</div>
+				</steam-sidebar-top>
+				<steam-sidebar-game-list></steam-sidebar-game-list>
+			</steam-sidebar-container>
+			<steam-content>
+				<steam-appdetails-hero-container>
+					<steam-appdetails-hero>
+						<img
+							class="dark"
+							src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/312520/library_hero.jpg"
+						/>
+						<img
+							class="light"
+							src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/17410/library_hero.jpg"
+						/>
+					</steam-appdetails-hero>
+					<steam-appdetails-logo>
+						<img
+							class="dark"
+							src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/312520/logo.png"
+						/>
+						<img
+							class="light"
+							src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/17410/logo.png"
+						/>
+					</steam-appdetails-logo>
+				</steam-appdetails-hero-container>
+				<steam-appdetails>
+					<page-card class="writereview_RatingContainer">
+						<div class="writereview_LeftContainer">
+							<div class="writereview_Playtime">
+								You've played for 9001 hours
 							</div>
-							<div class="writereview_RightContainer">
-								<page-button data-where="content">Yes</page-button>
-								<page-button data-where="content">No</page-button>
-								<page-button data-where="content">Maybe later</page-button>
+							<div class="writereview_RecommendGame">
+								Would you recommend this game to other players?
 							</div>
-						</page-card>
-					</steam-appdetails>
-				</steam-content>
-			</page-dialog>
+						</div>
+						<div class="writereview_RightContainer">
+							<page-button data-where="content">Yes</page-button>
+							<page-button data-where="content">No</page-button>
+							<page-button data-where="content">Maybe later</page-button>
+						</div>
+					</page-card>
+					<div class="appdetailsplaysection_Container">
+						<page-button data-where="content">Store Page</page-button>
+						<page-button data-where="content">DLC</page-button>
+						<page-button data-where="content">Community Hub</page-button>
+						<page-button data-where="content">Points Shop</page-button>
+						<page-button data-where="content">Discussions</page-button>
+						<page-button data-where="content">Guides</page-button>
+						<page-button data-where="content">Workshop</page-button>
+					</div>
+					<div class="appdetailssection_AppDetailsSectionContainer">
+						<div>
+							<page-card
+								class="appdetailssection_AppDetailsSection"
+								aria-label="Activity"
+							></page-card>
+						</div>
+						<div>
+							<page-card
+								class="appdetailssection_AppDetailsSection"
+								aria-label="Friends who play"
+							>
+								content content
+							</page-card>
+							<page-card
+								class="appdetailssection_AppDetailsSection"
+								aria-label="Achievements"
+							></page-card>
+						</div>
+					</div>
+				</steam-appdetails>
+			</steam-content>
 		</page-dialog-backdrop>
 	</body>
 </html>

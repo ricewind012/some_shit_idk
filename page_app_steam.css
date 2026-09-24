@@ -1,45 +1,33 @@
 #dialog-backdrop--steam {
 	padding: 0;
 
-	& > page-dialog {
-		block-size: 100%;
-		flex-direction: row;
-		inline-size: 100%;
-		max-inline-size: 100%;
-		padding: 0;
+	:where(& *) {
+		display: flex;
+	}
 
-		&::before,
-		&::after {
-			display: none;
-		}
+	@media (prefers-color-scheme: dark) {
+		--dark: flex;
+		--light: none;
+	}
 
-		:where(& *) {
-			display: flex;
-		}
+	@media (prefers-color-scheme: light) {
+		--dark: none;
+		--light: flex;
+	}
 
-		@media (prefers-color-scheme: dark) {
-			--dark: flex;
-			--light: none;
-		}
+	.dark {
+		display: var(--dark);
+	}
 
-		@media (prefers-color-scheme: light) {
-			--dark: none;
-			--light: flex;
-		}
-
-		.dark {
-			display: var(--dark);
-		}
-
-		.light {
-			display: var(--light);
-		}
+	.light {
+		display: var(--light);
 	}
 }
 
 steam-appdetails {
 	block-size: 100%;
 	flex-direction: column;
+	gap: var(--space-2);
 	padding: var(--space-4);
 }
 
@@ -73,6 +61,34 @@ steam-content {
 	flex-grow: 1;
 }
 
+.appdetailsplaysection_Container {
+	border-block-end: var(--border-md) solid;
+	padding-block-end: var(--space-2);
+}
+
+.appdetailssection_AppDetailsSection {
+	--bg: var(--color--content-bg-secondary);
+
+	flex-direction: column;
+
+	&::before {
+		border-block-end: var(--border-md) solid;
+		content: attr(aria-label);
+		inline-size: 100%;
+		margin-block-end: var(--space-1);
+		padding-block-end: var(--space-1);
+	}
+}
+
+.appdetailssection_AppDetailsSectionContainer {
+	display: grid;
+	grid-template-columns: 70% 30%;
+
+	& > div {
+		flex-direction: column;
+	}
+}
+
 .writereview_LeftContainer {
 	flex-direction: column;
 
@@ -86,7 +102,7 @@ steam-content {
 }
 
 .writereview_RatingContainer {
-	--bg: var(--green-8);
+	--bg: var(--blue-8);
 
 	justify-content: space-between;
 }

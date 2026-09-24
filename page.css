@@ -78,6 +78,7 @@ body {
 	input {
 		appearance: none;
 		border: none;
+		outline: none;
 	}
 
 	p {
@@ -317,7 +318,7 @@ custom-card {
 	margin-block-start: var(--space-05);
 
 	& > page-card {
-		--bg: light-dark(var(--white-8), var(--black-2));
+		--bg: var(--color--content-bg-secondary);
 
 		border-block-start: none;
 		display: flex;
