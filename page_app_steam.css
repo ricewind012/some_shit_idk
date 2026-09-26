@@ -28,6 +28,7 @@ steam-appdetails {
 	block-size: 100%;
 	flex-direction: column;
 	gap: var(--space-2);
+	overflow: auto;
 	padding: var(--space-4);
 }
 
@@ -61,9 +62,71 @@ steam-content {
 	flex-grow: 1;
 }
 
+steam-friend-item {
+	--status-border: solid var(--black-5);
+
+	display: contents;
+
+	&:where([data-status="away"]) {
+		--status-border: dotted var(--blue-5);
+	}
+
+	&:where([data-status="in-game"]) {
+		--status-border: solid var(--green-5);
+	}
+
+	&:where([data-status="online"]) {
+		--status-border: solid var(--blue-5);
+	}
+
+	& > page-item-info {
+		margin-block-end: var(--space-05);
+
+		& > img {
+			border: var(--border-md) var(--status-border);
+		}
+	}
+}
+
+.appdetailsachievementssection_Additional {
+	gap: var(--space-2);
+	margin-block-start: var(--space-1);
+
+	& > * {
+		block-size: 48px;
+		inline-size: 48px;
+	}
+}
+
+.appdetailsachievementssection_Label {
+	border-block-start: var(--border-sm) solid;
+	font: var(--text--body-sm);
+	margin-block-start: var(--space-1);
+	padding-block-start: var(--space-05);
+}
+
+.appdetailsachievementssection_UnlockedLabel {
+	gap: var(--space-05);
+	margin-block-end: var(--space-05);
+
+	& > div {
+		font-weight: var(--text--weight-light);
+	}
+}
+
 .appdetailsplaysection_Container {
 	border-block-end: var(--border-md) solid;
 	padding-block-end: var(--space-2);
+}
+
+.appdetailsposttextentry_Controls {
+	gap: var(--space-1);
+	justify-content: end;
+}
+
+.appdetailsposttextentry_PostTextEntry {
+	flex-direction: column;
+	gap: var(--space-05);
 }
 
 .appdetailssection_AppDetailsSection {
@@ -74,6 +137,7 @@ steam-content {
 	&::before {
 		border-block-end: var(--border-md) solid;
 		content: attr(aria-label);
+		font: var(--text--heading-sm);
 		inline-size: 100%;
 		margin-block-end: var(--space-1);
 		padding-block-end: var(--space-1);
@@ -82,11 +146,20 @@ steam-content {
 
 .appdetailssection_AppDetailsSectionContainer {
 	display: grid;
+	gap: var(--space-1);
 	grid-template-columns: 70% 30%;
 
 	& > div {
 		flex-direction: column;
+		gap: inherit;
 	}
+}
+
+.appdetailssection_Highlight {
+	border-block-end: var(--border-md) solid;
+	flex-direction: column;
+	margin-block-end: var(--space-1);
+	padding-block-end: var(--space-1);
 }
 
 .writereview_LeftContainer {
@@ -102,7 +175,7 @@ steam-content {
 }
 
 .writereview_RatingContainer {
-	--bg: var(--blue-8);
+	--bg: light-dark(var(--blue-8), var(--blue-2));
 
 	justify-content: space-between;
 }
@@ -117,6 +190,10 @@ steam-rootmenu {
 	background: var(--color--accent-bg-secondary);
 	color: var(--color--accent-fg);
 	flex-direction: column;
+}
+
+steam-rootmenu-spacer {
+	flex-grow: 1;
 }
 
 steam-sidebar-container {

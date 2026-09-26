@@ -405,6 +405,28 @@
 				<page-button data-variant="icon" data-where="accent" data-icon="help">
 					<page-tooltip>Help</page-tooltip>
 				</page-button>
+				<steam-rootmenu-spacer></steam-rootmenu-spacer>
+				<page-button
+					data-variant="icon"
+					data-where="accent"
+					data-icon="account_circle"
+				>
+					<page-tooltip>Account</page-tooltip>
+				</page-button>
+				<page-button
+					data-variant="icon"
+					data-where="accent"
+					data-icon="download"
+				>
+					<page-tooltip>Downloads</page-tooltip>
+				</page-button>
+				<page-button
+					data-variant="icon"
+					data-where="accent"
+					data-icon="connect_without_contact"
+				>
+					<page-tooltip>Friends</page-tooltip>
+				</page-button>
 			</steam-rootmenu>
 			<steam-sidebar-container>
 				<steam-sidebar-top>
@@ -487,19 +509,96 @@
 							<page-card
 								class="appdetailssection_AppDetailsSection"
 								aria-label="Activity"
-							></page-card>
+							>
+								<div class="appdetailsposttextentry_PostTextEntry">
+									<input
+										type="text"
+										placeholder="Say something about this game to your friends..."
+										data-where="content"
+									/>
+									<div class="appdetailsposttextentry_Controls">
+										<page-button
+											data-icon="emoticon"
+											data-variant="icon"
+											data-where="content"
+										></page-button>
+										<page-button data-where="content">Post</page-button>
+									</div>
+								</div>
+							</page-card>
 						</div>
 						<div>
 							<page-card
 								class="appdetailssection_AppDetailsSection"
 								aria-label="Friends who play"
 							>
-								content content
+								<steam-friend-item
+									data-avatar-hash="fdaef0111714471445bb422b8021d3a887c86a99"
+									data-description="73.4 hrs played recently"
+									data-name="al"
+									data-status="online"
+								></steam-friend-item>
+								<steam-friend-item
+									data-avatar-hash="415d2fbb879593c0565ce0489428a09c019feffa"
+									data-description="70 hrs played recently"
+									data-name="jason"
+									data-status="in-game"
+								></steam-friend-item>
+								<steam-friend-item
+									data-avatar-hash="78fe0d09f991ea3a9d5cd4c4d9ae154e6deda38a"
+									data-description="18.6 hrs played recently"
+									data-name="Mr. Hoten"
+									data-status="away"
+								></steam-friend-item>
+								<steam-friend-item
+									data-avatar-hash="1bcfc436d8fd64b27e6831cafef194788a6ad63e"
+									data-description="17.7 hrs played recently"
+									data-name="the gish"
+									data-status="offline"
+								></steam-friend-item>
 							</page-card>
 							<page-card
-								class="appdetailssection_AppDetailsSection"
+								class="appdetailssection_AppDetailsSection dark"
 								aria-label="Achievements"
-							></page-card>
+							>
+								<div class="appdetailssection_Highlight">
+									<div class="appdetailsachievementssection_UnlockedLabel">
+										You've unlocked 27/47
+										<div>(57%)</div>
+									</div>
+									<progress max="100" value="57"></progress>
+								</div>
+								<page-item-info
+									data-description="One need not travel alone"
+									data-image-size="md"
+									data-name="The Friend"
+									data-src="https://shared.steamstatic.com/community_assets/images/apps/312520/df7c6a263aa1e213fe493e127d645d043e9191c9.jpg"
+								></page-item-info>
+								<div class="appdetailsachievementssection_Additional">
+									<img
+										src="https://shared.steamstatic.com/community_assets/images/apps/312520/944f3f2180c9a75a563b5a7c4526355381caf7ab.jpg"
+									/>
+									<img
+										src="https://shared.steamstatic.com/community_assets/images/apps/312520/d5b28c8d4281ce7f49ebbe62fcb2b2498317af9d.jpg"
+									/>
+									<img
+										src="https://shared.steamstatic.com/community_assets/images/apps/312520/3cc069e14eb93ce51aac0ce1694f717da756bd68.jpg"
+									/>
+									<img
+										src="https://shared.steamstatic.com/community_assets/images/apps/312520/45efdbd411184e3bf3414f3eeac13aad1f9dbb3f.jpg"
+									/>
+									<page-button data-where="content">+23</page-button>
+								</div>
+								<div class="appdetailsachievementssection_Label">
+									Locked achievements
+								</div>
+								<div class="appdetailsachievementssection_Additional">
+									<img
+										src="https://shared.steamstatic.com/community_assets/images/apps/312520/934f5ae48886196db3f01e212b3341dc1bdb1276.jpg"
+									/>
+									<page-button data-where="content">+19</page-button>
+								</div>
+							</page-card>
 						</div>
 					</div>
 				</steam-appdetails>

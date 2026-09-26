@@ -35,6 +35,22 @@ function CreateElement( strTag, attrs, child )
 	return el;
 }
 
+customElements.define( "steam-friend-item", class extends HTMLElement
+{
+	connectedCallback()
+	{
+		const { avatarHash, description, name } = this.dataset;
+
+		const src = `https://avatars.fastly.steamstatic.com/${avatarHash}.jpg`;
+		this.appendChild( CreateElement( "page-item-info", {
+			"data-description": description,
+			"data-image-size": "sm",
+			"data-name": name,
+			"data-src": src,
+		}, "" ) );
+	}
+} );
+
 customElements.define( "steam-sidebar-game-list", class extends HTMLElement
 {
 	m_items =

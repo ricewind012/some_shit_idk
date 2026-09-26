@@ -71,7 +71,7 @@
 	--border-lg: 4px;
 
 	/** Button **/
-	--button--gap-inline: var(--space-1);
+	--button--gap: var(--space-1);
 	--button--shadow-l-mult: 2;
 	--button--space-block: var(--space-1);
 	--button--space-inline: var(--space-2);
@@ -81,8 +81,6 @@
 	--button--bg-content-hover: light-dark(var(--white-7), var(--black-3));
 
 	/** Text field (TODO: unify?) **/
-	--textfield--gap-inline: var(--space-1);
-	--textfield--shadow-l-mult: 2;
 	--textfield--space-block: var(--space-1);
 	--textfield--space-inline: var(--space-2);
 
@@ -101,14 +99,14 @@
 		var(--color--accent-bg-secondary)
 	);
 
-	--color--content-bg-primary: light-dark(#fff, #000);
 	--color--content-bg-primary: light-dark(var(--white-9), var(--black-1));
 	--color--content-bg-secondary: light-dark(var(--white-8), var(--black-2));
 	--color--content-bg-tertiary: light-dark(var(--white-7), var(--black-3));
 	--color--content-fg: hsl(
 		from contrast-color(var(--color--content-bg-primary)) h s
-			calc(l + var(--text-l-diff))
+			calc(l + var(--text-l-diff) - var(--l-step))
 	);
+	/* + for light                  ^ */
 
 	/** Content width **/
 	--content-width--md: max(680px, 40dvi);
@@ -171,6 +169,10 @@
 		cubic-bezier(0.2, 0.9, 0.6, 1);
 	--popup--bg: var(--color--accent-bg);
 	--popup--fg: var(--color--accent-fg);
+
+	/** Progressbar **/
+	--progressbar--progress-bg: var(--blue-5);
+	--progressbar--track-bg: currentColor;
 
 	/** Radio **/
 	--radio--border-size: var(--border-md);
@@ -283,16 +285,15 @@
 input[type="text"] {
 	background: var(--textfield--bg);
 	border-block-end: var(--shadow-border-size) solid;
-	color: contrast-color(var(--textfield--bg));
 	color: hsla(
 		from contrast-color(var(--textfield--bg)) h s calc(l + var(--text-l-diff))
 	);
 	font: var(--text--body-md);
 	line-height: calc(var(--text--body-md-size) + var(--textfield--space-block));
-	padding: var(--textfield--space-block) var(--textfield--space-inline);
-	padding-block-end: calc(
-		var(--textfield--space-block) - var(--shadow-border-size)
+	padding-block: calc(
+		var(--textfield--space-block) - var(--shadow-border-size) / 2
 	);
+	padding-inline: var(--textfield--space-inline);
 	transition: background-color var(--motion-duration-short);
 
 	&:where([data-where="accent"]) {
@@ -370,14 +371,14 @@ page-button {
 	cursor: pointer;
 	display: flex;
 	font: var(--text--body-md);
-	gap: var(--button--gap-inline);
+	gap: var(--button--gap);
 	line-height: calc(var(--text--body-md-size) + var(--button--space-block));
-	padding: var(--button--space-block) var(--button--space-inline);
-	padding-block-end: calc(
-		var(--button--space-block) - var(--shadow-border-size)
+	padding-block: calc(
+		var(--button--space-block) - var(--shadow-border-size) / 2
 	);
+	padding-inline: var(--button--space-inline);
 	position: relative;
-	transition: var(--motion-duration-short);
+	transition: background-color var(--motion-duration-short);
 
 	&:where([data-variant="combobox"]) {
 		justify-content: space-between;
@@ -522,7 +523,7 @@ page-dialog-backdrop {
 	inset: 0;
 	padding: var(--space-4);
 	position: fixed;
-	transition: var(--motion-duration-short);
+	transition: opacity var(--motion-duration-short);
 	z-index: 999;
 
 	&:where([hidden]) {
@@ -736,6 +737,17 @@ page-menu-separator {
 	margin: calc(var(--menuitem--space) / 2) var(--menuitem--space);
 }
 
+progress {
+	appearance: none;
+	background: var(--progressbar--track-bg);
+	block-size: var(--text--body-md-size);
+	border: var(--border-sm) solid var(--progressbar--track-bg);
+
+	&::-moz-progress-bar {
+		background: var(--progressbar--progress-bg);
+	}
+}
+
 :where(page-menu-item[data-radio])::after,
 page-radio {
 	background: var(--radio--bg);
@@ -761,14 +773,14 @@ page-radio-field {
 	background: var(--button--bg);
 	border-block-end: var(--shadow-border-size) solid;
 	border-block-end-color: hsl(
-		from var(--button--bg) h s calc(l - var(--shadow-l-diff) * 1)
+		from var(--button--bg) h s calc(l - var(--shadow-l-diff))
 	);
 	color: hsla(
 		from contrast-color(var(--button--bg)) h s calc(l + var(--text-l-diff))
 	);
 	cursor: pointer;
 	display: grid;
-	grid-column-gap: var(--button--gap-inline);
+	grid-column-gap: var(--button--gap);
 	grid-template-areas:
 		"icon title      "
 		"icon description";

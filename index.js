@@ -379,6 +379,21 @@ customElements.define( "menu-stuff", class extends HTMLElement
 	}
 } );
 
+customElements.define( "page-item-info", class extends HTMLElement
+{
+	connectedCallback()
+	{
+		const { description, name, src } = this.dataset;
+
+		this.appendChild( CreateElement( "img", { src }, "" ) );
+
+		const text = CreateElement( "page-item-info-text", {}, "" );
+		text.appendChild( CreateElement( "page-item-info-name", {}, name ) );
+		text.appendChild( CreateElement( "page-item-info-description", {}, description ) );
+		this.appendChild( text );
+	}
+} );
+
 customElements.define( "page-radios", class extends HTMLElement
 {
 	/** @type {Record< string, { bChecked: boolean; onclick: () => void; strDescription: string; strHeader: string }[] >} */

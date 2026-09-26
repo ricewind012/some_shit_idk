@@ -55,24 +55,23 @@ body {
 
 	h1,
 	h2,
-	h3,
-	p {
+	h3 {
+		letter-spacing: var(--text--header-letter-spacing);
 		margin: 0;
+		text-box: cap trim-start;
 	}
 
 	h1 {
 		font: var(--text--heading-lg);
-		letter-spacing: var(--text--header-letter-spacing);
 	}
 
 	h2 {
 		font: var(--text--heading-md);
-		letter-spacing: var(--text--header-letter-spacing);
 	}
 
 	h3 {
 		font: var(--text--heading-sm);
-		letter-spacing: var(--text--header-letter-spacing);
+		text-box: initial;
 	}
 
 	input {
@@ -82,6 +81,7 @@ body {
 	}
 
 	p {
+		margin: 0;
 		margin-block-end: var(--space-2);
 	}
 
@@ -112,7 +112,7 @@ body {
 		opacity: 0;
 		pointer-events: none;
 		position: absolute;
-		transition: var(--motion-duration-short);
+		transition: opacity var(--motion-duration-short);
 		transition-delay: 250ms;
 	}
 
@@ -172,6 +172,39 @@ page-icon {
 	justify-content: center;
 }
 
+page-item-info {
+	align-items: center;
+	gap: var(--gap);
+
+	&[data-image-size="sm"] {
+		--gap: var(--space-1);
+		--image-size: 32px;
+	}
+
+	&[data-image-size="md"] {
+		--gap: var(--space-2);
+		--image-size: 48px;
+	}
+
+	& > img {
+		block-size: var(--image-size);
+		inline-size: var(--image-size);
+	}
+}
+
+page-item-info-description {
+	font-weight: var(--text--weight-light);
+}
+
+page-item-info-name {
+	font-weight: var(--text--weight-bold);
+}
+
+page-item-info-text {
+	flex-direction: column;
+	line-height: calc(16 / 14);
+}
+
 page-nav {
 	background: var(--color--accent-bg-secondary);
 	color: var(--color--accent-fg);
@@ -221,7 +254,6 @@ page-section {
 		}
 	}
 
-	/* lol */
 	&:where(#components-menu) {
 		min-block-size: 449px;
 	}
@@ -250,7 +282,7 @@ absent-item-content {
 	&::before,
 	&::after {
 		background: currentColor;
-		block-size: 2px;
+		block-size: var(--border-md);
 		content: "";
 		font: var(--text--heading-sm);
 		inset: 25% 10%;
@@ -403,7 +435,7 @@ spacing-unit {
 		background: linear-gradient(
 			90deg,
 			var(--color--content-fg) var(--width),
-			/* todo bigger sizes */ #0f0 var(--width)
+			transparent var(--width)
 		);
 		block-size: 1lh;
 		content: "";
