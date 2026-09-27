@@ -530,6 +530,7 @@ document.addEventListener( "DOMContentLoaded", () =>
 		cDialog_OpenSteam: id( "components-dialog--open-steam-button" ),
 		cMenu_Menu: id( "components-menu--menu" ),
 		cMenu_ToggleMenu: id( "components-menu--toggle-menu-button" ),
+		cSteam_SeeMore: id( "steam--see-more" ),
 	};
 
 	//
@@ -629,5 +630,15 @@ document.addEventListener( "DOMContentLoaded", () =>
 	els.cMenu_ToggleMenu.addEventListener( "click", () =>
 	{
 		els.cMenu_Menu.hidden = !els.cMenu_Menu.hidden;
+	} );
+
+	//
+	// Steam
+	//
+	els.cSteam_SeeMore.addEventListener( "click", () =>
+	{
+		const doc = document.documentElement;
+		doc.style.setProperty( "--appdetails-hero-height", "200px" );
+		doc.style.setProperty( "--appdetails-writereview-display", "none" );
 	} );
 });

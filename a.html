@@ -465,7 +465,7 @@
 						/>
 						<img
 							class="light"
-							src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/17410/library_hero.jpg"
+							src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2719060/library_hero.jpg"
 						/>
 					</steam-appdetails-hero>
 					<steam-appdetails-logo>
@@ -475,7 +475,7 @@
 						/>
 						<img
 							class="light"
-							src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/17410/logo.png"
+							src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2719060/logo.png"
 						/>
 					</steam-appdetails-logo>
 				</steam-appdetails-hero-container>
@@ -503,6 +503,9 @@
 						<page-button data-where="content">Discussions</page-button>
 						<page-button data-where="content">Guides</page-button>
 						<page-button data-where="content">Workshop</page-button>
+						<page-button id="steam--see-more" data-where="content">
+							See more content
+						</page-button>
 					</div>
 					<div class="appdetailssection_AppDetailsSectionContainer">
 						<div>
@@ -558,46 +561,15 @@
 								></steam-friend-item>
 							</page-card>
 							<page-card
-								class="appdetailssection_AppDetailsSection dark"
+								class="appdetailssection_AppDetailsSection"
 								aria-label="Achievements"
 							>
-								<div class="appdetailssection_Highlight">
-									<div class="appdetailsachievementssection_UnlockedLabel">
-										You've unlocked 27/47
-										<div>(57%)</div>
-									</div>
-									<progress max="100" value="57"></progress>
-								</div>
-								<page-item-info
-									data-description="One need not travel alone"
-									data-image-size="md"
-									data-name="The Friend"
-									data-src="https://shared.steamstatic.com/community_assets/images/apps/312520/df7c6a263aa1e213fe493e127d645d043e9191c9.jpg"
-								></page-item-info>
-								<div class="appdetailsachievementssection_Additional">
-									<img
-										src="https://shared.steamstatic.com/community_assets/images/apps/312520/944f3f2180c9a75a563b5a7c4526355381caf7ab.jpg"
-									/>
-									<img
-										src="https://shared.steamstatic.com/community_assets/images/apps/312520/d5b28c8d4281ce7f49ebbe62fcb2b2498317af9d.jpg"
-									/>
-									<img
-										src="https://shared.steamstatic.com/community_assets/images/apps/312520/3cc069e14eb93ce51aac0ce1694f717da756bd68.jpg"
-									/>
-									<img
-										src="https://shared.steamstatic.com/community_assets/images/apps/312520/45efdbd411184e3bf3414f3eeac13aad1f9dbb3f.jpg"
-									/>
-									<page-button data-where="content">+23</page-button>
-								</div>
-								<div class="appdetailsachievementssection_Label">
-									Locked achievements
-								</div>
-								<div class="appdetailsachievementssection_Additional">
-									<img
-										src="https://shared.steamstatic.com/community_assets/images/apps/312520/934f5ae48886196db3f01e212b3341dc1bdb1276.jpg"
-									/>
-									<page-button data-where="content">+19</page-button>
-								</div>
+								<steam-appdetails-achievements
+									class="dark"
+								></steam-appdetails-achievements>
+								<steam-appdetails-achievements
+									class="light"
+								></steam-appdetails-achievements>
 							</page-card>
 						</div>
 					</div>

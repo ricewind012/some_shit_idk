@@ -1,10 +1,6 @@
 #dialog-backdrop--steam {
 	padding: 0;
 
-	:where(& *) {
-		display: flex;
-	}
-
 	@media (prefers-color-scheme: dark) {
 		--dark: flex;
 		--light: none;
@@ -15,11 +11,27 @@
 		--light: flex;
 	}
 
-	.dark {
+	:where(& *) {
+		display: flex;
+	}
+
+	:where(& .dark) {
 		display: var(--dark);
 	}
 
-	.light {
+	:where(& .light) {
+		display: var(--light);
+	}
+}
+
+steam-appdetails-achievements {
+	display: contents;
+
+	&.dark > * {
+		display: var(--dark);
+	}
+
+	&.light > * {
 		display: var(--light);
 	}
 }
@@ -28,7 +40,6 @@ steam-appdetails {
 	block-size: 100%;
 	flex-direction: column;
 	gap: var(--space-2);
-	overflow: auto;
 	padding: var(--space-4);
 }
 
@@ -36,8 +47,16 @@ steam-appdetails-logo {
 	inset: 0;
 	position: absolute;
 
-	& > img {
+	& > .dark {
 		margin: var(--space-4) auto;
+	}
+
+	& > .light {
+		block-size: 160px;
+		inline-size: 297px;
+		inset-inline-start: var(--space-4);
+		inset-block-end: var(--space-4);
+		position: absolute;
 	}
 }
 
@@ -46,11 +65,12 @@ steam-appdetails-hero {
 
 	& > img {
 		inline-size: 100%;
+		object-fit: cover;
 	}
 }
 
 steam-appdetails-hero-container {
-	block-size: 360px;
+	block-size: var(--appdetails-hero-height, 320px);
 	inline-size: 100%;
 	position: relative;
 }
@@ -60,6 +80,7 @@ steam-content {
 	color: var(--color--content-fg);
 	flex-direction: column;
 	flex-grow: 1;
+	overflow: auto;
 }
 
 steam-friend-item {
@@ -117,6 +138,10 @@ steam-friend-item {
 .appdetailsplaysection_Container {
 	border-block-end: var(--border-md) solid;
 	padding-block-end: var(--space-2);
+
+	& > :last-child {
+		margin-inline-start: auto;
+	}
 }
 
 .appdetailsposttextentry_Controls {
@@ -177,6 +202,7 @@ steam-friend-item {
 .writereview_RatingContainer {
 	--bg: light-dark(var(--blue-8), var(--blue-2));
 
+	display: var(--appdetails-writereview-display, flex);
 	justify-content: space-between;
 }
 

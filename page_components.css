@@ -80,6 +80,10 @@
 	--button--bg-content-active: light-dark(var(--white-6), var(--black-4));
 	--button--bg-content-hover: light-dark(var(--white-7), var(--black-3));
 
+	--button--bg-content: light-dark(var(--white-7), var(--black-3));
+	--button--bg-content-active: light-dark(var(--white-5), var(--black-5));
+	--button--bg-content-hover: light-dark(var(--white-6), var(--black-4));
+
 	/** Text field (TODO: unify?) **/
 	--textfield--space-block: var(--space-1);
 	--textfield--space-inline: var(--space-2);
@@ -87,6 +91,10 @@
 	--textfield--bg-content: light-dark(var(--white-8), var(--black-2));
 	--textfield--bg-content-active: light-dark(var(--white-6), var(--black-4));
 	--textfield--bg-content-hover: light-dark(var(--white-7), var(--black-3));
+
+	--textfield--bg-content: light-dark(var(--white-7), var(--black-3));
+	--textfield--bg-content-active: light-dark(var(--white-5), var(--black-5));
+	--textfield--bg-content-hover: light-dark(var(--white-6), var(--black-4));
 
 	/** Card **/
 	--card--space: var(--space-05) var(--space-1);
@@ -353,8 +361,9 @@ body::before{
 }
 
 ::selection {
-	background: var(--blue-5);
-	color: contrast-color(var(--blue-5));
+	--selection--bg: light-dark(var(--blue-1), var(--blue-9));
+	background: var(--selection--bg);
+	color: contrast-color(var(--selection--bg));
 }
 
 page-button {

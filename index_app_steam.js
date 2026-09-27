@@ -1,4 +1,4 @@
-// 
+const strAssetURL = "https://shared.steamstatic.com/community_assets/images/apps";
 
 /**
  * Take a guess
@@ -72,8 +72,8 @@ customElements.define( "steam-sidebar-game-list", class extends HTMLElement
 			"1392820/c2a9062c3a24a042d6d94ccd96cca33f2bd67fe8.jpg",
 		],
 		[
-			"Mirror's Edge",
-			"17410/cfea4731163004b2e5117c3b42a798c48c483d8f.jpg",
+			"Mirage Feathers",
+			"2719060/e9d2405835b5b965bba923de4fd0334feb77859e.jpg",
 		],
 		[
 			"Little Witch Nobeta",
@@ -105,7 +105,7 @@ customElements.define( "steam-sidebar-game-list", class extends HTMLElement
 	{
 		const list = CreateElement( "page-list", {}, this.m_items.map( ( [ name, srcPart ], i ) =>
 		{
-			const src = `https://shared.fastly.steamstatic.com/community_assets/images/apps/${srcPart}`;
+			const src = `${strAssetURL}/${srcPart}`;
 			return CreateElement( "page-list-item", i === 4 && { "data-selected": "" }, [
 				CreateElement( "img", { src }, "", ),
 				CreateElement( "div", {}, name ),
@@ -128,5 +128,75 @@ customElements.define( "steam-store-discount", class extends HTMLElement
 				CreateElement( "steam-store-discount-new-price", {}, "104,99€" ),
 			] ),
 		);
+	}
+} );
+
+customElements.define( "steam-appdetails-achievements", class extends HTMLElement
+{
+	m_schemes = {
+		dark: `
+			<div class="appdetailssection_Highlight">
+				<div class="appdetailsachievementssection_UnlockedLabel">
+					You've unlocked 27/47
+					<div>(57%)</div>
+				</div>
+				<progress max="100" value="57"></progress>
+			</div>
+			<page-item-info
+				data-description="One need not travel alone"
+				data-image-size="md"
+				data-name="The Friend"
+				data-src="${strAssetURL}/312520/df7c6a263aa1e213fe493e127d645d043e9191c9.jpg"
+			></page-item-info>
+			<div class="appdetailsachievementssection_Additional">
+				<img src="${strAssetURL}/312520/944f3f2180c9a75a563b5a7c4526355381caf7ab.jpg" />
+				<img src="${strAssetURL}/312520/d5b28c8d4281ce7f49ebbe62fcb2b2498317af9d.jpg" />
+				<img src="${strAssetURL}/312520/3cc069e14eb93ce51aac0ce1694f717da756bd68.jpg" />
+				<img src="${strAssetURL}/312520/45efdbd411184e3bf3414f3eeac13aad1f9dbb3f.jpg" />
+				<page-button data-where="content">+23</page-button>
+			</div>
+			<div class="appdetailsachievementssection_Label">
+				Locked achievements
+			</div>
+			<div class="appdetailsachievementssection_Additional">
+				<img src="${strAssetURL}/312520/934f5ae48886196db3f01e212b3341dc1bdb1276.jpg" />
+				<page-button data-where="content">+19</page-button>
+			</div>
+		`,
+		light: `
+			<div class="appdetailssection_Highlight">
+				<div class="appdetailsachievementssection_UnlockedLabel">
+					You've unlocked 4/13
+					<div>(30%)</div>
+				</div>
+				<progress max="100" value="30"></progress>
+			</div>
+			<page-item-info
+				data-description="Inserted a coin to continue"
+				data-image-size="md"
+				data-name="You're Rich!"
+				data-src="${strAssetURL}/2719060/e5d1c1800ef11d0712ba26fe328f308b2f2d796e.jpg"
+			></page-item-info>
+			<div class="appdetailsachievementssection_Additional">
+				<img src="${strAssetURL}/2719060/ca6e7126a7f53bcb48b7e42ae940914bcc597b1a.jpg" />
+				<img src="${strAssetURL}/2719060/a6e75ce4deeda97f529538434dd97d804beee155.jpg" />
+				<img src="${strAssetURL}/2719060/556e13c1dd8aa43731d2c79662957d4e18a8b2e3.jpg" />
+				<img src="${strAssetURL}/2719060/6a6c024e58347ba4c8565e4a8b89afdaa205ceb8.jpg" />
+			</div>
+			<div class="appdetailsachievementssection_Label">
+				Locked achievements
+			</div>
+			<div class="appdetailsachievementssection_Additional">
+				<img src="${strAssetURL}/2719060/9abb3761358262f1d193c1e845b1a4a1cf76ea7d.jpg" />
+				<page-button data-where="content">+5</page-button>
+			</div>
+		`,
+	};
+
+	connectedCallback()
+	{
+		const scheme = [...this.classList].find( (e) => e === "dark" || e === "light" );
+		this.innerHTML = this.m_schemes[ scheme ];
+		console.log(this.m_schemes[scheme])
 	}
 } );
