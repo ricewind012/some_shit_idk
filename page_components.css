@@ -66,9 +66,9 @@
 	--white-9: hsl(from var(--white-5) h s calc(l + var(--l-step) * 4));
 
 	/** Border **/
-	--border-sm: 1px;
-	--border-md: 2px;
-	--border-lg: 4px;
+	--border-sm: 0.0625rem;
+	--border-md: 0.125rem;
+	--border-lg: 0.25rem;
 
 	/** Button **/
 	--button--gap: var(--space-1);
@@ -164,7 +164,7 @@
 	--menuitem--bg-active: light-dark(var(--accent-9), var(--accent-1));
 	--menuitem--icon-gap: var(--space-1);
 	--menuitem--icon-size: var(--icon-size-md);
-	--menuitem--space: 8px;
+	--menuitem--space: 0.5rem;
 
 	/** Motion **/
 	--motion-duration-long: 500ms; /* todo: use */
@@ -201,18 +201,18 @@
 	--text--header-letter-spacing: -0.025em;
 	--text--line-height: 1.4;
 
-	--text--weight-light: 400;
+	--text--weight-light: 300;
 	--text--weight-normal: 500;
 	--text--weight-semibold: 600;
 	--text--weight-bold: 700;
 
-	--text--heading-lg-size: 26px;
-	--text--heading-md-size: 22px;
-	--text--heading-sm-size: 18px;
+	--text--heading-lg-size: 1.625rem;
+	--text--heading-md-size: 1.375rem;
+	--text--heading-sm-size: 1.125rem;
 
-	--text--body-lg-size: 16px;
-	--text--body-md-size: 14px;
-	--text--body-sm-size: 12px;
+	--text--body-lg-size: 1rem;
+	--text--body-md-size: 0.875rem;
+	--text--body-sm-size: 0.75rem;
 
 	--text--heading-lg: normal var(--text--weight-bold)
 		var(--text--heading-lg-size)/var(--text--line-height)
@@ -233,22 +233,23 @@
 
 	/** Other **/
 	--dim-opacity: 0.5;
+	--selection--bg: light-dark(var(--blue-1), var(--blue-9));
 	--shadow-border-size: var(--border-md);
 	--shadow-l-diff: 10;
 	--text-l-diff: 15;
 
 	&:where([data-density="compact"]) {
-		--menuitem--space: 6px;
+		--menuitem--space: 0.375rem;
 
 		--space-base: 0.25rem;
 
-		--text--heading-lg-size: 24px;
-		--text--heading-md-size: 20px;
-		--text--heading-sm-size: 16px;
+		--text--heading-lg-size: 1.5rem;
+		--text--heading-md-size: 1.25rem;
+		--text--heading-sm-size: 1rem;
 
-		--text--body-lg-size: 14px;
-		--text--body-md-size: 12px;
-		--text--body-sm-size: 10px;
+		--text--body-lg-size: 0.875rem;
+		--text--body-md-size: 0.75rem;
+		--text--body-sm-size: 0.625rem;
 	}
 
 	&:where([data-icon-variant="outlined"]) {
@@ -284,10 +285,43 @@
 
 :where(:focus) {
 	--outline--border-color: var(--blue-5);
-	--outline--border-size: 2px;
+	--outline--border-size: 0.125rem;
 
 	outline: var(--outline--border-size) solid var(--blue-5);
 	outline-offset: var(--outline--border-size);
+}
+
+input[type="range"] {
+	--range--thumb-bg: light-dark(var(--black-5), var(--white-5));
+	--range--thumb-shadow: light-dark(var(--black-7), var(--white-7));
+	--range--thumb-size: 1rem;
+	--range--track-bg: var(--white-1);
+	--range--track-space-inline: calc(var(--range--thumb-size) / 2);
+
+	margin-inline: calc(var(--range--track-space-inline) * -1);
+
+	&::-moz-range-thumb {
+		background: var(--range--thumb-bg);
+		block-size: var(--range--thumb-size);
+		border-radius: 50%;
+		box-shadow: 0 1px 2px
+			color-mix(in srgb, var(--range--thumb-shadow) 50%, transparent);
+		inline-size: var(--range--thumb-size);
+	}
+
+	&::-moz-range-track {
+		background: var(--range--track-bg);
+		block-size: var(--border-md);
+		border-block: var(--border-md) solid;
+		border-block-start-color: hsl(
+			from var(--range--track-bg) h s calc(l + var(--shadow-l-diff) * 2)
+		);
+		border-block-end-color: hsl(
+			from var(--range--track-bg) h s calc(l - var(--shadow-l-diff) * 2)
+		);
+		border-inline: 4px solid transparent;
+		margin-inline: var(--range--track-space-inline);
+	}
 }
 
 input[type="text"] {
@@ -361,7 +395,6 @@ body::before{
 }
 
 ::selection {
-	--selection--bg: light-dark(var(--blue-1), var(--blue-9));
 	background: var(--selection--bg);
 	color: contrast-color(var(--selection--bg));
 }
@@ -387,7 +420,9 @@ page-button {
 	);
 	padding-inline: var(--button--space-inline);
 	position: relative;
-	transition: background-color var(--motion-duration-short);
+	transition:
+		background-color var(--motion-duration-short),
+		border-color var(--motion-duration-short);
 
 	&:where([data-variant="combobox"]) {
 		justify-content: space-between;
@@ -768,7 +803,7 @@ page-radio {
 	margin: var(--radio--border-size);
 	transition:
 		background var(--motion-duration-medium),
-		border var(--motion-duration-medium);
+		border-color var(--motion-duration-medium);
 }
 
 page-radio:where([data-checked]) {

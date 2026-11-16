@@ -74,10 +74,23 @@ body {
 		text-box: initial;
 	}
 
-	input {
+	:where(& input) {
 		appearance: none;
+		background: none;
 		border: none;
+		margin: 0;
 		outline: none;
+	}
+
+	input[type="range"] {
+		&::-moz-range-thumb {
+			appearance: none;
+			border: none;
+		}
+
+		&::-moz-range-track {
+			appearance: none;
+		}
 	}
 
 	p {
@@ -134,6 +147,21 @@ body {
 	}
 }
 
+/* TODO: this looks fucking TUFF but maybe dont include it */
+body::before {
+	background-image: url("./2.png");
+	background-position: bottom right;
+	background-repeat: no-repeat;
+	content: "";
+	inset: 0;
+	position: fixed;
+	z-index: -1;
+
+	@media (prefers-color-scheme: dark) {
+		filter: invert();
+	}
+}
+
 :where([data-anchored]) {
 	position: absolute;
 	position-anchor: var(--anchor-id);
@@ -178,12 +206,12 @@ page-item-info {
 
 	&[data-image-size="sm"] {
 		--gap: var(--space-1);
-		--image-size: 32px;
+		--image-size: 2rem;
 	}
 
 	&[data-image-size="md"] {
 		--gap: var(--space-2);
-		--image-size: 48px;
+		--image-size: 3rem;
 	}
 
 	& > img {
@@ -406,24 +434,12 @@ spacing-unit {
 	gap: var(--space-2);
 	grid-template-columns: repeat(2, 1fr);
 
+	&:where([data-unit]) {
+		--width: calc(var(--space-base) * attr(data-unit number));
+	}
+
 	&:where([data-unit="05"]) {
 		--width: var(--space-05);
-	}
-
-	&:where([data-unit="1"]) {
-		--width: var(--space-1);
-	}
-
-	&:where([data-unit="2"]) {
-		--width: var(--space-2);
-	}
-
-	&:where([data-unit="3"]) {
-		--width: var(--space-3);
-	}
-
-	&:where([data-unit="4"]) {
-		--width: var(--space-4);
 	}
 
 	&::before {
